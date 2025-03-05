@@ -3,166 +3,153 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="portfolio_template_style0.css">
+    <link rel="stylesheet" href="portfolio_template_style1.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <title>Nitesh Leyow Portfolio Website</title>
+    <title>Nitesh Leyow Personal Portfolio</title>
 </head>
 <body>
-    
-    <nav>
-        <a href="#" class="logo"><span>Nitesh Leyow</span></a>
-        
-        <ul class="links">
-            <a href="#home">Home</a>
+    <header class="header">
+        <a href="#home" class="logo">Nitesh Leyow</a>
+
+        <i class='bx bx-menu' id="menu-icon"></i>
+
+        <nav class="navbar">
+            <a href="#home" class="active">Home</a>
             <a href="#about">About</a>
             <a href="#services">Services</a>
             <a href="#contact">Contact</a>
-        </ul>
+        </nav>
+    </header>
 
-        <i class='bx bx-menu' id="menu"></i>
+    <section class="home" id="home">
+        <div class="home-img">
+            <img src="portfolio_images/olivia.jpg" alt="">
+        </div>
 
-        <a href="#contact" class="btn">Contact Me</a>
-    </nav>
+        <div class="home-content">
+            <h1>It's <span>Nitesh Leyow</span></h1>
+            <h3 class="text-animation" id="home-contentHeader">I'm a <span id="occupation">Web Developer</span></h3>
+            <p>I design Websites</p>
 
-    <section id="home">
-        <img src="portfolio_images/image.jpg" alt="">
-        <div class="info-box">
-            <h1><span>Hello, I'm Nitesh Leyow</span></h1>
-            <h3><span>I'm a Web Developer</span> based in Kingston</h3>
-            <p>
-                A skilled web developer with expertise in crafting innovative, user-friendly digital experiences.
+            <div class="social-icons">
+                <a href="#"><i class='bx bxl-linkedin-square' ></i></a>
+                <a href="#"><i class='bx bxl-instagram-alt' ></i></a>
+                <a href="#"><i class='bx bxl-facebook-square' ></i></a>
+                <a href="#"><i class='bx bxl-twitter' ></i></a>
+            </div>
+
+            <a href="#" class="btn">Hire Me</a>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="about-content">
+            <h2 class="heading">About <span>Me</span></h2>
+            <h3 class="text-animation"></h3>
+    
+            <p class="about-text">
+                I design the best websites
             </p>
+    
+            <a href="#" class="btn">Read More</a>
         </div>
-
-        <div class="btn-box">
-            <div class="btn">Hire</div>
-            <div class="btn">Contact Me</div>
+        
+        <div class="about-img">
+            <img src="portfolio_images/olivia.jpg" alt="About Me" id="img-for-about">
         </div>
     </section>
+    
 
-    <section id="about">
-
-        <div class="about-box">
-
-            <div class="about-info">
-                <h1><span>About Me</span></h1>
-                <p>
-                    As a skilled Web Developer, I've crafted innovative digital solutions that drive business results. With expertise in HTML5, CSS3, and JavaScript, I build responsive, user-friendly websites that seamlessly integrate with databases and APIs, resulting in seamless online experiences for users.
-                </p>
-            </div>
-
-            <h2><span>My Skills</span></h2>
-
-            <div class="skills">
-                <ul>
-                    <li><span><i class='bx bx-chevron-right'></i> HTML</span></li>
-                    <li><span><i class='bx bx-chevron-right'></i> CSS</span></li>
-                    <li><span><i class='bx bx-chevron-right'></i> JavaScript</span></li>
-                    <li><span><i class='bx bx-chevron-right'></i> Node</span></li>
-                    <li><span><i class='bx bx-chevron-right'></i> React</span></li>
-                    <li><span><i class='bx bx-chevron-right'></i> MySQL</span></li>
-                </ul>
-            </div>
-
-        </div>
-
-        <img src="portfolio_images/image.jpg" alt="">
-    </section>
-
-    <section id="services">
-        <h1 class="header"><span>Services</span></h1>
+    <section class="services" id="services">
+        <h2 class="heading">Services</h2>
 
         <div class="services-container">
-            <div class="box">
-                <h1><span>Web Design</span></h1>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Corporis eum error vero amet ullam, unde tempora, illum 
-                    dicta ipsum at culpa soluta sint sed. Nobis iusto minus
-                    dolores ab magnam.
-                </p>
-                <img src="portfolio_images/web-design.jpg" alt="" >
+            <div class="service-box">
+                <div class="service-info">
+                    <h4>Graphic Design</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In quam quo placeat consectetur alias aliquam labore perferendis! Quaerat cupiditate ad corporis distinctio laboriosam temporibus vel. Perspiciatis quam mollitia eaque dolorem.</p>
+                </div>
             </div>
 
-            <div class="box">
-                <h1><span>Web Development</span></h1>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Corporis eum error vero amet ullam, unde tempora, illum 
-                    dicta ipsum at culpa soluta sint sed. Nobis iusto minus
-                    dolores ab magnam.
-                </p>
-                <img src="portfolio_images/web-dev.jpg" alt="" >
+            <div class="service-box">
+                <div class="service-info">
+                    <h4>Frontend Development</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In quam quo placeat consectetur alias aliquam labore perferendis! Quaerat cupiditate ad corporis distinctio laboriosam temporibus vel. Perspiciatis quam mollitia eaque dolorem.</p>
+                </div>
             </div>
 
-            <div class="box">
-                <h1><span>Graphic Design</span></h1>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Corporis eum error vero amet ullam, unde tempora, illum 
-                    dicta ipsum at culpa soluta sint sed. Nobis iusto minus
-                    dolores ab magnam.
-                </p>
-                <img src="portfolio_images/graphic.jpg" alt="" >
+            <div class="service-box">
+                <div class="service-info">
+                    <h4>Backend Development</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In quam quo placeat consectetur alias aliquam labore perferendis! Quaerat cupiditate ad corporis distinctio laboriosam temporibus vel. Perspiciatis quam mollitia eaque dolorem.</p>
+                </div>
+            </div>
+
+            <div class="service-box">
+                <div class="service-info">
+                    <h4>Mobile App Development</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In quam quo placeat consectetur alias aliquam labore perferendis! Quaerat cupiditate ad corporis distinctio laboriosam temporibus vel. Perspiciatis quam mollitia eaque dolorem.</p>
+                </div>
+            </div>
+
+            <div class="service-box">
+                <div class="service-info">
+                    <h4>UI / UX Design</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In quam quo placeat consectetur alias aliquam labore perferendis! Quaerat cupiditate ad corporis distinctio laboriosam temporibus vel. Perspiciatis quam mollitia eaque dolorem.</p>
+                </div>
+            </div>
+
+            <div class="service-box">
+                <div class="service-info">
+                    <h4>Content Management</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In quam quo placeat consectetur alias aliquam labore perferendis! Quaerat cupiditate ad corporis distinctio laboriosam temporibus vel. Perspiciatis quam mollitia eaque dolorem.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="contact">
-
-        <h1 class="header"><span>Contact</span></h1>
+    <section class="contact" id="contact">
+        <h2 class="heading">Contact <span>Me</span></h2>
 
         <form action="#">
             <div class="input-box">
-                <span>Full Name</span>
-                <input type="text" placeholder="Enter your full name">
+                <input type="text" placeholder="Full Name">
+                <input type="email" placeholder="Email">
             </div>
             <div class="input-box">
-                <span>Your Email</span>
-                <input type="text" placeholder="Enter your Email">
+                <input type="number" placeholder="Phone Number">
+                <input type="text" placeholder="Subject">
             </div>
-            <div class="input-box">
-                <span>Message</span>
-                <input type="text" placeholder="Enter your message">
-            </div>
-
-            <div class="btn">Submit</div>
+            
+            <textarea name="" id="" cols="30" rows="10" placeholder="Your Message"></textarea>
+            <input type="submit" value="Send Message" class="btn">
         </form>
     </section>
 
-    <footer>
-        <div class="col-left">
-            <div class="col-box">
-                <span><i class='bx bxs-location-plus'></i></span>
-                <span>Kingston</span>
-            </div>
+    <footer class="footer">
+        <div class="social-icons">
+            <a href="#"><i class='bx bxl-linkedin-square' ></i></a>
+            <a href="#"><i class='bx bxl-instagram-alt' ></i></a>
+            <a href="#"><i class='bx bxl-facebook-square' ></i></a>
+            <a href="#"><i class='bx bxl-twitter' ></i></a>
+        </div>
+
+        <ul class="list">
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">About Me</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+        </ul>
+        <p class="copyright">
+            Nitesh Leyow| All Rights Reserved
+        </p>
+        <p id="ignore">
             
-            <div class="col-box">
-                <span><i class='bx bxs-phone' ></i></span>
-                <span>12345678</span>
-            </div>
-
-            <div class="col-box">
-                <span><i class='bx bxs-envelope' ></i></span>
-                <span>niteshanthony3@gmail.com</span>
-            </div>
-        </div>
-
-        <div class="col-right">
-            <span>About My Services</span>
-            <p>
-                A skilled web developer with expertise in crafting innovative, user-friendly digital experiences.
-
-                <div class="social-icons">
-                    <span><i class='bx bxl-facebook-circle' ></i></span>
-                    <span><i class='bx bxl-instagram-alt' ></i></span>
-                    <span><i class='bx bxl-linkedin-square' ></i></span>
-                    <span><i class='bx bxl-github' ></i></span>
-                </div>
-            </p>
-        </div>
+            
+            
+        </p>
     </footer>
-
-    <script src="portfolio_template_script0.js"></script>
+    <script src="portfolio_template_script1.js"></script>
 </body>
 </html>

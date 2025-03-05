@@ -94,14 +94,14 @@ section
     text-align: center;
     margin-top: 3rem;
 }
-/* span
+span
 {
     color: var(--main-color);
 }
 .logo span
 {
     color: var(--main-color);
-} */
+}
 .home-content h3
 {
     margin-bottom: 2rem;
@@ -185,17 +185,13 @@ section
     font-weight: 600;
     min-height: 280px;
 }
-.text-animation h3
+.text-animation span
 {
     position: relative;
 }
-#occupation
+.text-animation span::before
 {
-    color: var(--main-color)
-}
-/* .text-animation span::before
-{
-    content: 'Web Developer';
+    content: 'Backend Developer';
     color: var(--main-color);
     animation: words 20s infinite;
 }
@@ -209,7 +205,7 @@ section
     border-left: 3px solid var(--bg-color);
     right: -8px;
     animation: cursor 0.6s infinite, typing 20s steps(14) infinite;
-} */
+}
 @keyframes cursor
 {
     to
@@ -221,7 +217,7 @@ section
 {
     0%, 20%
     {
-        content: 'Web Developer';
+        content: 'Backend Developer';
     }
     21%, 40%
     {
@@ -325,7 +321,7 @@ section
 }
 .about-content .text-animation span::before
 {
-    content: 'Web Developer';
+    content: 'Backend Developer';
     color: var(--main-color);
     animation: words 20s infinite;
 } 
@@ -406,7 +402,7 @@ section
     display: inline-block;
     margin-top: 1rem;
     position: relative;
-    top: 100px;
+    top: -160px;
 }
 ::-webkit-scrollbar
 {

@@ -9,7 +9,7 @@
 </head>
 <body>
     <header class="header">
-        <a href="#home" class="logo">{name} <span>{lastname}</span></a>
+        <a href="#home" class="logo">{name}</a>
 
         <i class='bx bx-menu' id="menu-icon"></i>
 
@@ -28,7 +28,7 @@
 
         <div class="home-content">
             <h1>It's <span>{name}</span></h1>
-            <h3 class="text-animation">I'm a <span></span></h3>
+            <h3 class="text-animation" id="home-contentHeader">I'm a <span id="occupation">{occupation}</span></h3>
             <p>{intro1}</p>
 
             <div class="social-icons">
@@ -42,27 +42,10 @@
         </div>
     </section>
 
-    <!-- <section class="adout" id="about">
-        <div class="about-content">
-            <h2 class="heading">About <span>Me</span></h2>
-
-            <h3 class="text-animation"> <span></span></h3>
-            
-            <pre>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error tempora quam libero fuga, 
-facere iusto doloribus fugiat expedita pariatur soluta, amet impedit suscipit accusamus. 
-Deserunt doloremque natus ratione voluptas praesentium.</pre>
-            <a href="#" class="btn">Read More</a>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis debitis esse reprehenderit dolorem molestiae, voluptate aspernatur quibusdam? Incidunt, ratione ipsum cum dolore minima animi unde porro provident atque id ducimus?</p>
-        </div>
-        <div class="about-img">
-            <img src="portfolio_images/olivia.jpg" alt="" id="img-for-about">
-        </div>
-    </section> -->
-
     <section class="about" id="about">
         <div class="about-content">
             <h2 class="heading">About <span>Me</span></h2>
-            <h3 class="text-animation"><span></span></h3>
+            <h3 class="text-animation"></h3>
     
             <p class="about-text">
                 {about_me_info}
@@ -159,7 +142,12 @@ Deserunt doloremque natus ratione voluptas praesentium.</pre>
             <li><a href="#">Privacy Policy</a></li>
         </ul>
         <p class="copyright">
-            {name} {lastname} | All Rights Reserved
+            {name}| All Rights Reserved
+        </p>
+        <p id="ignore">
+            {address}
+            {phone}
+            {email}
         </p>
     </footer>
     <script src="portfolio_template_script1.js"></script>

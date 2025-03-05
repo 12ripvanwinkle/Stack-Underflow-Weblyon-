@@ -249,9 +249,9 @@ def portfolio_type():
         user_info = user_info_holder("1")
         generator(user_info, portfolio_template, "Portfolio")
         start_server_thread("Portfolio")
-
         # Wait for user input to stop the server
         stop_server()
+        
     if ans == "2":
         portfolio_template = load_template("Portfolio_templates/portfolio_template_1.html")
         user_info = user_info_holder("2")
