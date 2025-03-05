@@ -1,0 +1,11 @@
+use llm to ur benefit to generate simple tings and what not
+
+refine the code
+what code and algorithims we used and technology (midsemester stuff)
+
+
+__________________________________________________________________________________________
+fully implement in the ai 
+implement the ecommerce side
+pinterest history function
+use a descriptive form to show how its doing it and how the solution is coming (this does this and this)

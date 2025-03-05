@@ -1,0 +1,67 @@
+<!-- image container -->
+         <!-- <div class="products-container">
+             <div class="box">
+                <img src="cafe_images/american.jpg" alt="">
+                <h3>{product1}</h3>
+                <div class="content">
+                    <span>$25</span>
+                    <a href="#">Add to cart</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="cafe_images/american.jpg" alt="">
+                <h3>{product2}</h3>
+                <div class="content">
+                    <span>$25</span>
+                    <a href="#">Add to cart</a>
+                </div>
+            </div>
+             <div class="box">
+                <img src="cafe_images/american.jpg" alt="">
+                <h3>{product3}</h3>
+                <div class="content">
+                    <span>$25</span>
+                    <a href="#">Add to cart</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="cafe_images/american.jpg" alt="">
+                <h3>{product4}</h3>
+                <div class="content">
+                    <span>$25</span>
+                    <a href="#">Add to cart</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="cafe_images/american.jpg" alt="">
+                <h3>{product5}</h3>
+                <div class="content">
+                    <span>$25</span>
+                    <a href="#">Add to cart</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="cafe_images/american.jpg" alt="">
+                <h3>{product6}</h3>
+                <div class="content">
+                    <span>$25</span>
+                    <a href="#">Add to cart</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="cafe_images/american.jpg" alt="">
+                <h3>{product7}</h3>
+                <div class="content">
+                    <span>$25</span>
+                    <a href="#">Add to cart</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="cafe_images/american.jpg" alt="">
+                <h3>{product8}</h3>
+                <div class="content">
+                    <span>$25</span>
+                    <a href="#">Add to cart</a>
+                </div>
+            </div>
+         </div> -->

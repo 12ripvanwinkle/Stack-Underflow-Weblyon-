@@ -1,0 +1,8 @@
+scope :
+Primary goal : design an ai to aid/develop websites
+secondary goal:
+- types of websites: portfolio, regular websites (cafe, salon, retail, etc)
+- level of customisation: layout,colours,images,text
+- API's to integrate : not sure yet
+- create a github repository for the website code created
+

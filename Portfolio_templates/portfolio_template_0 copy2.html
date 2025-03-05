@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="portfolio_template_style0.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>{name} Portfolio Website</title>
+</head>
+<body>
+    
+    <nav>
+        <a href="#" class="logo"><span>{name}</span></a>
+        
+        <ul class="links">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#contact">Contact</a>
+        </ul>
+
+        <i class='bx bx-menu' id="menu"></i>
+
+        <a href="#contact" class="btn">Contact Me</a>
+    </nav>
+
+    <section id="home">
+        <img src="portfolio_images/image.jpg" alt="">
+        <div class="info-box">
+            <h1><span>Hello, I'm {name}</span></h1>
+            <h3><span>I'm a {occupation}</span> based in {address}</h3>
+            <p>
+                {intro1}
+            </p>
+        </div>
+
+        <div class="btn-box">
+            <div class="btn">Hire</div>
+            <div class="btn">Contact Me</div>
+        </div>
+    </section>
+
+    <section id="about">
+
+        <div class="about-box">
+
+            <div class="about-info">
+                <h1><span>About Me</span></h1>
+                <p>
+                    {about_me_info}
+                </p>
+            </div>
+
+            <h2><span>My Skills</span></h2>
+
+            <div class="skills">
+                <ul>
+                    <li><span><i class="bx bx-chevron-right"></i> Accessibility: Knowledge of accessibility guidelines and best practices for creating inclusive and accessible web experiences.</span></li>
+                    <li><span><i class="bx bx-chevron-right"></i> Agile development: Familiarity with agile methodologies and collaboration tools like Scrum or Kanban.</span></li>
+                    <li><span><i class="bx bx-chevron-right"></i> Angular</span></li>
+                    <li><span><i class="bx bx-chevron-right"></i> Back-end development: Understanding of back-end technologies like Node.js</span></li>
+                    <li><span><i class="bx bx-chevron-right"></i> Communication: Strong communication skills to work effectively with designers</span></li>
+                    <li><span><i class="bx bx-chevron-right"></i> Database management: Familiarity with database management systems like MySQL</span></li>
+                    <li><span><i class="bx bx-chevron-right"></i> Front-end development: Knowledge of front-end frameworks like React</span></li>
+                    <li><span><i class="bx bx-chevron-right"></i> JavaScript</span></li>
+                    <li><span><i class="bx bx-chevron-right"></i> MongoDB</span></li>
+                    <li><span><i class="bx bx-chevron-right"></i> Programming languages: Proficiency in programming languages such as HTML/CSS</span></li>
+                    <li><span><i class="bx bx-chevron-right"></i> Responsive design: Ability to create responsive and mobile-friendly designs using CSS media queries and other techniques.</span></li>
+                    <li><span><i class="bx bx-chevron-right"></i> Ruby on Rails</span></li>
+                    <li><span><i class="bx bx-chevron-right"></i> SVN</span></li>
+                    <li><span><i class="bx bx-chevron-right"></i> Selenium</span></li>
+                    <li><span><i class="bx bx-chevron-right"></i> Testing and debugging: Skills in testing and debugging tools like JUnit</span></li>
+                    <li><span><i class="bx bx-chevron-right"></i> Version control: Experience with version control systems like Git</span></li>
+                    <li><span><i class="bx bx-chevron-right"></i> and PHP.</span></li>
+                    <li><span><i class="bx bx-chevron-right"></i> and other stakeholders.</span></li>
+                    <li><span><i class="bx bx-chevron-right"></i> or Chrome DevTools.</span></li>
+                    <li><span><i class="bx bx-chevron-right"></i> or Django.</span></li>
+                    <li><span><i class="bx bx-chevron-right"></i> or Mercurial.</span></li>
+                    <li><span><i class="bx bx-chevron-right"></i> or PostgreSQL.</span></li>
+                    <li><span><i class="bx bx-chevron-right"></i> or Vue.js.</span></li>
+                    <li><span><i class="bx bx-chevron-right"></i> project managers</span></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <img src="portfolio_images/image.jpg" alt="">
+    </section>
+
+    <section id="services">
+        <h1 class="header"><span>Services</span></h1>
+
+        <div class="services-container">
+            <div class="box">
+                <h1><span>Web Design</span></h1>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Corporis eum error vero amet ullam, unde tempora, illum 
+                    dicta ipsum at culpa soluta sint sed. Nobis iusto minus
+                    dolores ab magnam.
+                </p>
+                <img src="portfolio_images/web-design.jpg" alt="" >
+            </div>
+
+            <div class="box">
+                <h1><span>Web Development</span></h1>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Corporis eum error vero amet ullam, unde tempora, illum 
+                    dicta ipsum at culpa soluta sint sed. Nobis iusto minus
+                    dolores ab magnam.
+                </p>
+                <img src="portfolio_images/web-dev.jpg" alt="" >
+            </div>
+
+            <div class="box">
+                <h1><span>Graphic Design</span></h1>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Corporis eum error vero amet ullam, unde tempora, illum 
+                    dicta ipsum at culpa soluta sint sed. Nobis iusto minus
+                    dolores ab magnam.
+                </p>
+                <img src="portfolio_images/graphic.jpg" alt="" >
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+
+        <h1 class="header"><span>Contact</span></h1>
+
+        <form action="#">
+            <div class="input-box">
+                <span>Full Name</span>
+                <input type="text" placeholder="Enter your full name">
+            </div>
+            <div class="input-box">
+                <span>Your Email</span>
+                <input type="text" placeholder="Enter your Email">
+            </div>
+            <div class="input-box">
+                <span>Message</span>
+                <input type="text" placeholder="Enter your message">
+            </div>
+
+            <div class="btn">Submit</div>
+        </form>
+    </section>
+
+    <footer>
+        <div class="col-left">
+            <div class="col-box">
+                <span><i class='bx bxs-location-plus'></i></span>
+                <span>{address}</span>
+            </div>
+            
+            <div class="col-box">
+                <span><i class='bx bxs-phone' ></i></span>
+                <span>{phone}</span>
+            </div>
+
+            <div class="col-box">
+                <span><i class='bx bxs-envelope' ></i></span>
+                <span>{email}</span>
+            </div>
+        </div>
+
+        <div class="col-right">
+            <span>About My Services</span>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Corporis eum error vero amet ullam, unde tempora, illum 
+                dicta ipsum at culpa soluta sint sed. Nobis iusto minus
+                dolores ab magnam.
+
+                <div class="social-icons">
+                    <span><i class='bx bxl-facebook-circle' ></i></span>
+                    <span><i class='bx bxl-instagram-alt' ></i></span>
+                    <span><i class='bx bxl-linkedin-square' ></i></span>
+                    <span><i class='bx bxl-github' ></i></span>
+                </div>
+            </p>
+        </div>
+    </footer>
+
+    <script src="portfolio_template_script0.js"></script>
+</body>
+</html>
