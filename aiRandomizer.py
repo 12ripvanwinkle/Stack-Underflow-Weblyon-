@@ -1,5 +1,6 @@
 import re
 import random
+import pinterestImageGetter 
 
 # Predefined color sets
 color_sets = [

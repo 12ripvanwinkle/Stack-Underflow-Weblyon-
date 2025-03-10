@@ -5,7 +5,16 @@ what code and algorithims we used and technology (midsemester stuff)
 
 
 __________________________________________________________________________________________
+
+use a descriptive form to show how its doing it and how the solution is coming (this does this and this)
+
+
+__________________________________________________________________________________________
 fully implement in the ai 
 implement the ecommerce side
-pinterest history function
-use a descriptive form to show how its doing it and how the solution is coming (this does this and this)
+pinterest history function as well as make it copyright if possible
+implement a library function to edit already existing websites
+
+
+For presentation always remember the how and the technical detail
+non trivial part go in detail and how did i use it

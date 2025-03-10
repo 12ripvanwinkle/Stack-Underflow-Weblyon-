@@ -118,6 +118,7 @@ def userPrompt():
         writer.writerow([holder])
 
 
+
 if __name__ == "__main__":
     userPrompt()
     scraper = TestApp().run()

@@ -406,7 +406,7 @@ section
     display: inline-block;
     margin-top: 1rem;
     position: relative;
-    top: 100px;
+    top: 30px;
 }
 ::-webkit-scrollbar
 {

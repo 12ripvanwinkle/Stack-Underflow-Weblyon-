@@ -3,10 +3,11 @@ from langchain_core.prompts import ChatPromptTemplate
 import os
 from bs4 import BeautifulSoup
 import threading
-# import time
+import time
 from http.server import SimpleHTTPRequestHandler
 from socketserver import TCPServer
 from datetime import datetime
+import requests
 
 template = """
 Answer the question below.
@@ -133,7 +134,33 @@ def user_info_holder(ptype):
         }
 
     elif ptype == "2":
-        pass 
+        name = input('Enter your name: ')
+        occupation = input('Enter your occupation: ')
+        ans = input("Would you like our ai to help you fill out some fields for you enter 'yes' or 'no': ")
+        if ans == "yes":
+            print("The ai is generating text for you")
+            intro1 = helper_test(occupation, "1", "Portfolio")
+            print("The ai is generating somemore text for you")
+            about_me_info = helper_test(occupation, "2", "Portfolio")
+        else:
+            intro1 = input('Enter something about yourself: ')
+            about_me_info = input('Go into more detail: ')
+        email = ""
+        phone = ""
+        address = ""
+        
+        user_info = {
+            "name": name,
+            "occupation": occupation,
+            "intro1": intro1,
+            "about_me_info": about_me_info,
+            "contact": {
+                "email": email,
+                "phone": phone,
+                "address": address
+            },
+        }
+    
     return user_info
 
 def ecommerce_info_holder(bus_type):
@@ -182,11 +209,12 @@ def load_template(file_path):
     with open(file_path, 'r', encoding='utf-8') as file:
         return file.read()
 
-def generator(info, template, gtype):
+def generator(info, template, wtype):
     
-    if gtype == "Portfolio":
+    if wtype == "Portfolio":
         page = template.format(
             name = info["name"],
+            
             occupation = info["occupation"],
             address = info["contact"]["address"],
             intro1 = info["intro1"],
@@ -204,7 +232,7 @@ def generator(info, template, gtype):
         with open(file_path, 'w', encoding='utf-8') as file:
             file.write(page)
 
-    if gtype == "Ecommerce":
+    if wtype == "Ecommerce":
         # Generate dynamic product boxes
         product_boxes = ""
         for product in info["products"]:
@@ -241,7 +269,8 @@ def generator(info, template, gtype):
             file.write(page)
 
     print("HTML file generated successfully!")
-    
+
+
 def portfolio_type():
     ans = input("Choose between option 1 and 2: ")
     if ans == "1":
@@ -274,6 +303,44 @@ def Ecommerce_type():
     if choice == "2":
         pass
 
+def submitter(holder):
+    url = "http://127.0.0.1:5000/chat"
+    headers = {"Content-Type": "application/json"}
+    data = {"Text": "Hello, this is a test message", "ProjectID":1}
+
+
+    response = requests.post(url, json=data, headers=headers)
+
+    if response.status_code == 201:  # 201 means resource created
+        print("Successfully submitted:", response.json())
+    else:
+        print("Error:", response.status_code, response.text)
+    pass
+
+def upload_project_file(project_file, project_id,file_type):
+        # Define the URL where the file will be uploaded
+    url = 'http://127.0.0.1:5000/projects/1/upload/js'
+
+    # Define the file path
+    # file_path = '/Users/carlyon/Documents/Projects/Assignment/Capstone/Stack-Underflow-Project/Portfolio_templates/portfolio_template_script1.js'
+
+    # Open the file in binary mode and prepare the payload
+    files = {'file': open(project_file, 'rb')}
+    data = {'project_id': project_id, 'file_type': file_type}
+
+    # Send the POST request
+    response = requests.post(url, files=files)
+
+    # Close the file after uploading
+    files['file'].close()
+
+    # Check the response from the server
+    if response.status_code == 200:
+        print("File uploaded successfully:", response.json())
+    else:
+        print("Failed to upload file. Status code:", response.status_code, response.text)
+    
+    pass
 if __name__ == "__main__":
-    portfolio_type()
+    Ecommerce_type()
     
