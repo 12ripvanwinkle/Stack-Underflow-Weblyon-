@@ -363,47 +363,41 @@ font_dict = {
     "Playfair Display": "https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap"
 }
 
-# Predefined color sets (same as before)
+# Predefined color sets
 color_sets = [
-    {
-        "--bg-color": "#080808",
-        "--second-bg-color": "#001005",
-        "--text-color": "white",
-        "--main-color": "#00ff51"
-    },
-    {
-        "--bg-color": "#080808",
-        "--second-bg-color": "#101010",
-        "--text-color": "white",
-        "--main-color": "#ea580c"
-    },
-    {
-        "--bg-color": "#080808",
-        "--second-bg-color": "#1b0000",
-        "--text-color": "white",
-        "--main-color": "#f60b0b"
-    },
-    {
-        "--bg-color": "#080808",
-        "--second-bg-color": "#101010",
-        "--text-color": "white",
-        "--main-color": "#ca0bf5"
-    },
-    {
-        "--bg-color": "#f9f9f9",
-        "--second-bg-color": "#d2ffd1",
-        "--text-color": "black",
-        "--main-color": "#2E8B57"
-    },
-    {
-        "--bg-color": "#080808",
-        "--second-bg-color": "#101010",
-        "--text-color": "white",
-        "--main-color": "#ea119b"
-    }
+    {"--bg-color": "#080808", "--second-bg-color": "#001005", "--text-color": "white", "--main-color": "#00ff51"},
+    {"--bg-color": "#080808", "--second-bg-color": "#101010", "--text-color": "white", "--main-color": "#ea580c"},
+    {"--bg-color": "#080808", "--second-bg-color": "#1b0000", "--text-color": "white", "--main-color": "#f60b0b"},
+    {"--bg-color": "#080808", "--second-bg-color": "#101010", "--text-color": "white", "--main-color": "#ca0bf5"},
+    {"--bg-color": "#f9f9f9", "--second-bg-color": "#d2ffd1", "--text-color": "black", "--main-color": "#2E8B57"},
+    {"--bg-color": "#080808", "--second-bg-color": "#101010", "--text-color": "white", "--main-color": "#ea119b"}
 ]
 
-# Function to generate a random font from the font dictionary
+# Animation styles
+animation_styles = [
+    ("fadeIn", "opacity: 0;", "opacity: 1;"),
+    ("slideUp", "transform: translateY(100px); opacity: 0;", "transform: translateY(0); opacity: 1;"),
+    ("rotateIn", "transform: rotate(360deg); opacity: 0;", "transform: rotate(0); opacity: 1;"),
+    ("bounceIn", "transform: scale(0.5); opacity: 0;", "transform: scale(1); opacity: 1;"),
+    ("zoomIn", "transform: scale(0.7); opacity: 0;", "transform: scale(1); opacity: 1;"),
+    ("slideLeft", "transform: translateX(-50px); opacity: 0;", "transform: translateX(0); opacity: 1;")
+]
+
+# Generate random animation CSS
+def generate_animation_css():
+    animation_css = ""
+    for animation_name, start_state, end_state in animation_styles:
+        duration = round(random.uniform(0.5, 2.5), 1)
+        delay = round(random.uniform(0, 1), 2)
+        animation_css += f"""
+@keyframes {animation_name} {{
+    0% {{ {start_state} }}
+    100% {{ {end_state} }}
+}}
+"""
+    return animation_css
+
+# Generate a random font from the font dictionary
 def generate_random_font():
     return random.choice(list(font_dict.keys()))
 
@@ -417,10 +411,13 @@ def Randomiser(filepath):
     # Read the CSS file
     if filepath == "Portfolio_templates":
         css_file_path = "Portfolio_templates/portfolio_template_style1.css"
-        with open(css_file_path, "r") as css_file:
+        with open(css_file_path, "r", encoding="utf-8") as css_file:
             css_content = css_file.read()
 
-        # Add Google Fonts import at the top and update :root with the selected colors and font
+        # Generate random animation CSS
+        animation_css = generate_animation_css()
+
+        # Add Google Fonts import and update :root with selected colors and font
         css_content_updated = f"{google_font_import}\n" + re.sub(
             r":root\s*{[^}]+}",
             f""":root {{
@@ -428,33 +425,39 @@ def Randomiser(filepath):
             --second-bg-color: {selected_colors["--second-bg-color"]};
             --text-color: {selected_colors["--text-color"]};
             --main-color: {selected_colors["--main-color"]};
-            --font-family: '{selected_font}', sans-serif; /* Use the random font-family */
+            --font-family: '{selected_font}', sans-serif;
         }}""",
             css_content
-        )
+        ) + animation_css
 
-        # Now apply the selected font-family globally to all elements by updating the * selector
-        css_content_updated = re.sub(
-            r'font-family:\s*"Poppins",\s*sans-serif;',
-            f'font-family: "{selected_font}", sans-serif;',  # Replace Poppins with the random font
-            css_content_updated
-        )
+        # Apply animations to elements
+        elements = [".home-content h3", ".home-content h1", ".home-content p", ".social-icons a", ".btn", ".about-content p", ".services h2", ".service-box", ".service-info p", ".contact"]
+        for element in elements:
+            random_animation = random.choice(animation_styles)
+            animation_name = random_animation[0]
+            duration = round(random.uniform(0.5, 2.5), 1)
+            delay = round(random.uniform(0, 1), 2)
 
-        # Randomly adjust margins and paddings
-        css_content_updated = re.sub(
-            r'(margin|padding):\s*\d+px;',
-            lambda match: f"{match.group(1)}: {random.randint(5, 50)}px;",
-            css_content_updated
-        )
+            css_content_updated += f"""
+{element} {{
+    opacity: 0; /* Start invisible */
+    transform: translateY(50px); /* Start off-screen */
+    transition: opacity 1s ease-out, transform 1s ease-out; /* Set up the transition */
+}}
+
+{element}.visible {{
+    animation: {animation_name} {duration}s ease-out {delay}s forwards;
+}}
+"""
 
         # Save the updated CSS file
         randomized_css_filename = "randomized_portfolio_style.css"
-        with open(randomized_css_filename, "w") as randomized_css_file:
+        with open(randomized_css_filename, "w", encoding="utf-8") as randomized_css_file:
             randomized_css_file.write(css_content_updated)
 
         # Read the HTML file
         html_file_path = "Portfolio_templates/portfolio_template_1.html"
-        with open(html_file_path, "r") as html_file:
+        with open(html_file_path, "r", encoding="utf-8") as html_file:
             html_content = html_file.read()
 
         # Update the CSS link and add the Google Fonts link in the HTML file
@@ -464,24 +467,29 @@ def Randomiser(filepath):
             html_content
         )
 
-        # Shuffle sections in the HTML file
-        sections = re.findall(r'(<section.*?>.*?</section>)', html_content_updated, re.DOTALL)
-        random.shuffle(sections)
+        # Add JavaScript for Intersection Observer
+        html_content_updated += """
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const elements = document.querySelectorAll('.home-content h3, .home-content h1, .home-content p, .social-icons a, .btn, .about-content p, .services h2, .service-box, .service-info p, .contact');
 
-        # Replace original sections with shuffled ones
-        html_content_updated = re.sub(
-            r'(<section.*?>.*?</section>)',
-            lambda _: sections.pop(0),
-            html_content_updated,
-            count=len(sections)
-        )
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target); // Stop observing once the element is visible
+            }
+        });
+    }, { threshold: 0.1 }); // Trigger when 10% of the element is in view
+
+    elements.forEach(element => observer.observe(element));
+});
+</script>
+"""
 
         # Save the updated HTML file
-        with open("randomized_portfolio.html", "w") as randomized_html_file:
+        with open("randomized_portfolio.html", "w", encoding="utf-8") as randomized_html_file:
             randomized_html_file.write(html_content_updated)
-    else:
-        pass
-
 
 if __name__ == "__main__":
     Randomiser("Portfolio_templates")
