@@ -342,5 +342,5 @@ def upload_project_file(project_file, project_id,file_type):
     
     pass
 if __name__ == "__main__":
-    Ecommerce_type()
+    portfolio_type()
     

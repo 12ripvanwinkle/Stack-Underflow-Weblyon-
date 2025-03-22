@@ -18,3 +18,6 @@ implement a library function to edit already existing websites
 
 For presentation always remember the how and the technical detail
 non trivial part go in detail and how did i use it
+__________________________________________________________________________________________
+implement the library side for editing websites
+improve the randomiser to be a make your own generator
