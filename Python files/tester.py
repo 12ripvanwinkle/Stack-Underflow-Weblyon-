@@ -23,6 +23,15 @@ color_sets = [
     {"--bg-color": "#f9f9f9", "--second-bg-color": "#d2ffd1", "--text-color": "black", "--main-color": "#2E8B57"},
     {"--bg-color": "#080808", "--second-bg-color": "#101010", "--text-color": "white", "--main-color": "#ea119b"}
 ]
+color_set_word =[
+    {"Back-ground color: ": "Very dark gray", "Second background color: ": "Very dark green", "Text color: " : "White", "Main color: ": "Bright green"},
+    {"Back-ground color: ": "Very dark gray", "Second background color: ": "Dark gray", "Text color: " : "White", "Main color: ": "Bright Orange"},
+    {"Back-ground color: ": "Very dark gray", "Second background color: ": "Very dark red", "Text color: " : "White", "Main color: ": "Bright Red"},
+    {"Back-ground color: ": "Very dark gray", "Second background color: ": "Dark gray", "Text color: " : "White", "Main color: ": "Bright Purple"},
+    {"Back-ground color: ": "Very light gray", "Second background color: ": "Very light green", "Text color: " : "Black", "Main color: ": "Medium Sea green"},
+    {"Back-ground color: ": "Very dark gray", "Second background color: ": "Dark gray", "Text color: " : "White", "Main color: ": "Bright Pink"}
+]
+
 # Animation styles
 animation_styles = [
     ("fadeIn", "opacity: 0;", "opacity: 1;"),
@@ -67,7 +76,7 @@ def layout_chooser(user_choice):
         sections = layouts[0]
         for i, section in enumerate(sections):
             print(f"{i + 1}. {section}")
-        print("Enter the order you wish by separated commas (e.g., 1,3,2,4,5,6): ")
+        print("Enter the order you wish by separated commas (e.g., 1,2,3,4,5,6): ")
         order = input("Your order: ")
         
         try:
@@ -86,9 +95,8 @@ def layout_chooser(user_choice):
             print(f"{i + 1}. {section}")
 
 def font_chooser():
-    print("Available Fonts : ")
+    print("Available Fonts: ")
     font_names = list(font_dict.keys())
-    i = -1
     for i, font in enumerate(font_names):
         print(f"{i}. {font}")
     try:
@@ -108,14 +116,18 @@ def font_chooser():
                 updated_css = re.sub(r'Poppins', selected_font, updated_css)
 
                 # Add the font import at the top of the CSS if not already present
-                new_css = f"@import url('{font_url}');\n" + updated_css
+                updated_css = f"@import url('{font_url}');\n" + updated_css
 
-                # Write the updated CSS to a new file
+                # Now, call the color_chooser to apply color changes
+                updated_css = color_chooser(updated_css)
+
+                # Write the final updated CSS to a new file
                 updated_css_path = "portfolio_template_style1_updated.css"
                 with open(updated_css_path, "w") as updated_css_file:
-                    updated_css_file.write(new_css)
+                    updated_css_file.write(updated_css)
 
-                print(f"Font applied successfully to the new CSS file: {updated_css_path}")
+                print(f"Font and colors applied successfully to the new CSS file: {updated_css_path}")
+                
                 return selected_font
 
             except FileNotFoundError:
@@ -128,9 +140,38 @@ def font_chooser():
         print("Invalid input. Please enter a number.")
         return None
 
-def color_chooser():
-    
-    pass
+def color_chooser(css_content):
+    print("Available color sets: ")
+    # Display available color sets
+    for i, color_set in enumerate(color_set_word):
+        print(f"{i}. {color_set}")
+
+    try:
+        # Get user choice for color set
+        choice = int(input("Choose your color set by entering the corresponding number: "))
+        if 0 <= choice < len(color_sets):
+            selected_colors = color_sets[choice]
+            print("Selected color set: ", selected_colors)
+            
+            # Apply the selected colors to the CSS content
+            new_css = css_content
+            for var, color in selected_colors.items():
+                new_css = new_css.replace(f"var({var})", color)
+
+            return new_css
+        
+        else:
+            print("Invalid input. Please enter a number.")
+            return None
+    except ValueError:
+        print("Invalid input. Please enter a number.")
+        return None
+
+def animations_chooser(css_content):
+    # Enumerate and print the animation styles
+    for index, (name, start, end) in enumerate(animation_styles):
+        print(f"{index}. {name}")
+        
 
 def html_generator(ordered_sections):
     if not ordered_sections:
@@ -176,6 +217,7 @@ def html_generator(ordered_sections):
         print("Template file not found. Make sure the file path is correct.")
 
 if __name__ == "__main__":
-    result = layout_chooser("Portfolio")
-    html_generator(result)
-    font_chooser()
+    # result = layout_chooser("Portfolio")
+    # html_generator(result)
+    # font_chooser()
+    animations_chooser(None)
