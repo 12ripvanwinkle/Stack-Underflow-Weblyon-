@@ -8,6 +8,8 @@ from http.server import SimpleHTTPRequestHandler
 from socketserver import TCPServer
 from datetime import datetime
 import requests
+from PIL import Image
+import shutil
 
 template = """
 Answer the question below.
@@ -120,6 +122,7 @@ def user_info_holder(ptype):
         email = input("Enter your email: ")
         phone = input("Enter your phone number: ")
         address = input("Enter your parish/province/state: ")
+        pfp = input("Enter the location of an image of yourself: ").strip('"')
 
         user_info = {
             "name": name,
@@ -131,6 +134,7 @@ def user_info_holder(ptype):
                 "phone": phone,
                 "address": address
             },
+            "pfp":pfp
         }
 
     elif ptype == "2":
@@ -148,6 +152,7 @@ def user_info_holder(ptype):
         email = ""
         phone = ""
         address = ""
+        pfp = input("Enter the location of an image of yourself: ").strip('"')
         
         user_info = {
             "name": name,
@@ -159,6 +164,7 @@ def user_info_holder(ptype):
                 "phone": phone,
                 "address": address
             },
+            "pfp":pfp
         }
     
     return user_info
@@ -212,6 +218,17 @@ def load_template(file_path):
 def generator(info, template, wtype):
     
     if wtype == "Portfolio":
+         # Move the image to the project folder
+        destination_folder = "Portfolio_templates/images"
+        os.makedirs(destination_folder, exist_ok=True)
+        
+        # Copy the image to the destination folder
+        destination_path = os.path.join(destination_folder, os.path.basename(info["pfp"]))
+        shutil.copy(info["pfp"], destination_path)
+        
+        # Set the relative path for the HTML
+        pfp_path = f"images/{os.path.basename(info['pfp'])}"
+
         page = template.format(
             name = info["name"],
             
@@ -221,6 +238,7 @@ def generator(info, template, wtype):
             about_me_info = info["about_me_info"],
             phone = info["contact"]["phone"],
             email = info["contact"]["email"],
+            pfp = pfp_path
         )
         # Save the generated HTML to a file with UTF-8 encoding
         folder_path = "Portfolio_templates"
@@ -339,7 +357,6 @@ def upload_project_file(project_file, project_id,file_type):
         print("File uploaded successfully:", response.json())
     else:
         print("Failed to upload file. Status code:", response.status_code, response.text)
-    
     pass
 if __name__ == "__main__":
     portfolio_type()
