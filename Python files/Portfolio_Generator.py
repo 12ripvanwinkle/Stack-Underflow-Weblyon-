@@ -101,49 +101,95 @@ def load_template(file_path):
         
 def portfolio_type():
     print("Enter the portfolio of your choosing by entering the corresponding number")
-    choice = input("0. Portfolio 1\n1. Portfolio 2\n2. Portfolio 3\n")
+    choice = input("0. Portfolio 0\n1. Portfolio 1\n2. Portfolio 2\n")
     match choice:
         case "0":
             print("Portfolio 1")
             user_info = user_info_getter()
             contact_info = contact_info_getter()
+
             # Update in place
             user_info.update(contact_info)
             template = load_template("Portfolio_templates/portfolio_template_0.html")
-            generator(user_info, template, "Portfolio")
+            # Define the source and destination paths
+            source_path = r"C:\Users\nites\OneDrive\Desktop\Stack-Underflow-Weblyon-\Portfolio_templates\portfolio_template_style0.css"
+            destination_folder = r"C:\Users\nites\OneDrive\Desktop\Stack-Underflow-Weblyon-\User_Portfolio"
+            # Copy the file
+            shutil.copy(source_path, destination_folder)
 
+            generator(user_info, template, False)
         case "1":
             print("Portfolio 2")
+            user_info = user_info_getter()
+            template = load_template("Portfolio_templates/portfolio_template_1.html")
+
+            # Define the source and destination paths
+            source_path = r"C:\Users\nites\OneDrive\Desktop\Stack-Underflow-Weblyon-\Portfolio_templates\portfolio_template_style1.css"
+            destination_folder = r"C:\Users\nites\OneDrive\Desktop\Stack-Underflow-Weblyon-\User_Portfolio"
+            # Copy the file
+            shutil.copy(source_path, destination_folder)
+
+            generator(user_info, template, True)
         case "2":
             print("Portfolio 3")
         case _:
             print("Invalid choice")
             portfolio_type()
 
-def update_skills(html_file):
+def update_skills(html_file, services):
     # Read the existing HTML file
-    with open(html_file, "r", encoding="utf-8") as file:
-        content = file.read()
+    if services == False:
+        with open(html_file, "r", encoding="utf-8") as file:
+            content = file.read()
 
-    # Extract the current skills list using regex
-    skills_pattern = re.search(r'(<div class="skills">\s*<ul>)(.*?)(</ul>\s*</div>)', content, re.DOTALL)
-    
-    if not skills_pattern:
-        print("Skills section not found in the file.")
-        return
-    
-    # Prompt the user for new skills
-    new_skills = input("Enter skills separated by commas: ").split(",")
+        # Extract the current skills list using regex
+        skills_pattern = re.search(r'(<div class="skills">\s*<ul>)(.*?)(</ul>\s*</div>)', content, re.DOTALL)
+        
+        if not skills_pattern:
+            print("Skills section not found in the file.")
+            return
+        
+        # Prompt the user for new skills
+        new_skills = input("Enter skills separated by commas: ").split(",")
 
-    # Trim whitespace and remove empty entries
-    new_skills = [skill.strip() for skill in new_skills if skill.strip()]
+        # Trim whitespace and remove empty entries
+        new_skills = [skill.strip() for skill in new_skills if skill.strip()]
 
-    # Generate new <li> elements for the skills
-    new_skills_html = "\n".join([f'                    <li><span><i class="bx bx-chevron-right"></i> {skill}</span></li>' for skill in new_skills])
+        # Generate new <li> elements for the skills
+        new_skills_html = "\n".join([f'                    <li><span><i class="bx bx-chevron-right"></i> {skill}</span></li>' for skill in new_skills])
 
-    # Replace the existing skills with the new list
-    updated_content = re.sub(r'(<div class="skills">\s*<ul>)(.*?)(</ul>\s*</div>)',
-                             rf'\1\n{new_skills_html}\n                \3', content, flags=re.DOTALL)
+        # Replace the existing skills with the new list
+        updated_content = re.sub(r'(<div class="skills">\s*<ul>)(.*?)(</ul>\s*</div>)',
+                                rf'\1\n{new_skills_html}\n                \3', content, flags=re.DOTALL)
+    else:
+        with open(html_file, "r", encoding="utf-8") as file:
+            content = file.read()
+
+        # Extract the current services section using regex
+        services_pattern = re.search(r'(<div class="services-container">)(.*?)(</div>\s*</section>)', content, re.DOTALL)
+
+        if not services_pattern:
+            print("Services section not found in the file.")
+            return
+
+        # Prompt the user for new services
+        services_input = input("Enter services separated by commas (name: description): ").split(",")
+
+        # Trim whitespace and remove empty entries
+        services = [service.strip() for service in services_input if service.strip()]
+
+        # Generate new service HTML
+        new_services_html = "\n".join([f'''
+            <div class="service-box">
+                <div class="service-info">
+                    <h4>{service.split(':')[0].strip()}</h4>
+                    <p>{service.split(':')[1].strip()}</p>
+                </div>
+            </div>''' for service in services])
+
+        # Replace the existing services section with the new one
+        updated_content = re.sub(r'(<div class="services-container">)(.*?)(</div>\s*</section>)',
+                                rf'\1\n{new_services_html}\n        \3', content, flags=re.DOTALL)
 
     # Write the updated HTML back to the file
     with open(html_file, "w", encoding="utf-8") as file:
@@ -162,23 +208,31 @@ def generator(info, template, wtype):
       
     # Set the relative path for the HTML
     pfp_path = f"{os.path.basename(info['pfp'])}"
-    page = template.format(
+    # Use .get() to avoid KeyError if key doesn't exist
+    if not info.get("phone") and not info.get("email") and not info.get("address"):
+        page = template.format(
             name = info["name"],
             
             occupation = info["occupation"],
-            address = info["address"],
             intro1 = info["intro1"],
             about_me_info = info["about_me_info"],
-            phone = info["phone"],
-            email = info["email"],
-            pfp = pfp_path
+            pfp = pfp_path,            
+            phone=info.get("phone", ""),  # Default to empty string if 'phone' doesn't exist
+            email=info.get("email", ""),
+            address=info.get("address", "")
         )
-    
-    # Define the source and destination paths
-    source_path = r"C:\Users\nites\OneDrive\Desktop\Stack-Underflow-Weblyon-\Portfolio_templates\portfolio_template_style0.css"
-    destination_folder = r"C:\Users\nites\OneDrive\Desktop\Stack-Underflow-Weblyon-\User_Portfolio"
-    # Copy the file
-    shutil.copy(source_path, destination_folder)
+    else:
+        page = template.format(
+                name = info["name"],
+                
+                occupation = info["occupation"],
+                address = info["address"],
+                intro1 = info["intro1"],
+                about_me_info = info["about_me_info"],
+                phone = info["phone"],
+                email = info["email"],
+                pfp = pfp_path
+            )
 
     # Save the generated HTML to a file with UTF-8 encoding
     folder_path = "User_Portfolio"
@@ -189,8 +243,9 @@ def generator(info, template, wtype):
     file_path = os.path.join(folder_path, file_name + ".html")
     # creates the file
     with open(file_path, 'w', encoding='utf-8') as file:
-        file.write(page) 
-    update_skills("User_Portfolio" + "\\" + file_name + ".html")
+        file.write(page)
+
+    update_skills("User_Portfolio" + "\\" + file_name + ".html", wtype)
     # Open the HTML file in the default browser
     webbrowser.open(f"file://{os.path.abspath(file_path)}")
 
