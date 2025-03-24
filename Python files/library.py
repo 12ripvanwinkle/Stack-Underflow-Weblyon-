@@ -1,10 +1,11 @@
 import os
 import webbrowser
+import shutil
 
 def display_html_files(folder1, folder2):
 
     # List of HTML files to ignore
-    ignore_files = ["portfolio_template_1.html", "portfolio_template_0.html"]
+    ignore_files = ["portfolio_template_1.html", "portfolio_template_0.html", "Cafeindex.html"]
 
     # Combine the two folders into a list
     folders = [folder1, folder2]
