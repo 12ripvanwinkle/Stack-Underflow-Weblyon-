@@ -138,10 +138,9 @@ def portfolio_type():
 
 def update_skills(html_file, services):
     # Read the existing HTML file
-    if services == False:
-        with open(html_file, "r", encoding="utf-8") as file:
+    with open(html_file, "r", encoding="utf-8") as file:
             content = file.read()
-
+    if services == False:
         # Extract the current skills list using regex
         skills_pattern = re.search(r'(<div class="skills">\s*<ul>)(.*?)(</ul>\s*</div>)', content, re.DOTALL)
         
@@ -162,9 +161,6 @@ def update_skills(html_file, services):
         updated_content = re.sub(r'(<div class="skills">\s*<ul>)(.*?)(</ul>\s*</div>)',
                                 rf'\1\n{new_skills_html}\n                \3', content, flags=re.DOTALL)
     else:
-        with open(html_file, "r", encoding="utf-8") as file:
-            content = file.read()
-
         # Extract the current services section using regex
         services_pattern = re.search(r'(<div class="services-container">)(.*?)(</div>\s*</section>)', content, re.DOTALL)
 
