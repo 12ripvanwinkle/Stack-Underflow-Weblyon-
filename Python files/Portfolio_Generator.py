@@ -198,7 +198,7 @@ def generator(info, template, wtype):
     destination_folder = "User_Portfolio"
     os.makedirs(destination_folder, exist_ok=True)
 
-     # Copy the image to the destination folder
+    # Copy the image to the destination folder
     destination_path = os.path.join(destination_folder, os.path.basename(info["pfp"]))
     shutil.copy(info["pfp"], destination_path)
       
@@ -220,7 +220,6 @@ def generator(info, template, wtype):
     else:
         page = template.format(
                 name = info["name"],
-                
                 occupation = info["occupation"],
                 address = info["address"],
                 intro1 = info["intro1"],

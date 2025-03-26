@@ -1,4 +1,4 @@
-# code for portfolio generators exclusively
+# code for Ecommerce generators exclusively
 from langchain_ollama import OllamaLLM
 from langchain_core.prompts import ChatPromptTemplate
 import os
@@ -43,195 +43,147 @@ def satisfaction(context, result):
         print("Great!")
     return result
 
-def ai_helper(occupation, section, web_type):
+def ai_helper(occupation, section):
     context=""
-    if section == 1:
-        user_input = f"write a 15 word short intro about me as a {occupation} without including names or anything such as [your name] no need to type anything like 'Here's a 40-word extract:"
+    if section == "1":
+        user_input = f"write a 15 word short intro about my business which is a {occupation} without including names or anything such as [your name] no need to type anything like 'Here's a 40-word extract:"
         result = chain.invoke({"context": context, "question": user_input})
         print("Bot: ", result)
         context += f"\nUser: {user_input}\nAI: {result}"
         return satisfaction(context, result)
-    if section == 2:
-        user_input = f"ok can you give me a 40 word extract going into detail about me being a {occupation} no need to type anything like 'Here's a 40-word extract:'"
+    if section == "2":
+        user_input = f"ok can you give me a 40 word extract going into detail about why you should choose my business which is a {occupation} no need to type anything like 'Here's a 40-word extract:'"
         result = chain.invoke({"context": context, "question": user_input})
         print("Bot: ", result)
         context += f"\nUser: {user_input}\nAI: {result}"
         return satisfaction(context, result)
 
-def user_info_getter():
-    name = input("Enter your name: ")
-    occupation = input("Enter your occupation: ")
+def business_info_getter(business_type):
+    name = input("Enter the name of your business: ")
     ai_ans = input("Do you want to use AI to generate your portfolio? (y/n): ").lower()
-    
     if ai_ans == "y":
-
-        print("The ai is generating text for you")
-        intro1 = ai_helper(occupation, 1, "Portfolio")
-        print("The ai is generating somemore text for you")
-        about_me_info = ai_helper(occupation, 2, "Portfolio")
+        print("The AI is generating text for you")
+        intro1 = ai_helper("Cafe", "1")
+        print("The AI is generating more text for you")
+        about_me_info = ai_helper("Cafe", "2")
     else:
-        intro1 = input("Enter a 15 word short intro about you for the hero section: \n")
-        about_me_info = input("Enter a 40 word extract about you for the about me section: \n")
+        intro1 = input("Enter a 15 word short intro about your business: ")
+        about_me_info = input("Enter a 40 word extract going into detail about why you should choose your business: ")
+
+    history = input("Enter a brief history of your business: ")
+    email = input("Enter the business' email: ")
+    phone = input("Enter the business' phone number: ")
+    address = input("Enter the business' address: ")
+    reviews = []
+    for i in range(3):  
+        review = input(f"Enter review {i + 1} of your business: ")
+        reviews.append(review)
+    products = []
+    num_products = int(input("Enter the number of products you want to add: "))
+    for i in range(num_products):
+        product = input(f"Enter product {i + 1}: ")
+        products.append(product)
+    product_images = []
+    print("Enter", num_products, " file path to images for your products")
+    for i in range (num_products):
+        image = input("Enter the path to your profile picture: ").strip('"')
+        product_images.append(image)
     pfp = input("Enter the path to your profile picture: ").strip('"')
-    user_info = {
-            "name": name,
-            "occupation": occupation,
-            "intro1": intro1,
-            "about_me_info": about_me_info,
-            "pfp":pfp
-        }
-    return user_info
 
-def contact_info_getter():
-    email = input("Enter your email: ")
-    phone = input("Enter your phone number: ")
-    address = input("Entere your Parish/State/Province: ")
-
-    contact_info = {
-        "email": email,
-        "phone": phone,
-        "address": address
+    ecommerce_info = {
+        "name": name,
+        "intro1": intro1,
+        "about_me_info": about_me_info,
+        "history": history,
+        "contact": {
+            "email": email,
+            "phone": phone,
+            "address": address
+        },
+        "reviews": reviews,
+        "products": products,
+        "images": product_images,
+        "pfp": pfp
     }
-    return contact_info
+
+    return ecommerce_info
 
 def load_template(file_path):
     """Read the HTML template from a file with UTF-8 encoding."""
     with open(file_path, 'r', encoding='utf-8') as file:
         return file.read()
-        
-def portfolio_type():
+    
+def ecommerce_type():
     print("Enter the portfolio of your choosing by entering the corresponding number")
-    choice = input("0. Portfolio 0\n1. Portfolio 1\n2. Portfolio 2\n")
+    choice = input("1.Cafe Website\n2.Gym Website\n")
     match choice:
-        case "0":
-            print("Portfolio 1")
-            user_info = user_info_getter()
-            contact_info = contact_info_getter()
-
-            # Update in place
-            user_info.update(contact_info)
-            template = load_template("Portfolio_templates/portfolio_template_0.html")
-            # Define the source and destination paths
-            source_path = r"C:\Users\nites\OneDrive\Desktop\Stack-Underflow-Weblyon-\Portfolio_templates\portfolio_template_style0.css"
-            destination_folder = r"C:\Users\nites\OneDrive\Desktop\Stack-Underflow-Weblyon-\User_Portfolio"
-            # Copy the file
-            shutil.copy(source_path, destination_folder)
-
-            generator(user_info, template, False)
         case "1":
-            print("Portfolio 2")
-            user_info = user_info_getter()
-            template = load_template("Portfolio_templates/portfolio_template_1.html")
-
+            print("Cafe Website")
+            info = business_info_getter("Cafe")
+            template = load_template("Ecommerce_templates\Cafeindex.html")
             # Define the source and destination paths
-            source_path = r"C:\Users\nites\OneDrive\Desktop\Stack-Underflow-Weblyon-\Portfolio_templates\portfolio_template_style1.css"
-            destination_folder = r"C:\Users\nites\OneDrive\Desktop\Stack-Underflow-Weblyon-\User_Portfolio"
+            source_path = r"C:\Users\nites\OneDrive\Desktop\Stack-Underflow-Weblyon-\Ecommerce_templates\Cafestyle.css"
+            destination_folder = r"C:\Users\nites\OneDrive\Desktop\Stack-Underflow-Weblyon-\User_Ecommerce"
             # Copy the file
             shutil.copy(source_path, destination_folder)
 
-            generator(user_info, template, True)
+            # Define the source and destination paths
+            source_folder = r"C:\Users\nites\OneDrive\Desktop\Stack-Underflow-Weblyon-\Ecommerce_templates\cafe_images"
+            destination_images_folder = os.path.join(destination_folder, "cafe_images")  # Ensure correct destination
+
+            # Copy the entire 'cafe_images' folder
+            shutil.copytree(source_folder, destination_images_folder)
+
+            generator(info, template)
         case "2":
-            print("Portfolio 3")
+            print("Gym Website")
+
         case _:
             print("Invalid choice")
-            portfolio_type()
-
-def update_skills(html_file, services):
-    # Read the existing HTML file
-    with open(html_file, "r", encoding="utf-8") as file:
-            content = file.read()
-    if services == False:
-        # Extract the current skills list using regex
-        skills_pattern = re.search(r'(<div class="skills">\s*<ul>)(.*?)(</ul>\s*</div>)', content, re.DOTALL)
+            return ecommerce_type()
         
-        if not skills_pattern:
-            print("Skills section not found in the file.")
-            return
-        
-        # Prompt the user for new skills
-        new_skills = input("Enter skills separated by commas: ").split(",")
-
-        # Trim whitespace and remove empty entries
-        new_skills = [skill.strip() for skill in new_skills if skill.strip()]
-
-        # Generate new <li> elements for the skills
-        new_skills_html = "\n".join([f'                    <li><span><i class="bx bx-chevron-right"></i> {skill}</span></li>' for skill in new_skills])
-
-        # Replace the existing skills with the new list
-        updated_content = re.sub(r'(<div class="skills">\s*<ul>)(.*?)(</ul>\s*</div>)',
-                                rf'\1\n{new_skills_html}\n                \3', content, flags=re.DOTALL)
-    else:
-        # Extract the current services section using regex
-        services_pattern = re.search(r'(<div class="services-container">)(.*?)(</div>\s*</section>)', content, re.DOTALL)
-
-        if not services_pattern:
-            print("Services section not found in the file.")
-            return
-
-        # Prompt the user for new services
-        services_input = input("Enter services separated by commas (name: description): ").split(",")
-
-        # Trim whitespace and remove empty entries
-        services = [service.strip() for service in services_input if service.strip()]
-
-        # Generate new service HTML
-        new_services_html = "\n".join([f'''
-            <div class="service-box">
-                <div class="service-info">
-                    <h4>{service.split(':')[0].strip()}</h4>
-                    <p>{service.split(':')[1].strip()}</p>
-                </div>
-            </div>''' for service in services])
-
-        # Replace the existing services section with the new one
-        updated_content = re.sub(r'(<div class="services-container">)(.*?)(</div>\s*</section>)',
-                                rf'\1\n{new_services_html}\n        \3', content, flags=re.DOTALL)
-
-    # Write the updated HTML back to the file
-    with open(html_file, "w", encoding="utf-8") as file:
-        file.write(updated_content)
-
-    print("Skills updated successfully!")
-
-def generator(info, template, wtype):
+def generator(info,template):
     # Move the image to the project folder
-    destination_folder = "User_Portfolio"
+    destination_folder = "User_Ecommerce"
     os.makedirs(destination_folder, exist_ok=True)
 
-     # Copy the image to the destination folder
+    # Copy the image to the destination folder
     destination_path = os.path.join(destination_folder, os.path.basename(info["pfp"]))
     shutil.copy(info["pfp"], destination_path)
-      
+
     # Set the relative path for the HTML
     pfp_path = f"{os.path.basename(info['pfp'])}"
-    # Use .get() to avoid KeyError if key doesn't exist
-    if not info.get("phone") and not info.get("email") and not info.get("address"):
-        page = template.format(
-            name = info["name"],
-            
-            occupation = info["occupation"],
-            intro1 = info["intro1"],
-            about_me_info = info["about_me_info"],
-            pfp = pfp_path,            
-            phone=info.get("phone", ""),  # Default to empty string if 'phone' doesn't exist
-            email=info.get("email", ""),
-            address=info.get("address", "")
-        )
-    else:
-        page = template.format(
-                name = info["name"],
-                
-                occupation = info["occupation"],
-                address = info["address"],
-                intro1 = info["intro1"],
-                about_me_info = info["about_me_info"],
-                phone = info["phone"],
-                email = info["email"],
-                pfp = pfp_path
-            )
 
+     # Generate dynamic product boxes
+    product_boxes = ""
+    for product in info["products"]:
+            product_boxes += f'''
+                <div class="box">
+                    <img src="cafe_images/american.jpg" alt="">
+                    <h3>{product}</h3>
+                    <div class="content">
+                        <span>$25</span>
+                        <a href="#">Add to cart</a>
+                    </div>
+                </div>
+            '''
+        # Update the template with dynamic products
+    
+    page = template.format(name=info["name"],
+            intro1=info["intro1"],
+            about_me_info=info["about_me_info"],
+            history=info["history"],
+            address=info["contact"]["address"],
+            phone=info["contact"]["phone"],
+            email=info["contact"]["email"],
+            review1=info["reviews"][0],
+            review2=info["reviews"][1],
+            review3=info["reviews"][2],
+            pfp=pfp_path,
+            products=product_boxes
+    )
     # Save the generated HTML to a file with UTF-8 encoding
-    folder_path = "User_Portfolio"
+    folder_path = destination_folder
     # ensure the folder exists, otherwise create it
     os.makedirs(folder_path, exist_ok=True)
     # define the file path
@@ -241,9 +193,27 @@ def generator(info, template, wtype):
     with open(file_path, 'w', encoding='utf-8') as file:
         file.write(page)
 
-    update_skills("User_Portfolio" + "\\" + file_name + ".html", wtype)
     # Open the HTML file in the default browser
     webbrowser.open(f"file://{os.path.abspath(file_path)}")
 
+    # # Copy the image to the destination folder
+    # destination_path = os.path.join(destination_folder, os.path.basename(info["pfp"]))
+    # shutil.copy(info["pfp"], destination_path)
+    
+    # # Retrieve image list from the dictionary
+    # images = info.get("images", [])
+
+    # # Copy each image to the destination folder
+    # for image in images:
+    #     if os.path.exists(image):
+    #         destination_path = os.path.join(destination_folder, os.path.basename(image))
+    #         shutil.copy(image, destination_path)
+    #         print(f"Copied {image} to {destination_path}")
+    #     else:
+    #         print(f"Error: {image} not found!")
+
+    # print("Image copying process completed.")
+    
+
 if __name__ == "__main__":
-    portfolio_type()
+    ecommerce_type()

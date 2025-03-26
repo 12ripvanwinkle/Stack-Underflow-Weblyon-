@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="Cafestyle.css">
     <script src="Cafescript.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
-    <title>{name}</title>
+    <title>Central Perk</title>
 </head>
 <body>
     
@@ -35,9 +35,9 @@
 
     <section class="home" id="home">
         <div class="home-text">
-            <h1>Start your day <br> with Coffee at {name}</h1>
+            <h1>Start your day <br> with Coffee at Central Perk</h1>
             <p>
-                {intro1}
+                A cozy corner spot serving specialty coffee and sweet treats in the heart downtown.
             </p>
             <a href="#" class="btn">Shop Now</a>
         </div>
@@ -49,18 +49,18 @@
     <!-- about section -->
     <section class="about" id="about">
         <div class="about-img">
-            <img src={pfp} alt="about image" >
+            <img src=dark-souls-3-game-art.jpg alt="about image" >
         </div>
         <div class="about-text">
             <h2>About Us</h2>
 
             <p>
-                {about_me_info}
+                "Step into our cozy cafe and experience a world of warmth and welcoming atmosphere. Our expertly crafted coffee blends and delicious treats will transport you to a haven of comfort, making us the perfect spot to relax, socialize, or get work done."
             </p>
             <h2>Our History</h2>
 
             <p>
-                {history}
+                I say yo lets open up a cafe 
             </p>
             <a href="#" class="btn">Learn More</a>
         </div>
@@ -74,7 +74,16 @@
 
         <!-- holder -->
          <div class="products-container">
-            {products}  <!-- This will be replaced dynamically with the correct number of products -->
+            
+                <div class="box">
+                    <img src="cafe_images/american.jpg" alt="">
+                    <h3>hot chocolate</h3>
+                    <div class="content">
+                        <span>$25</span>
+                        <a href="#">Add to cart</a>
+                    </div>
+                </div>
+              <!-- This will be replaced dynamically with the correct number of products -->
         </div>
         
     </section>
@@ -93,7 +102,7 @@
                     <i class='bx bxs-star'></i>
                     <i class='bx bxs-star-half'></i>
                 </div>
-                <p>{review1}</p>
+                <p>It bad man</p>
                 <h2>Jane Doe</h2>
                 <!-- insert image -->
                  <img src="cafe_images/review1.jpg" alt="">
@@ -105,7 +114,7 @@
                     <i class='bx bxs-star'></i>
                     <i class='bx bxs-star-half'></i>
                 </div>
-                <p>{review2}</p>
+                <p>best in ja</p>
                 <h2>Jane Doe</h2>
                 <!-- insert image -->
                  <img src="cafe_images/review2.jpg" alt="">
@@ -117,7 +126,7 @@
                     <i class='bx bxs-star'></i>
                     <i class='bx bxs-star-half'></i>
                 </div>
-                <p>{review3}</p>
+                <p>suiiii</p>
                 <h2>Jane Doe</h2>
                 <!-- insert image -->
                  <img src="cafe_images/review3.jpg" alt="">
@@ -129,7 +138,7 @@
     <section class="footer">
         <div class="footer-box">
             <h2>Coffee Shop</h2>
-            <p>{intro1}</p>
+            <p>A cozy corner spot serving specialty coffee and sweet treats in the heart downtown.</p>
             <div class="social">
                 <a href="#"><i class='bx bxl-facebook'></i></a>
                 <a href="#"><i class='bx bxl-twitter'></i></a>
@@ -154,9 +163,9 @@
         <div class="footer-box">
             <h3>Contact</h3>
             <div class="contact">
-                <span><i class='bx bxs-map' ></i>{address}</span>
-                <span><i class='bx bxs-phone' ></i>{phone}</span>
-                <span><i class='bx bxs-envelope' ></i>{email}</span>
+                <span><i class='bx bxs-map' ></i>12 Bucktoe Street</span>
+                <span><i class='bx bxs-phone' ></i>12345678</span>
+                <span><i class='bx bxs-envelope' ></i>centralperk@gmail.com</span>
             </div>
         </div>
     </section>
