@@ -154,20 +154,36 @@ def generator(info,template):
     # Set the relative path for the HTML
     pfp_path = f"{os.path.basename(info['pfp'])}"
 
-     # Generate dynamic product boxes
+    # Retrieve product names and images
+    products = info["products"]
+    images = info["images"]
+
+
+
+    # Copy product images and generate dynamic product boxes
     product_boxes = ""
-    for product in info["products"]:
-            product_boxes += f'''
-                <div class="box">
-                    <img src="cafe_images/american.jpg" alt="">
-                    <h3>{product}</h3>
-                    <div class="content">
-                        <span>$25</span>
-                        <a href="#">Add to cart</a>
-                    </div>
+    for product, image in zip(products, images):
+        image_filename = os.path.basename(image)
+        image_destination = os.path.join(destination_folder, image_filename)
+        
+        if os.path.exists(image):
+            shutil.copy(image, image_destination)
+        else:
+            print(f"Error: Image {image} not found. Using placeholder.")
+            image_filename = "default.jpg"  # Fallback to a default image
+
+        product_boxes += f'''
+            <div class="box">
+                <img src="{image_filename}" alt="{product}">
+                <h3>{product}</h3>
+                <div class="content">
+                    <span>$25</span>
+                    <a href="#">Add to cart</a>
                 </div>
-            '''
-        # Update the template with dynamic products
+            </div>
+        '''
+
+    # Update the template with dynamic products
     
     page = template.format(name=info["name"],
             intro1=info["intro1"],
