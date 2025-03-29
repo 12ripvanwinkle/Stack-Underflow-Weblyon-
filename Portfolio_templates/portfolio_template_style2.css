@@ -241,6 +241,13 @@ section
     background: linear-gradient(to bottom, #009dff, #FF00FF);
     border-radius: 10px;
 }
+.projects h2
+{
+    text-align: center;
+    font-size: 4rem;
+    font-weight: 600;
+    margin-bottom: 3rem;
+}
 .projects-grid
 {
     display: grid;
@@ -415,10 +422,18 @@ footer ul li a
     .grid
     {
         grid-template-columns: repeat(1, 1fr);
+        width: 50vw;
+    }
+    .projects-grid
+    {
+        grid-template-columns: repeat(1, 1fr);
+        width: 50vw;
+        position: relative;
+        left: 70px;
     }
     .experience-info img 
     {
-        width: 70vw;
+        width: 50vw;
     }
 }
 @media(max-width: 600px)
@@ -440,15 +455,16 @@ footer ul li a
         text-align: center;
         background: rgba(0, 0, 0, 0.9);
         border-radius: 3rem;
+        display: none;
     }
     .nav-links li 
     {
         margin-top: 1.5rem;
         padding: 1rem;
     }
-    .nav-links .active
+    .nav-links.active
     {
-        display: block;
+        display: flex;
     }
     header
     {
