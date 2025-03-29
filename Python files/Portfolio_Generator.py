@@ -241,8 +241,50 @@ def generator(info, template, wtype):
         file.write(page)
 
     update_skills("User_Portfolio" + "\\" + file_name + ".html", wtype)
+
+    # upload_project_file("C:\Users\nites\OneDrive\Desktop\Stack-Underflow-Weblyon-\User_Portfolio", 1, "js")
+
     # Open the HTML file in the default browser
     webbrowser.open(f"file://{os.path.abspath(file_path)}")
 
+# def submitter(holder):
+#     url = "http://127.0.0.1:5000/chat"
+#     headers = {"Content-Type": "application/json"}
+#     data = {"Text": "Hello, this is a test message", "ProjectID":1}
+
+
+#     response = requests.post(url, json=data, headers=headers)
+
+#     if response.status_code == 201:  # 201 means resource created
+#         print("Successfully submitted:", response.json())
+#     else:
+#         print("Error:", response.status_code, response.text)
+#     pass
+
+# def upload_project_file(project_file, project_id,file_type):
+#         # Define the URL where the file will be uploaded
+#     url = 'http://127.0.0.1:5000/projects/1/upload/js'
+
+#     # Define the file path
+#     # file_path = '/Users/carlyon/Documents/Projects/Assignment/Capstone/Stack-Underflow-Project/Portfolio_templates/portfolio_template_script1.js'
+
+#     # Open the file in binary mode and prepare the payload
+#     files = {'file': open(project_file, 'rb')}
+#     data = {'project_id': project_id, 'file_type': file_type}
+
+#     # Send the POST request
+#     response = requests.post(url, files=files)
+
+#     # Close the file after uploading
+#     files['file'].close()
+
+#     # Check the response from the server
+#     if response.status_code == 200:
+#         print("File uploaded successfully:", response.json())
+#     else:
+#         print("Failed to upload file. Status code:", response.status_code, response.text)
+#     pass
+
 if __name__ == "__main__":
+    # upload_project_file("C:\\Users\\nites\\OneDrive\\Desktop\\Stack-Underflow-Weblyon-\\User_Portfolio\\jsonTester.js", 1, "js")
     portfolio_type()
