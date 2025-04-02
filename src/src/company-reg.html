@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="styles-comp-reg.css"> <!-- Link to your CSS -->
+</head>
+<body>
+    <div class="register-container">
+        <!-- Left Section (Form) -->
+        <div class="register-form">
+            <a href="login.html" class="login-link">Log In</a>
+            <h2>Connect with your business and bring your creative ideas to life.</h2>
+
+            <form action="#" method="POST" onsubmit="redirectToPrompts(event)">
+                <div class="input-group">
+                    <input type="text" placeholder="First name" required>
+                    <input type="text" placeholder="Last name" required>
+                </div>
+                <div class="input-group">
+                    <input type="password" placeholder="Password" required>
+                    <input type="password" placeholder="Repeat password" required>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="terms">
+                    <label for="terms">I agree with <a href="#">Terms and conditions</a></label>
+                </div>
+                <button type="submit" class="auth-btn">Create free account</button>
+            </form>
+
+            <!--<p class="footer">StackUnderflow.app © 2025</p>
+            <a href="#" class="privacy-link">Privacy Policy</a>-->
+
+            <div style="text-align: center;">
+                <a href="#" class="privacy-link">Privacy Policy</a>
+            </div>
+        </div>
+
+        <!-- Right Section (Image) -->
+        <div class="register-image"></div>
+    </div>
+    <script src="script.js"></script>
+
+</body>
+</html>

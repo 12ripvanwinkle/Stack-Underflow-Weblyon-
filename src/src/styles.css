@@ -1,0 +1,159 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    color: white;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Container for login */
+.login-container {
+    display: flex;
+    width: 900px;
+    height: 500px;
+    background: #0e0e0e;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+/* Left Section (Form) */
+.login-form {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/*Headings*/
+h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.highlight {
+    color: #00bfff;
+}
+
+p {
+    font-size: 14px;
+    color: #aaa;
+    margin-bottom: 20px;
+}
+
+/* Input Fields */
+.input-group {
+    display: flex;
+    align-items: center;
+    background: #1e1e1e;
+    border-radius: 8px;
+    padding: 10px;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.input-group img {
+    width: 20px;
+    margin-right: 10px;
+}
+
+input {
+    width: 100%;
+    background: none;
+    border: none;
+    outline: none;
+    color: white;
+}
+
+/*Options (Remember Me & Forgot Password)*/
+.checkbox-group {
+    align-items: left;
+    float: left;
+    gap: 8px; /*doesn't remove the checkbox space */
+    font-size: 12px;
+    margin-bottom: 20px;
+}
+
+.login-form a {
+    align-items: left;
+    color: #00bfff;
+    text-decoration: none;
+}
+
+/* Both buttons */
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #4d90fe;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #3b78d1;
+}
+
+.company-btn {
+    background-color: #333;
+    color: #888;
+    margin-top: 10px;
+    cursor: pointer; /* not-allowed;*/
+}
+
+/* Separator */
+.separator {
+    text-align: center;
+    margin: 20px 0;
+    color: #555;
+    position: relative;
+}
+
+.separator::before,
+.separator::after {
+    content: "";
+    display: block;
+    width: 45%;
+    height: 1px;
+    background: #444;
+    position: absolute;
+    top: 50%;
+}
+
+.separator::before {
+    left: 0;
+}
+
+.separator::after {
+    right: 0;
+}
+
+.separator span {
+    background: #0e0e0e;
+    padding: 0 10px;
+}
+
+/* Signup Text */
+.signup-text {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.signup-text a {
+    color: #00bfff;
+    text-decoration: none;
+}
+
+/* Right Section (Background Image) */
+.login-image {
+    flex: 1;
+    background: url('Weblyon Image.jpg') center/cover no-repeat;
+    border-radius: 20px;
+}
