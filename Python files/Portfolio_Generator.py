@@ -2,14 +2,7 @@
 from langchain_ollama import OllamaLLM
 from langchain_core.prompts import ChatPromptTemplate
 import os
-from bs4 import BeautifulSoup
-import threading
-import time
-from http.server import SimpleHTTPRequestHandler
-from socketserver import TCPServer
-from datetime import datetime
 import requests
-from PIL import Image
 import shutil
 import webbrowser
 import re
@@ -58,26 +51,34 @@ def ai_helper(occupation, section, web_type):
         context += f"\nUser: {user_input}\nAI: {result}"
         return satisfaction(context, result)
 
-def user_info_getter():
+def user_info_getter(portfolio_type):
     name = input("Enter your name: ")
     occupation = input("Enter your occupation: ")
-    ai_ans = input("Do you want to use AI to generate your portfolio? (y/n): ").lower()
-    
-    if ai_ans == "y":
-
-        print("The ai is generating text for you")
-        intro1 = ai_helper(occupation, 1, "Portfolio")
-        print("The ai is generating somemore text for you")
-        about_me_info = ai_helper(occupation, 2, "Portfolio")
-    else:
-        intro1 = input("Enter a 15 word short intro about you for the hero section: \n")
-        about_me_info = input("Enter a 40 word extract about you for the about me section: \n")
     pfp = input("Enter the path to your profile picture: ").strip('"')
-    user_info = {
+    if portfolio_type == 0:
+        ai_ans = input("Do you want to use AI to generate your portfolio? (y/n): ").lower()
+        
+        if ai_ans == "y":
+
+            print("The ai is generating text for you")
+            intro1 = ai_helper(occupation, 1, "Portfolio")
+            print("The ai is generating somemore text for you")
+            about_me_info = ai_helper(occupation, 2, "Portfolio")
+        else:
+            intro1 = input("Enter a 15 word short intro about you for the hero section: \n")
+            about_me_info = input("Enter a 40 word extract about you for the about me section: \n")
+        user_info = {
             "name": name,
             "occupation": occupation,
+            "pfp":pfp,
             "intro1": intro1,
-            "about_me_info": about_me_info,
+            "about_me_info": about_me_info
+        }
+    else:
+
+        user_info = {
+            "name": name,
+            "occupation": occupation,
             "pfp":pfp
         }
     return user_info
@@ -104,23 +105,25 @@ def portfolio_type():
     choice = input("0. Portfolio 0\n1. Portfolio 1\n2. Portfolio 2\n")
     match choice:
         case "0":
-            print("Portfolio 1")
-            user_info = user_info_getter()
+            print("Portfolio 0")
+            user_info = user_info_getter(0)
             contact_info = contact_info_getter()
 
             # Update in place
             user_info.update(contact_info)
             template = load_template("Portfolio_templates/portfolio_template_0.html")
+
             # Define the source and destination paths
             source_path = r"C:\Users\nites\OneDrive\Desktop\Stack-Underflow-Weblyon-\Portfolio_templates\portfolio_template_style0.css"
             destination_folder = r"C:\Users\nites\OneDrive\Desktop\Stack-Underflow-Weblyon-\User_Portfolio"
+
             # Copy the file
             shutil.copy(source_path, destination_folder)
 
             generator(user_info, template, False)
         case "1":
-            print("Portfolio 2")
-            user_info = user_info_getter()
+            print("Portfolio 1")
+            user_info = user_info_getter(0)
             template = load_template("Portfolio_templates/portfolio_template_1.html")
 
             # Define the source and destination paths
@@ -131,12 +134,24 @@ def portfolio_type():
 
             generator(user_info, template, True)
         case "2":
-            print("Portfolio 3")
+            print("Portfolio 2")
+            user_info = user_info_getter(1)
+            template = load_template("Portfolio_templates/portfolio_template_2.html")
+
+            # Define the source and destination paths
+            source_path = r"C:\Users\nites\OneDrive\Desktop\Stack-Underflow-Weblyon-\Portfolio_templates\portfolio_template_style2.css"
+            destination_folder = r"C:\Users\nites\OneDrive\Desktop\Stack-Underflow-Weblyon-\User_Portfolio"
+
+            # Copy the file
+            shutil.copy(source_path, destination_folder)
+
+            generator(user_info, template, True, 1)
+
         case _:
             print("Invalid choice")
             portfolio_type()
 
-def update_skills(html_file, services):
+def update_skills(html_file, services, special):
     # Read the existing HTML file
     with open(html_file, "r", encoding="utf-8") as file:
             content = file.read()
@@ -155,37 +170,167 @@ def update_skills(html_file, services):
         new_skills = [skill.strip() for skill in new_skills if skill.strip()]
 
         # Generate new <li> elements for the skills
-        new_skills_html = "\n".join([f'                    <li><span><i class="bx bx-chevron-right"></i> {skill}</span></li>' for skill in new_skills])
+        new_skills_html = "\n".join([f'<li><span><i class="bx bx-chevron-right"></i> {skill}</span></li>' for skill in new_skills])
 
         # Replace the existing skills with the new list
         updated_content = re.sub(r'(<div class="skills">\s*<ul>)(.*?)(</ul>\s*</div>)',
                                 rf'\1\n{new_skills_html}\n                \3', content, flags=re.DOTALL)
     else:
-        # Extract the current services section using regex
-        services_pattern = re.search(r'(<div class="services-container">)(.*?)(</div>\s*</section>)', content, re.DOTALL)
+        if special == 1:
+            # Match the full service block including icons
+            pattern = re.search(
+                r'(<div class="services-container">\s*<div class="grid">)(.*?)(</div>\s*</div>)',
+                content,
+                re.DOTALL
+            )
 
-        if not services_pattern:
-            print("Services section not found in the file.")
-            return
+            if not pattern:
+                print("Services section not found.")
+                exit()
 
-        # Prompt the user for new services
-        services_input = input("Enter services separated by commas (name: description): ").split(",")
+            # Extract the icon classes in order
+            icon_classes = re.findall(r'<i class="fa-solid ([^"]+)"></i>', pattern.group(2))
 
-        # Trim whitespace and remove empty entries
-        services = [service.strip() for service in services_input if service.strip()]
+            if not icon_classes:
+                print("No icon classes found.")
+                exit()
 
-        # Generate new service HTML
-        new_services_html = "\n".join([f'''
-            <div class="service-box">
-                <div class="service-info">
-                    <h4>{service.split(':')[0].strip()}</h4>
-                    <p>{service.split(':')[1].strip()}</p>
-                </div>
-            </div>''' for service in services])
+            # Prompt the user for new content (excluding icons)
+            print("Enter service details in this format: Title, Years, Description")
+            print("One per line. Enter exactly", len(icon_classes), "lines.")
 
-        # Replace the existing services section with the new one
-        updated_content = re.sub(r'(<div class="services-container">)(.*?)(</div>\s*</section>)',
-                                rf'\1\n{new_services_html}\n        \3', content, flags=re.DOTALL)
+            services = []
+            for i in range(len(icon_classes)):
+                user_input = input(f"Service #{i+1}: ").strip()
+                try:
+                    title, years, desc = [item.strip() for item in user_input.split(",")]
+                except ValueError:
+                    print("⚠️ Invalid format. Use: Title, Years, Description")
+                    exit()
+                services.append((title, years, desc))
+
+            # Generate new HTML blocks with preserved icons
+            service_blocks = []
+            for i, (title, years, desc) in enumerate(services):
+                icon = icon_classes[i]
+                block = f'''
+                    <div class="grid-card">
+                        <i class="fa-solid {icon}"></i>
+                        <span>{title}</span>
+                        <h3>{years}</h3>
+                        <p>{desc}</p>
+                    </div>'''
+                service_blocks.append(block)
+
+            # Join all new blocks
+            new_services_html = "\n".join(service_blocks)
+
+            # # Replace old HTML block with new one
+            # updated_content = re.sub(
+            #     r'(<div class="services-container">\s*<div class="grid">)(.*?)(</div>\s*</div>)',
+            #     rf'\1\n{new_services_html}\n        \3',
+            #     content,
+            #     flags=re.DOTALL
+            # )
+
+            # Projects section for portfolio website 2
+            projects_pattern = re.search(r'(<div class="projects-grid">)(.*?)(</div>\s*</section>)', content, re.DOTALL)
+
+            if not projects_pattern:
+                print("Projects section not found in the file.")
+            else:
+                print("Time to add your projects")
+                print("You will be prompted for the project name, description, and a picture")
+
+                projects = []
+                while True:
+                    name = input("\nProject Name (or press ENTER to stop): ").strip()
+                    if not name:
+                        break
+                    desc = input("Project Description: ").strip()
+                    # Clean the path by removing extra quotes and fixing backslashes
+                    original_img_path = input("Image Path (can be full path or URL): ").strip().replace("\\", "/")
+                    original_img_path = original_img_path.strip('"')  # Remove any surrounding quotes
+
+                    # Ensure destination folder exists
+                    destination_folder = "User_Portfolio"
+                    os.makedirs(destination_folder, exist_ok=True)
+
+                    # Extract filename and copy it as is, without URL encoding
+                    img_filename = os.path.basename(original_img_path)
+                    copied_img_path = os.path.join(destination_folder, img_filename)
+
+                    try:
+                        shutil.copy(original_img_path, copied_img_path)
+                    except Exception as e:
+                        print(f"Error copying the image: {e}")
+                        continue
+
+                    # Use relative path for HTML (without URL encoding)
+                    relative_img_path = img_filename  # Directly use the filename with spaces
+
+                    projects.append({
+                        "name": name,
+                        "desc": desc,
+                        "img": relative_img_path  # Store the image path as is
+                    })
+                # Construct the new projects HTML to insert
+                new_projects_html = ""
+                for proj in projects:
+                    new_projects_html += f'''
+                        <div class="project-card">
+                            <img src="{proj["img"]}" alt="{proj["name"]}">
+                            <h3>{proj["name"]}</h3>
+                            <p>{proj["desc"]}</p>
+                            <div class="btn-group">
+                                <div class="btn">Live Demo</div>
+                                <div class="btn">Github</div>
+                            </div>
+                        </div>'''
+                    
+                # Start by applying the services update to original content
+                updated_content = re.sub(
+                    r'(<div class="services-container">\s*<div class="grid">)(.*?)(</div>\s*</div>)',
+                    rf'\1\n{new_services_html}\n        \3',
+                    content,
+                    flags=re.DOTALL
+                )
+
+                # Then, if projects were added, update the projects section too
+                if projects:
+                    updated_content = re.sub(
+                        r'(<div class="projects-grid">)(.*?)(</div>\s*</section>)',
+                        rf'\1{new_projects_html}\3',
+                        updated_content,  # 👈 apply to already updated services content
+                        flags=re.DOTALL
+                    )
+            
+        else:
+            # Extract the current services section using regex
+            services_pattern = re.search(r'(<div class="services-container">)(.*?)(</div>\s*</section>)', content, re.DOTALL)
+
+            if not services_pattern:
+                print("Services section not found in the file.")
+                return
+
+            # Prompt the user for new services
+            services_input = input("Enter services separated by commas (name: description): ").split(",")
+
+            # Trim whitespace and remove empty entries
+            services = [service.strip() for service in services_input if service.strip()]
+
+            # Generate new service HTML
+            new_services_html = "\n".join([f'''
+                <div class="service-box">
+                    <div class="service-info">
+                        <h4>{service.split(':')[0].strip()}</h4>
+                        <p>{service.split(':')[1].strip()}</p>
+                    </div>
+                </div>''' for service in services])
+
+            # Replace the existing services section with the new one
+            updated_content = re.sub(r'(<div class="services-container">)(.*?)(</div>\s*</section>)',
+                                    rf'\1\n{new_services_html}\n        \3', content, flags=re.DOTALL)
 
     # Write the updated HTML back to the file
     with open(html_file, "w", encoding="utf-8") as file:
@@ -193,7 +338,7 @@ def update_skills(html_file, services):
 
     print("Skills updated successfully!")
 
-def generator(info, template, wtype):
+def generator(info, template, wtype, special):
     # Move the image to the project folder
     destination_folder = "User_Portfolio"
     os.makedirs(destination_folder, exist_ok=True)
@@ -205,13 +350,23 @@ def generator(info, template, wtype):
     # Set the relative path for the HTML
     pfp_path = f"{os.path.basename(info['pfp'])}"
     # Use .get() to avoid KeyError if key doesn't exist
-    if not info.get("phone") and not info.get("email") and not info.get("address"):
+    if not info.get("phone") and not info.get("email") and info.get("address") and not info.get("intro1") and not info.get("about_me_info"):
         page = template.format(
             name = info["name"],
-            
             occupation = info["occupation"],
-            intro1 = info["intro1"],
-            about_me_info = info["about_me_info"],
+            pfp = pfp_path,
+            phone=info.get("phone", ""),  # Default to empty string if 'phone' doesn't exist
+            email=info.get("email", ""),
+            address=info.get("address", ""),
+            intro1 = info.get("intro1", ""),  # Default to empty string if 'intro1' doesn't exist
+            about_me_info = info.get("about_me_info", "")
+        )
+    elif not info.get("phone") and not info.get("email") and not info.get("address"):
+        page = template.format(
+            name = info["name"], 
+            occupation = info["occupation"],
+            intro1 = info.get("intro1", ""),  # Default to empty string if 'intro1' doesn't exist
+            about_me_info = info.get("about_me_info", ""),
             pfp = pfp_path,            
             phone=info.get("phone", ""),  # Default to empty string if 'phone' doesn't exist
             email=info.get("email", ""),
@@ -240,50 +395,12 @@ def generator(info, template, wtype):
     with open(file_path, 'w', encoding='utf-8') as file:
         file.write(page)
 
-    update_skills("User_Portfolio" + "\\" + file_name + ".html", wtype)
+    update_skills("User_Portfolio" + "\\" + file_name + ".html", wtype, special)
 
     # upload_project_file("C:\Users\nites\OneDrive\Desktop\Stack-Underflow-Weblyon-\User_Portfolio", 1, "js")
 
     # Open the HTML file in the default browser
     webbrowser.open(f"file://{os.path.abspath(file_path)}")
-
-# def submitter(holder):
-#     url = "http://127.0.0.1:5000/chat"
-#     headers = {"Content-Type": "application/json"}
-#     data = {"Text": "Hello, this is a test message", "ProjectID":1}
-
-
-#     response = requests.post(url, json=data, headers=headers)
-
-#     if response.status_code == 201:  # 201 means resource created
-#         print("Successfully submitted:", response.json())
-#     else:
-#         print("Error:", response.status_code, response.text)
-#     pass
-
-# def upload_project_file(project_file, project_id,file_type):
-#         # Define the URL where the file will be uploaded
-#     url = 'http://127.0.0.1:5000/projects/1/upload/js'
-
-#     # Define the file path
-#     # file_path = '/Users/carlyon/Documents/Projects/Assignment/Capstone/Stack-Underflow-Project/Portfolio_templates/portfolio_template_script1.js'
-
-#     # Open the file in binary mode and prepare the payload
-#     files = {'file': open(project_file, 'rb')}
-#     data = {'project_id': project_id, 'file_type': file_type}
-
-#     # Send the POST request
-#     response = requests.post(url, files=files)
-
-#     # Close the file after uploading
-#     files['file'].close()
-
-#     # Check the response from the server
-#     if response.status_code == 200:
-#         print("File uploaded successfully:", response.json())
-#     else:
-#         print("Failed to upload file. Status code:", response.status_code, response.text)
-#     pass
 
 if __name__ == "__main__":
     # upload_project_file("C:\\Users\\nites\\OneDrive\\Desktop\\Stack-Underflow-Weblyon-\\User_Portfolio\\jsonTester.js", 1, "js")
