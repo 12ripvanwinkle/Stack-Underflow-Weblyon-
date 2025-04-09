@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="portfolio_template_style0.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <title>{name} Portfolio Website</title>
+    <title><!-- editable: name -->{name}<!-- endeditable -->Portfolio Website</title>
 </head>
 <body>
     
     <nav>
-        <a href="#" class="logo"><span>{name}</span></a>
+        <a href="#" class="logo"><span><!-- editable: name -->{name}<!-- endeditable --></span></a>
         
         <ul class="links">
             <a href="#home">Home</a>
@@ -27,10 +27,10 @@
     <section id="home">
         <img src={pfp} alt="">
         <div class="info-box">
-            <h1><span>Hello, I'm {name}</span></h1>
-            <h3><span>I'm a {occupation}</span> based in {address}</h3>
+            <h1><span>Hello, I'm <!-- editable: name -->{name}<!-- endeditable --></span></h1>
+            <h3><span>I'm a <!-- editable: occupation -->{occupation}<!-- endeditable --></span> based in <!-- editable: address -->{address}<!-- endeditable --></h3>
             <p>
-                {intro1}
+                <!-- editable: intro1 -->{intro1}<!-- endeditable -->
             </p>
         </div>
 
@@ -47,7 +47,7 @@
             <div class="about-info">
                 <h1><span>About Me</span></h1>
                 <p>
-                    {about_me_info}
+                    <!-- editable: about_me_info -->{about_me_info}<!-- endeditable -->
                 </p>
             </div>
 
@@ -55,18 +55,19 @@
 
             <div class="skills">
                 <ul>
-                    <li><span><i class='bx bx-chevron-right'></i> HTML</span></li>
-                    <li><span><i class='bx bx-chevron-right'></i> CSS</span></li>
-                    <li><span><i class='bx bx-chevron-right'></i> JavaScript</span></li>
-                    <li><span><i class='bx bx-chevron-right'></i> Node</span></li>
-                    <li><span><i class='bx bx-chevron-right'></i> React</span></li>
-                    <li><span><i class='bx bx-chevron-right'></i> MySQL</span></li>
+                    <li><span><i class='bx bx-chevron-right'></i> <!--editable: skill1-->HTML<!-- endeditable --></span></li>
+                    <li><span><i class='bx bx-chevron-right'></i> <!--editable: skill2-->CSS<!-- endeditable --></span></li>
+                    <li><span><i class='bx bx-chevron-right'></i> <!--editable: skill3-->JavaScript<!-- endeditable --></span></li>
+                    <li><span><i class='bx bx-chevron-right'></i> <!--editable: skill4-->Node<!-- endeditable --></span></li>
+                    <li><span><i class='bx bx-chevron-right'></i> <!--editable: skill5-->React<!-- endeditable --></span></li>
+                    <li><span><i class='bx bx-chevron-right'></i> <!--editable: skill6-->MySQL<!-- endeditable --></span></li>
                 </ul>
             </div>
 
         </div>
-
+        <!-- editable: pfp -->
         <img src={pfp} alt="">
+        <!-- endeditable -->
     </section>
 
     <section id="services">
@@ -134,24 +135,24 @@
         <div class="col-left">
             <div class="col-box">
                 <span><i class='bx bxs-location-plus'></i></span>
-                <span>{address}</span>
+                <span><!-- editable: address -->{address}<!-- endeditable --></span>
             </div>
             
             <div class="col-box">
                 <span><i class='bx bxs-phone' ></i></span>
-                <span>{phone}</span>
+                <span><!-- editable: phone -->{phone}<!-- endeditable --></span>
             </div>
 
             <div class="col-box">
                 <span><i class='bx bxs-envelope' ></i></span>
-                <span>{email}</span>
+                <span><!-- editable: email -->{email}<!-- endeditable --></span>
             </div>
         </div>
 
         <div class="col-right">
             <span>About My Services</span>
             <p>
-                {intro1}
+                <!-- editable: intro1 -->{intro1}<!-- endeditable -->
 
                 <div class="social-icons">
                     <span><i class='bx bxl-facebook-circle' ></i></span>
