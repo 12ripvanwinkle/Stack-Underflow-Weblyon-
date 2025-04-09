@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const loginForm = document.getElementById("loginForm");
     const registerForm = document.getElementById("registerForm");
 
-    function redirectToPrompts(event) {
+    function redirectToPrompts(event, targetURL = "welcome.html") {
         if (event) {
           event.preventDefault(); // Prevents actual form submission
         }

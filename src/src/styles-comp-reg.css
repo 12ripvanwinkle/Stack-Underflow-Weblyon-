@@ -13,9 +13,9 @@ body {
 /* Registration container */
 .register-container {
     display: flex;
-    width: 900px;
-    height: 500px;
-    background: #0e0e0e;
+    width: 1000px;
+    height: 560px;
+    background: #131619;
     border-radius: 20px;
     overflow: hidden;
 }
@@ -107,6 +107,6 @@ h2 {
 /* Right Section (Background Image) */
 .register-image {
     flex: 1;
-    background: url('Weblyon Image.jpg') center/cover no-repeat;
+    background: url('Weblyon-Image.jpg') center/cover no-repeat;
     border-radius: 20px;
 }

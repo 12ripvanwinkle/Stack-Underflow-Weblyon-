@@ -23,6 +23,8 @@
     "electron": "^35.1.2"
   },
   "dependencies": {
-    "electron-squirrel-startup": "^1.0.1"
+    "@firebasegen/default-connector": "file:dataconnect-generated/js/default-connector",
+    "electron-squirrel-startup": "^1.0.1",
+    "firebase": "^11.6.0"
   }
 }

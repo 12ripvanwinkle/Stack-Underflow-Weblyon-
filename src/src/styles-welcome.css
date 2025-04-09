@@ -1,0 +1,111 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* BODY: dark background & centered container */
+  body {
+    font-family: "Open Sans", sans-serif;
+    background-color: #131619;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  /* A slim header at the very top (optional) */
+  .top-header {
+    text-align: center;
+    background: #131619;
+    padding: 10px 0;
+    font-size: 0.9rem;
+    color: #008cff;
+  }
+  
+  /* MAIN container: vertically centers content if needed */
+  .welcome-container {
+    margin: 40px auto;
+    width: 90%;
+    max-width: 1000px;
+    text-align: center;
+  }
+  
+  /* Main Title */
+  .welcome-container h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    font-weight: 700;
+  }
+  
+  /* Subtitle text */
+  .subtitle {
+    color: #aaa;
+    font-size: 1rem;
+    margin-bottom: 40px;
+  }
+  
+  /* Card Wrapper: two cards side by side */
+  .card-wrapper {
+    display: flex;
+    flex-wrap: wrap;        /* wraps on smaller screens */
+    justify-content: center;/* center the cards horizontally */
+    gap: 10px;           /* space between cards */
+    margin-bottom: 1px;    /* space below the cards */  
+  }
+  
+  /* Each Card */
+  .card {
+    background-color: #0D0F10;
+    border-radius: 10px;
+    width: 440px;
+    height: 470px;          /* adjust as needed */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 30px;
+    text-align: center;
+  }
+  
+  /* Headings inside the cards */
+  .card h2 {
+    font-size: 1.8rem;
+    font-weight: 600;
+  }
+  
+  /* If you want unique styling for E-Commerce vs Portfolio, use these classes: */
+  .ecom-card h2 {
+    color: #fff;  /* White text */
+  }
+  .portfolio-card h2 {
+    color: #48b7ff; /* Teal text */
+  }
+  
+  /* Next Button */
+  .next-btn {
+    background-color: #fff; /* White background for contrast */
+    color: #0f0f0f;         /* Dark text color */
+    border: none;
+    border-radius: 6px;
+    padding: 10px 80px;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+  }
+  
+  /* Hover state for active Next buttons */
+  .next-btn:hover {
+    background-color: #eee;
+  }
+  
+  /* Disabled style (optional) */
+  .disabled {
+    background-color: #333 !important;
+    color: #888 !important;
+    cursor: not-allowed;
+  }
+  

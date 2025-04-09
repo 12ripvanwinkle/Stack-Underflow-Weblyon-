@@ -1,159 +1,131 @@
-/* General Styles */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #121212;
-    color: white;
+/* Basic Resets */
+* {
     margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
-
-/* Container for login */
-.login-container {
-    display: flex;
-    width: 900px;
-    height: 500px;
-    background: #0e0e0e;
-    border-radius: 20px;
-    overflow: hidden;
-}
-
-/* Left Section (Form) */
-.login-form {
-    flex: 1;
-    padding: 40px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-/*Headings*/
-h2 {
-    font-size: 24px;
-    margin-bottom: 10px;
-}
-
-.highlight {
-    color: #00bfff;
-}
-
-p {
-    font-size: 14px;
-    color: #aaa;
-    margin-bottom: 20px;
-}
-
-/* Input Fields */
-.input-group {
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: "Open Sans", sans-serif;
+    background-color: #131619; /* overall dark background */
+    color: #ffffff;
+    line-height: 1.6;
+  }
+  
+  /* Hero Section */
+  .hero {
+    background: #131619; /* or a dark gradient if you prefer */
     display: flex;
     align-items: center;
-    background: #1e1e1e;
-    border-radius: 8px;
-    padding: 10px;
-    gap: 10px;
-    margin-bottom: 15px;
-}
-
-.input-group img {
-    width: 20px;
-    margin-right: 10px;
-}
-
-input {
-    width: 100%;
-    background: none;
-    border: none;
-    outline: none;
-    color: white;
-}
-
-/*Options (Remember Me & Forgot Password)*/
-.checkbox-group {
-    align-items: left;
-    float: left;
-    gap: 8px; /*doesn't remove the checkbox space */
-    font-size: 12px;
+    justify-content: center;
+    text-align: center;
+    padding: 80px 20px;
+  }
+  
+  .hero-content {
+    max-width: 800px;
+  }
+  
+  .hero h1 {
+    font-size: 3rem;
     margin-bottom: 20px;
-}
-
-.login-form a {
-    align-items: left;
-    color: #00bfff;
-    text-decoration: none;
-}
-
-/* Both buttons */
-button {
-    width: 100%;
-    padding: 12px;
-    background-color: #4d90fe;
+    color: #4ca9f5; /* bright accent color for the main heading */
+  }
+  
+  .hero .subtitle {
+    font-size: 1.2rem;
+    color: #cccccc;
+    margin-bottom: 30px;
+  }
+  
+  .cta-btn {
+    background-color: #ffffff;
+    color: #0f0f0f;
     border: none;
-    border-radius: 8px;
-    color: white;
-    font-size: 16px;
+    padding: 15px 30px;
+    font-size: 1rem;
+    font-weight: 600;
     cursor: pointer;
-}
-
-button:hover {
-    background-color: #3b78d1;
-}
-
-.company-btn {
-    background-color: #333;
-    color: #888;
-    margin-top: 10px;
-    cursor: pointer; /* not-allowed;*/
-}
-
-/* Separator */
-.separator {
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    margin-bottom: 10px;
+  }
+  
+  .cta-btn:hover {
+    background-color: #eaeaea;
+  }
+  
+  .note {
+    color: #888888;
+    font-size: 0.95rem;
+    margin-top: 5px;
+  }
+  
+  /* Features Section */
+  .features {
+    display: flex;
+    flex-wrap: wrap;       /* so it stays responsive on smaller screens */
+    justify-content: center;
+    gap: 20px;
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .feature-box {
+    background: #303336;
+    border-radius: 8px;
+    padding: 20px;
+    flex: 1 1 250px;       /* each box can shrink or grow, min 250px wide */
+    max-width: 300px;
     text-align: center;
-    margin: 20px 0;
-    color: #555;
-    position: relative;
-}
-
-.separator::before,
-.separator::after {
-    content: "";
-    display: block;
-    width: 45%;
-    height: 1px;
-    background: #444;
-    position: absolute;
-    top: 50%;
-}
-
-.separator::before {
-    left: 0;
-}
-
-.separator::after {
-    right: 0;
-}
-
-.separator span {
-    background: #0e0e0e;
-    padding: 0 10px;
-}
-
-/* Signup Text */
-.signup-text {
+    transition: transform 0.2s ease;
+  }
+  
+  .feature-box:hover {
+    transform: translateY(-5px);
+  }
+  
+  .feature-box h3 {
+    color: #4ca9f5;
+    margin-bottom: 12px;
+    font-size: 1.25rem;
+  }
+  
+  .feature-box p {
+    color: #cccccc;
+    font-size: 0.95rem;
+  }
+  
+  /* Footer */
+  .footer {
     text-align: center;
-    margin-top: 15px;
-    font-size: 14px;
-}
-
-.signup-text a {
-    color: #00bfff;
+    padding: 20px 0;
+    font-size: 0.8rem;
+    color: #888888;
+  }
+  
+ /* Basic styling for hero-nav container */
+.hero-nav {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Space between buttons */
+  }
+  
+  /* Styling for hero-nav buttons (anchor links) */
+  .hero-nav-btn {
+    display: inline-block;
+    padding: 10px 18px;
+    border-radius: 4px;
+    background-color: #ffffff;
+    color: #0f0f0f;
     text-decoration: none;
-}
-
-/* Right Section (Background Image) */
-.login-image {
-    flex: 1;
-    background: url('Weblyon Image.jpg') center/cover no-repeat;
-    border-radius: 20px;
-}
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+  }
+  
+  .hero-nav-btn:hover {
+    background-color: #eaeaea;
+  }
+   
