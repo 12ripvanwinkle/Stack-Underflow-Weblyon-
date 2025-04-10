@@ -102,6 +102,7 @@ def load_template(file_path):
         
 def portfolio_type():
     print("Enter the portfolio of your choosing by entering the corresponding number")
+    # Make it proper names and not just 0,1,2
     choice = input("0. Portfolio 0\n1. Portfolio 1\n2. Portfolio 2\n")
     match choice:
         case "0":
@@ -121,6 +122,7 @@ def portfolio_type():
             shutil.copy(source_path, destination_folder)
 
             generator(user_info, template, False,0)
+
         case "1":
             print("Portfolio 1")
             user_info = user_info_getter(0)
@@ -364,6 +366,7 @@ def generator(info, template, wtype, special):
       
     # Set the relative path for the HTML
     pfp_path = f"{os.path.basename(info['pfp'])}"
+
     # Use .get() to avoid KeyError if key doesn't exist
     if not info.get("phone") and not info.get("email") and info.get("address") and not info.get("intro1") and not info.get("about_me_info"):
         page = template.format(
@@ -403,9 +406,11 @@ def generator(info, template, wtype, special):
     folder_path = "User_Portfolio"
     # ensure the folder exists, otherwise create it
     os.makedirs(folder_path, exist_ok=True)
+    
     # define the file path
     file_name = input("Enter the name of the file (do not enter '.html'): ")
     file_path = os.path.join(folder_path, file_name + ".html")
+
     # creates the file
     with open(file_path, 'w', encoding='utf-8') as file:
         file.write(page)

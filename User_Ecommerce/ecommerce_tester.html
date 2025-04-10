@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="Cafestyle.css">
     <script src="Cafescript.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
-    <title>{name}</title>
+    <title>Central Perk</title>
 </head>
 <body>
     
@@ -35,9 +35,9 @@
 
     <section class="home" id="home">
         <div class="home-text">
-            <h1>Start your day <br> with Coffee at {name}</h1>
+            <h1>Start your day <br> with Coffee at Central Perk</h1>
             <p>
-                {intro1}
+                Warmly inviting customers, our cozy cafe serves specialty coffee and delectable treats in a welcoming atmosphere.
             </p>
             <a href="#" class="btn">Shop Now</a>
         </div>
@@ -49,18 +49,18 @@
     <!-- about section -->
     <section class="about" id="about">
         <div class="about-img">
-            <img src={pfp} alt="about image" >
+            <img src=d6c4bf6d57d9e20df7ee967c9754e5e2.jpg alt="about image" >
         </div>
         <div class="about-text">
             <h2>About Us</h2>
 
             <p>
-                {about_me_info}
+                "Step into our cozy cafe and experience the perfect blend of warmth and welcome. Our expertly crafted coffee drinks, paired with freshly baked treats, will leave you feeling energized and satisfied. Come for the coffee, stay for the charm!"
             </p>
             <h2>Our History</h2>
 
             <p>
-                {history}
+                I said yo lets open up a coffee house
             </p>
             <a href="#" class="btn">Learn More</a>
         </div>
@@ -74,7 +74,25 @@
 
         <!-- holder -->
          <div class="products-container">
-            {products}  <!-- This will be replaced dynamically with the correct number of products -->
+            
+            <div class="box">
+                <img src="hotChocolate.jpg" alt="Hot Chocolate">
+                <h3>Hot Chocolate</h3>
+                <div class="content">
+                    <span>$25</span>
+                    <a href="#">Add to cart</a>
+                </div>
+            </div>
+        
+            <div class="box">
+                <img src="french_vanilla.jpg" alt="French Vanilla">
+                <h3>French Vanilla</h3>
+                <div class="content">
+                    <span>$25</span>
+                    <a href="#">Add to cart</a>
+                </div>
+            </div>
+          <!-- This will be replaced dynamically with the correct number of products -->
         </div>
         
     </section>
@@ -93,7 +111,7 @@
                     <i class='bx bxs-star'></i>
                     <i class='bx bxs-star-half'></i>
                 </div>
-                <p>{review1}</p>
+                <p>I awesome</p>
                 <h2>Jane Doe</h2>
                 <!-- insert image -->
                  <img src="review1.jpg" alt="">
@@ -105,7 +123,7 @@
                     <i class='bx bxs-star'></i>
                     <i class='bx bxs-star-half'></i>
                 </div>
-                <p>{review2}</p>
+                <p>Best Hot Chocolate ever</p>
                 <h2>Jane Doe</h2>
                 <!-- insert image -->
                  <img src="review2.jpg" alt="">
@@ -117,7 +135,7 @@
                     <i class='bx bxs-star'></i>
                     <i class='bx bxs-star-half'></i>
                 </div>
-                <p>{review3}</p>
+                <p>It Tuff man</p>
                 <h2>Jane Doe</h2>
                 <!-- insert image -->
                  <img src="review3.jpg" alt="">
@@ -129,7 +147,7 @@
     <section class="footer">
         <div class="footer-box">
             <h2>Coffee Shop</h2>
-            <p>{intro1}</p>
+            <p>Warmly inviting customers, our cozy cafe serves specialty coffee and delectable treats in a welcoming atmosphere.</p>
             <div class="social">
                 <a href="#"><i class='bx bxl-facebook'></i></a>
                 <a href="#"><i class='bx bxl-twitter'></i></a>
@@ -154,16 +172,16 @@
         <div class="footer-box">
             <h3>Contact</h3>
             <div class="contact">
-                <span><i class='bx bxs-map' ></i>{address}</span>
-                <span><i class='bx bxs-phone' ></i>{phone}</span>
-                <span><i class='bx bxs-envelope' ></i>{email}</span>
+                <span><i class='bx bxs-map' ></i>Bucktoe Street 12</span>
+                <span><i class='bx bxs-phone' ></i>12345678</span>
+                <span><i class='bx bxs-envelope' ></i>centralperk@gmail.com</span>
             </div>
         </div>
     </section>
 
     <!-- Copyright -->
     <div class="copyright">
-        <p>&#169 {name} all rights reserved</p>
+        <p>&#169 Central Perk all rights reserved</p>
     </div>
 
 </body>

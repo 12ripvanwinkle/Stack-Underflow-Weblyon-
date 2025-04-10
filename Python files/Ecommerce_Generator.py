@@ -86,7 +86,7 @@ def business_info_getter(business_type):
     product_images = []
     print("Enter", num_products, " file path to images for your products")
     for i in range (num_products):
-        image = input("Enter the path to your profile picture: ").strip('"')
+        image = input("Enter the path to your product picture: ").strip('"')
         product_images.append(image)
     pfp = input("Enter the path to your profile picture: ").strip('"')
 
@@ -127,12 +127,37 @@ def ecommerce_type():
             # Copy the file
             shutil.copy(source_path, destination_folder)
 
-            # Define the source and destination paths
-            source_folder = r"C:\Users\nites\OneDrive\Desktop\Stack-Underflow-Weblyon-\Ecommerce_templates\cafe_images"
-            destination_images_folder = os.path.join(destination_folder, "cafe_images")  # Ensure correct destination
+            from ecommerce_helper import copy_image_and_update_css, review_images_getter
+            
+            # Specify the folder where images are stored, the destination folder, and the CSS file
+            image_folder = "Ecommerce_templates/cafe_images"  # Folder where images are stored
+            destination_folder = "User_Ecommerce"  # Folder where the image and CSS will be copied
+            css_file = "User_Ecommerce/Cafestyle.css"  # The CSS file to update
+            target_image_name = "f4b468c720a97521602be6095de1abec.jpg"  # The specific image to use
 
-            # Copy the entire 'cafe_images' folder
-            shutil.copytree(source_folder, destination_images_folder)
+            # Ensure the destination folder exists
+            os.makedirs(destination_folder, exist_ok=True)
+
+            # Call the function to copy image and update CSS
+            copy_image_and_update_css(image_folder, destination_folder, css_file, target_image_name)
+
+            # Hardcoded list of images to copy
+            images_to_copy = [
+                "review1.jpg",
+                "review2.jpg",
+                "review3.jpg",
+            ]
+            
+            # Copy each image
+            for image_name in images_to_copy:
+                src_path = os.path.join("Ecommerce_templates", image_name)
+                dst_path = os.path.join(destination_folder, image_name)
+
+                if os.path.exists(src_path):
+                    shutil.copy(src_path, dst_path)
+                    print(f"Copied {image_name} to {destination_folder}")
+                else:
+                    print(f"File not found: {image_name}")
 
             generator(info, template)
         case "2":
