@@ -121,6 +121,9 @@ def portfolio_type():
             # Copy the file
             shutil.copy(source_path, destination_folder)
 
+            source_path = r"C:\Users\nites\OneDrive\Desktop\Stack-Underflow-Weblyon-\Portfolio_templates\portfolio_template_script0.js"
+            shutil.copy(source_path, destination_folder)
+
             generator(user_info, template, False,0)
 
         case "1":
@@ -134,6 +137,8 @@ def portfolio_type():
             # Copy the file
             shutil.copy(source_path, destination_folder)
 
+
+
             generator(user_info, template, True,0)
         case "2":
             print("Portfolio 2")
@@ -146,6 +151,7 @@ def portfolio_type():
 
             # Copy the file
             shutil.copy(source_path, destination_folder)
+
 
             generator(user_info, template, True, 1)
 
