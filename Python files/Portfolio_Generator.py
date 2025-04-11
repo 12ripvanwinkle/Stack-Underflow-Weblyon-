@@ -228,7 +228,7 @@ def update_skills(html_file, services, special):
                 try:
                     title, years, desc = [item.strip() for item in user_input.split(",")]
                 except ValueError:
-                    print("⚠️ Invalid format. Use: Title, Years, Description")
+                    print("Invalid format. Use: Title, Years, Description")
                     exit()
                 services.append((title, years, desc))
 

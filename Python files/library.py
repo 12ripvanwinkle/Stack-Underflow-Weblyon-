@@ -1,6 +1,7 @@
 import os
 import re
 import shutil
+import webbrowser
 
 def load_file(file_path):
     """Read the HTML template from a file with UTF-8 encoding."""
@@ -8,7 +9,7 @@ def load_file(file_path):
         with open(file_path, 'r', encoding='utf-8') as file:
             return file.read()
     except FileNotFoundError:
-        print(f"❌ File not found: {file_path}")
+        print(f"File not found: {file_path}")
         return None
 
 def extract_editable_sections(html_content):
@@ -31,7 +32,7 @@ def edit_html_file(file_path):
     while True:
         sections = extract_editable_sections(html)
         if not sections:
-            print("❌ No editable sections found.")
+            print("No editable sections found.")
             break
 
         print("\n🎯 Editable Sections Found:")
@@ -43,7 +44,7 @@ def edit_html_file(file_path):
             break
 
         if user_input not in sections:
-            print("❌ Invalid section name.")
+            print("Invalid section name.")
             continue
 
         if user_input.lower() == "pfp":
@@ -53,7 +54,7 @@ def edit_html_file(file_path):
             
             # Check if file exists
             if not os.path.exists(new_picture_path):
-                print(f"❌ File not found: {new_picture_path}")
+                print(f"File not found: {new_picture_path}")
                 print("⚠️ Skipping update due to image copy failure.")
                 continue
             
@@ -78,7 +79,12 @@ def edit_html_file(file_path):
     # Save changes
     with open(file_path, 'w', encoding='utf-8') as file:
         file.write(html)
-    print("💾 All changes saved to the file.")
+    print("All changes saved to the file.")
+
+    abs_path = os.path.abspath(file_path)
+    print(f"Previewing {abs_path} in your browser...")
+    webbrowser.open(f"file://{abs_path}")
+
 
 def display_html_files(folder1, folder2):
     folders = [folder1, folder2]
@@ -95,12 +101,12 @@ def display_html_files(folder1, folder2):
                     print(f"  ➜ Found: {file_name}")
                     html_files[name_only] = file_path
         except FileNotFoundError:
-            print(f"❌ Error: Folder '{folder}' not found!")
+            print(f"Error: Folder '{folder}' not found!")
         except Exception as e:
             print(f"⚠️ An error occurred: {e}")
 
     if not html_files:
-        print("\n🚫 No HTML files found.")
+        print("\nNo HTML files found.")
         return
     
     choice = input("Which File Do you wish to edit (enter the file name): ").strip()
@@ -109,12 +115,12 @@ def display_html_files(folder1, folder2):
         file_path = html_files[choice]
         edit_html_file(file_path)
     else:
-        print("❌ Invalid choice. File not found.")
+        print("Invalid choice. File not found.")
 
 def copy_image_to_html_directory(image_path, html_file_path):
     """Copies the image to the same folder as the HTML file and returns just the new image name."""
     if not os.path.isfile(image_path):
-        print(f"❌ File not found: {image_path}")
+        print(f"File not found: {image_path}")
         return None
 
     html_dir = os.path.dirname(html_file_path)
@@ -123,14 +129,54 @@ def copy_image_to_html_directory(image_path, html_file_path):
 
     try:
         shutil.copy(image_path, destination)
-        print(f"📸 Image copied to {destination}")
+        print(f"Image copied to {destination}")
         return image_filename
     except Exception as e:
-        print(f"⚠️ Failed to copy image: {e}")
+        print(f"Failed to copy image: {e}")
         return None
+
+def preview_website(portfolio, ecommerce):
+    folder = [portfolio, ecommerce]
+    html_files = {}
+
+    print("Your Websites: ")
+    for x in folder:
+        print(f"{x}")
+        try:
+            for file in os.listdir(x):
+                if file.endswith(".html"):
+                    name = file[:-5]
+                    full_path = os.path.join(x, file)
+                    html_files[name] = full_path
+                    print(f"  - {name}")
+        except FileNotFoundError:
+            print(f"Folder not found: {x}")
+        except Exception as e:
+            print(f"error reading '{x}': {e}")
+
+    if not html_files:
+        print("🚫 No HTML files found to preview.")
+        return
+    
+    choice = input("\n🔍 Enter the name of the file you want to preview: ").strip()
+
+    if choice in html_files:
+        full_path = os.path.abspath(html_files[choice])
+        print(f"🌐 Opening {full_path} in your browser...")
+        webbrowser.open(f"file://{full_path}")
+    else:
+        print("❌ Invalid file name. Please try again.")
 
 # Example usage
 if __name__ == "__main__":
     folder1 = "User_Portfolio"
     folder2 = "User_Ecommerce"
-    display_html_files(folder1, folder2)
+
+    main_choice = input("Enter 'preview' to preview a website and 'edit' to edit: ").lower()
+    
+    if main_choice == "preview":
+        preview_website(folder1,folder2)
+    elif main_choice == "edit":
+        display_html_files(folder1, folder2)
+    else:
+        print("naahh bro")
