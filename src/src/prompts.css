@@ -1,0 +1,126 @@
+/* RESET & BASE */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: "Open Sans", sans-serif;
+    background-color: #0f0f0f; /* fallback if needed */
+    color: #fff;
+   /* height: 100vh;*//* full height of the viewport */ 
+  }
+  
+  /* MAIN WRAPPER: Two columns side by side */
+  .container {
+    display: flex;
+    width: 100%;
+    /*max-width: 1400px;*/
+    /*margin: 0 auto; /* centers the container */
+    min-height: 100vh;
+   /* border-radius:20px;*/
+    /*overflow: hidden; /* ensures no scrollbars from rounding etc. */
+  }
+  
+  /* LEFT COLUMN */
+  .left-section {
+    flex: 2;
+    background: #131619; /* or any other dark shade you prefer */
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+  }
+  
+  /* "Log In" link in top-right or top-left (adjust text-align if needed) */
+  .top-link {
+    text-align: left; /* or right, depending on design */
+    margin-bottom: 20px;
+  }
+  .top-link a {
+    color: #00bfff;
+    text-decoration: none;
+    font-size: 0.9rem;
+  }
+  .top-link a:hover {
+    text-decoration: underline;
+  }
+  
+  /* FORM CONTENT WRAPPER */
+  .form-content {
+  /*  max-width: 500px; /* limit form width to keep it neat */
+ /*   margin: auto 0; /* pushes content down so it starts below the .top-link */
+    width: 100%
+  }
+  
+  /* HEADLINE */
+  .form-content h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    line-height: 1.3;
+    margin-bottom: 24px;
+  }
+  
+  /* FORM ELEMENTS */
+  .form-content form {
+    display: flex;
+    flex-direction: column;
+  }
+  .form-content label {
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #aaa;
+  }
+  .form-content input,
+  .form-content textarea {
+    background: #1A1D21;
+    border: none;
+    border-radius: 6px;
+    padding: 12px;
+    margin-bottom: 20px;
+    color: #fff;
+    font-size: 1rem;
+    outline: none;
+  }
+  .form-content input::placeholder,
+  .form-content textarea::placeholder {
+    color: #888;
+    font-size: 0.95rem;
+  }
+  
+  /* SUBMIT BUTTON */
+  .submit-btn {
+    background-color: #fff;
+    color: #0f0f0f;
+    border: none;
+    border-radius: 6px;
+    padding: 14px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  .submit-btn:hover {
+    background-color: #eaeaea;
+  }
+  
+  /* RIGHT COLUMN: swirl background image */
+  .right-section {
+    flex: 1;
+    background: url("Weblyon-Image.jpg") center center no-repeat; 
+    border-top-left-radius:20px;         /* ← curve the upper‑left corner  */
+    border-bottom-left-radius:20px;      /* ← curve the lower‑left corner */
+    background-size: cover;
+  }
+  
+  /* RESPONSIVENESS (optional) */
+  @media (max-width: 900px) {
+    .container {
+      flex-direction: column; /* stack form above image on smaller screens */
+    }
+    .right-section {
+      height: 300px; /* to show partial swirl if stacked */
+    }
+  }
+  

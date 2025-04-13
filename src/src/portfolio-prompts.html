@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Set Up Your Website</title>
+  <!-- Link to your CSS -->
+  <link rel="stylesheet" href="prompts.css" />
+</head>
+<body>
+  <div class="container">
+    <!-- LEFT SIDE (FORM SECTION) -->
+    <div class="left-section">
+      <!-- Top link for "Log In" -->
+      <div class="top-link">
+        <a href="login.html">Log In</a>
+      </div>
+
+      <div class="form-content">
+        <h2>Set up your website, just fill out the form<br/> with your details</h2>
+        
+        <form action="#" method="POST">
+          <label for="fullName">Full Name</label>
+          <input type="text" id="fullName" placeholder="Full Name" required />
+          
+          <label for="occupation">Occupation</label>
+          <input type="text" id="occupation" placeholder="Occupation" required />
+
+          <label for="about">Information About You</label>
+          <textarea id="about" rows="3" placeholder="Information About You"></textarea>
+          
+          <label for="emailAddress">Email Address</label>
+          <input type="email" id="emailAddress" placeholder="Email Address" required />
+
+          <label for="phoneNumber">Phone Number</label>
+          <input type="text" id="phoneNumber" placeholder="+0(000)000-0000" required />
+
+          <label for="parish">Parish / State / Parish</label>
+          <input type="text" id="parish" placeholder="Location" />
+
+          <label for="location">Location</label>
+          <input type="text" id="location" placeholder="Location" />
+
+          <button type="button" class="submit-btn" onclick="window.location.href='website-results.html'">Create Your Online Portfolio</button>
+
+        </form>
+      </div>
+    </div>
+
+    <!-- RIGHT SIDE (BACKGROUND IMAGE) -->
+    <div class="right-section">
+      <!-- The swirl image is set via CSS -->
+    </div>
+  </div>
+</body>
+</html>
