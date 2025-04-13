@@ -1,0 +1,183 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* BODY: dark theme */
+  body {
+    background: #141414;
+    color: #fff;
+    font-family: "Open Sans", sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* ---------- TOP BAR ---------- */
+  .weblyon-header {
+    background: #1d1d1d;
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    gap: 20px;
+  }
+  .weblyon-header h1 {
+    font-size: 1.3rem;
+    flex: 1; /* push the tabs to the right */
+  }
+  /* The 2 tabs */
+  .weblyon-tabs {
+    display: flex;
+    gap: 16px;
+  }
+  .tab {
+    background: none;
+    border: none;
+    color: #999;
+    padding: 6px 12px;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    font-size: 0.9rem;
+    transition: color 0.2s;
+  }
+  .tab:hover {
+    color: #fff;
+  }
+  .tab.active {
+    color: #fff;
+    border-bottom-color: #00bfff;
+  }
+  
+  /* ---------- TEMPLATE WRAPPER ---------- */
+  .template-wrapper {
+    margin: 20px auto;
+    max-width: 1200px;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .intro-text {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    color: #ccc;
+  }
+  
+  /* The 3 website cards in a row */
+  .template-grid {
+    display: flex;
+    gap: 20px;
+    justify-content: center; /* or flex-start, if you prefer left alignment */
+  }
+  
+  /* Each card */
+  .template-card {
+    background: #1a1a1a;
+    width: 240px;
+    height: 300px; /* adjust as needed */
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  .template-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px 8px 0 0;
+  }
+  .card-menu {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.25rem;
+    cursor: pointer;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+  }
+  .card-menu:hover {
+    opacity: 1;
+  }
+  
+  /* Random button, row for it */
+  .randomiser-row {
+    display: flex;
+    justify-content: center;
+  }
+  .random-btn {
+    background: #fff;
+    color: #141414;
+    border: none;
+    font-size: 1rem;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  .random-btn:hover {
+    background:linear-gradient(145deg,#2a2a2a,#121212);
+  }
+
+  .randomiser‑row{display:flex;justify-content:center;margin:48px 0 28px}
+.random‑btn{
+    width:260px;padding:14px 0;
+    background:linear-gradient(145deg,#202020,#131619);
+    color:#fff;font-size:20px;font-weight:600;
+    border:none;border-radius:12px;cursor:pointer;
+    transition:background .25s;
+    box-shadow:0 5px 15px rgba(0,0,0,.25);
+}
+.random‑btn:hover{background:linear-gradient(145deg,#2a2a2a,#121212)}
+  
+  /* Toggle AI assistance */
+  .ai-toggle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    color: #ccc;
+    margin-top: 10px;
+  }
+  .ai-toggle input[type="checkbox"] {
+    transform: scale(1.2);
+  }
+  
+  /* ---------- CHAT BAR AT BOTTOM ---------- */
+  .chat-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #1d1d1d;
+    padding: 10px 20px;
+    margin-top: auto; /* push to bottom */
+  }
+  .chat-bar input {
+    flex: 1;
+    background: #141414;
+    border: none;
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+  }
+  .chat-icon img {
+    width: 24px;
+    height: 24px;
+  }
+  .chat-send {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    color: #00bfff;
+    cursor: pointer;
+    transition: color 0.2s;
+  }
+  .chat-send:hover {
+    color: #fff;
+  }
+  

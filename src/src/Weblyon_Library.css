@@ -1,0 +1,144 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* BODY: fill full screen */
+body {
+  font-family: "Open Sans", sans-serif;
+  background: #141414;
+  color: #fff;
+  min-height: 100vh;
+  /* let content scroll if needed */
+}
+
+/* LEFT BOX: big black box with heading, tabs, filter, cards */
+.left-box {
+  background: #1d1d1d;
+  border-radius: 8px;
+  margin: 20px;
+  padding: 20px;
+}
+
+/* HEADER ROW: 
+   has "Weblyon Library" on left, tabs & filter on right */
+.header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.header-row h1 {
+  font-size: 1.4rem;
+}
+.tabs-filter {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+.tabs {
+  display: flex;
+  gap: 16px;
+}
+.tab {
+  background: none;
+  border: none;
+  color: #999;
+  padding: 6px 12px;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.2s;
+}
+.tab:hover {
+  color: #fff;
+}
+.tab.active {
+  color: #fff;
+  border-bottom-color: #00bfff;
+}
+.filter input {
+  border: none;
+  border-radius: 4px;
+  padding: 6px 12px;
+  font-size: 0.9rem;
+}
+
+/* CARDS GRID */
+.cards-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.card {
+  position: relative;
+  background: #2a2a2a;
+  border-radius: 8px;
+  width: 200px;
+  padding: 10px;
+}
+.card-overlay {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: flex;
+  gap: 4px;
+}
+.edit-btn, .delete-btn {
+  background: rgba(0,0,0,0.5);
+  border: none;
+  color: #fff;
+  font-size: 0.9rem;
+  padding: 4px 6px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.card-preview {
+  margin-top: 40px;
+  background: #1a1a1a;
+  border-radius: 4px;
+  text-align: center;
+  padding: 20px;
+}
+
+/* FLOATING PLUS BUTTON at bottom-right */
+.plus-btn {
+  position: fixed; 
+  bottom: 20px; 
+  right: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px; 
+  height: 50px;
+  border: 2px dashed #00bfff;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 2rem;
+  text-decoration: none;
+  transition: background 0.3s, color 0.3s;
+}
+.plus-btn:hover {
+  background: #00bfff;
+  color: #141414;
+}
+
+/* LOADING OVERLAY */
+.loading-overlay {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(20,20,20,0.8);
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+}
+.loader {
+  font-size: 1.3rem;
+  color: #00bfff;
+}

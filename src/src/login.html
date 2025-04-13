@@ -1,51 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <title>WebLyon – Login</title>
+  <!-- Make sure this points to your final CSS file -->
+  <link rel="stylesheet" href="styles-login.css" />
 </head>
 <body>
-    <div class="login-container">
-        <!-- Left Section (Form) -->
-        <div class="login-form">
-            <h2>Let's get <span class="highlight">started!</span></h2>
-            <p>Log in to WebLyon to start creating magic.</p>
-
-            <form id="loginForm">
-                <div class="input-group">
-                    <img src="assets/email-icon.svg" alt="Email Icon">
-                    <input type="email" id="email" placeholder="Email Address" required>
-                </div>
-
-                <div class="input-group"> 
-                    <img src="assets/lock-icon.svg" alt="Password Icon">
-                    <input type="password" id="password" placeholder="Password" required>
-                </div>
-                <div class="checkbox-group">
-                    <input type="checkbox" id="Remember">
-                </div>
-                <label for="Remember"> Remember me <a href="#">Forgot Password?</a></label>
-                <button type="submit">Log in</button>
-
-                <div class="separator">
-                    <span>or</span>
-                </div>
-
-                <!--<button id= "registerCompanyBtn" class="company-btn" >Register as your company</button>-->
-                <button id="registerCompanyBtn" class="company-btn" onclick="location.href='company-reg.html'">Register as your company</button>
-
-                <p class="signup-text">Don’t have an account? <a href="register.html">Sign Up</a></p>
-            </form>
+  <!-- Main container that splits into left (form) & right (background) -->
+  <div class="login-container">
+    
+    <!-- LEFT: Login Form Section -->
+    <div class="login-form-section">
+      <div class="login-form-content">
+        <h1>Let’s get <span class="highlight">started!</span></h1>
+        <p class="subtitle">Log in to WebLyon to start creating magic.</p>
+        
+        <form class="login-form">
+          <!-- Email Field -->
+          <div class="form-group">
+            <label for="email">Email</label>
+            <img src="email-icon.svg" alt="Email Icon" class="icon" />
+            <input type="text" id="email" placeholder="Email Address" />
+          </div>
+          
+          <!-- Password Field -->
+          <div class="form-group">
+            <label for="password">Password</label>
+            <img src="lock-icon.svg" alt="Password Icon" class="icon" />
+            <input type="password" id="password" placeholder="Password" />
+          </div>
+          
+          <!-- Remember me & Forgot Password -->
+          <div class="extra-options">
+            <label>
+              <input type="checkbox" /> Remember me
+            </label>
+            <a href="#" class="forgot-password">Forgot Password?</a>
+          </div>
+          
+          <!-- Login Button -->
+          <button class="login-btn" onclick="window.location.href='welcome.html'">Log in</button>
+        </form>
+        
+        <!-- Divider (or) -->
+        <div class="divider">
+          <span>or</span>
         </div>
-
-        <!-- Right Section (Image) -->
-        <div class="login-image"></div>
+        
+        <!-- Register as company -->
+        <a href="company-reg.html" class="register-company-btn">Register as your company</a>
+        
+        <!-- Sign Up link -->
+        <div class="signup-link">
+          <p>Don’t have an account? <a href="register.html">Sign Up</a></p>
+        </div>
+      </div>
     </div>
-
-   <!--script src="assets/script.js"></script>-->
-    <script src="script.js"></script>
-
+    
+    <!-- RIGHT: Background Image Section -->
+    <div class="right-image-section"></div>
+  </div>
 </body>
 </html>

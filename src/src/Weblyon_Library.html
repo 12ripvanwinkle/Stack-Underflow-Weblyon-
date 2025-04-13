@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Website Library</title>
+  <link rel="stylesheet" href="Weblyon_Library.css" />
+</head>
+<body>
+  <div class="page-container">
+    
+    <!-- LEFT BOX: heading + tabs + filter + squares -->
+    <div class="left-box">
+      <!-- Header row: Title on left, tabs & filter on right -->
+      <div class="header-row">
+        <h1>Weblyon Library</h1>
+        <div class="tabs-filter">
+          <div class="tabs">
+            <a href="website-results.html" class="tab">Weblyon</a>
+            <button class="tab active">Website Library</button>
+          </div>
+          <div class="filter">
+            <input type="text" id="filterInput" placeholder="Filter templates..." />
+          </div>
+        </div>
+      </div>
+
+      <!-- Cards grid: squares go here -->
+      <div class="cards-grid">
+        <!-- Card 1 -->
+        <div class="card">
+          <div class="card-overlay">
+            <button class="edit-btn" title="Edit">✎</button>
+            <button class="delete-btn" title="Delete">🗑</button>
+          </div>
+          <div class="card-preview">
+            <p>Website 1</p>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="card">
+          <div class="card-overlay">
+            <button class="edit-btn" title="Edit">✎</button>
+            <button class="delete-btn" title="Delete">🗑</button>
+          </div>
+          <div class="card-preview">
+            <p>Website 2</p>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="card">
+          <div class="card-overlay">
+            <button class="edit-btn" title="Edit">✎</button>
+            <button class="delete-btn" title="Delete">🗑</button>
+          </div>
+          <div class="card-preview">
+            <p>Website 3</p>
+          </div>
+        </div>
+      </div> <!-- .cards-grid -->
+    </div> <!-- .left-box -->
+    
+    <!-- RIGHT COLUMN: plus button -->
+    <div class="plus-column">
+      <a href="#" id="plusButton" class="plus-btn" title="Add New">+</a>
+    </div>
+  </div>
+
+  <!-- LOADING OVERLAY (hidden by default) -->
+  <div id="loadingOverlay" class="loading-overlay">
+    <div class="loader">Loading...</div>
+  </div>
+  
+  <script>
+    // FILTER FUNCTIONALITY
+    document.getElementById("filterInput").addEventListener("keyup", function() {
+      var filterText = this.value.toLowerCase();
+      var cards = document.querySelectorAll(".card");
+      cards.forEach(function(card) {
+        var previewText = card.querySelector(".card-preview p").innerText.toLowerCase();
+        card.style.display = (previewText.indexOf(filterText) > -1) ? "" : "none";
+      });
+    });
+    
+    // PLUS BUTTON: show loading overlay, then redirect
+    document.getElementById("plusButton").addEventListener("click", function(event) {
+      event.preventDefault();
+      var overlay = document.getElementById("loadingOverlay");
+      overlay.style.display = "flex";
+      overlay.style.opacity = 0;
+      var opacity = 0;
+      var fadeIn = setInterval(function() {
+        if (opacity >= 1) {
+          clearInterval(fadeIn);
+        } else {
+          opacity += 0.1;
+          overlay.style.opacity = opacity;
+        }
+      }, 30);
+      setTimeout(function() {
+        window.location.href = "welcome.html";
+      }, 1000); 
+    });
+  </script>
+</body>
+</html>
