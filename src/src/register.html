@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="styles-reg.css"> <!-- Link to your CSS -->
+</head>
+<body>
+    <div class="register-container">
+        <!-- Left Section (Form) -->
+        <div class="register-form">
+            <a href="login.html" class="login-link">Register</a>
+            <h2>Connect with your clients and turn your creative vision into reality.</h2>
+
+            <form id="registerForm" action="#" method="POST">
+                <!-- 2‑column row -->
+                <div class="field-row">
+                    <input type="text"  placeholder="First name"  required>
+                    <input type="text"  placeholder="Last name"   required>
+                </div>
+            
+                <!-- single full‑width field -->
+                <div class="input-group">
+                    <input type="email" placeholder="Email" required>
+                </div>
+            
+                <!-- 2‑column row -->
+                <div class="field-row">
+                    <input type="password" placeholder="Password"         required>
+                    <input type="password" placeholder="Repeat password"  required>
+                </div>
+            
+                <!-- terms + button on their own line -->
+                <div class="terms-row">
+                    <label>
+                        <input type="checkbox" id="terms" required>
+                        I agree with <a href="#">Terms and conditions</a>
+                    </label>
+                </div>
+            
+                <!-- <button type="submit" class="auth-btn">Create free account</button> -->
+                <button class="auth-btn" onclick="window.location.href='welcome.html'">Create free account</button>
+
+            </form>
+
+            <p class="login-prompt">Already have an account? <a href="login.html" class="login-link">Login</a></p>
+
+            <!--<p class="footer">StackUnderflow.app © 2025</p>
+            <a href="#" class="privacy-link">Privacy Policy</a>-->
+
+            <div style="display: flex; justify-content: space-between; align-items: flex-end;">
+                <p class="footer">StackUnderflow.app © 2025</p>
+                <a href="#" class="privacy-link">Privacy Policy</a>
+              </div>
+        </div>
+
+        <!-- Right Section (Image) -->
+        <div class="register-image"></div>
+    </div>
+    <script src="script.js"></script>
+
+
+    
+</body>
+</html>

@@ -1,0 +1,159 @@
+/* General Styling */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #0d0f12;
+    color: #fff;
+}
+
+/* Layout */
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    background: #121417;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.profile img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.menu h3 {
+    font-size: 12px;
+    margin-top: 20px;
+    color: #bbb;
+}
+
+.menu ul {
+    list-style: none;
+    padding: 0;
+}
+
+.menu li {
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.menu .active {
+    background: #1d1f23;
+    font-weight: bold;
+}
+
+/* User Profile */
+.user {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #1d1f23;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.user img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+/* Main Content */
+.main-content {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Header */
+header {
+    background: #1a1c20;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.tabs {
+    margin-top: 10px;
+}
+
+.tabs button {
+    background: none;
+    border: none;
+    color: #bbb;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.tabs .active {
+    color: #00bfff;
+    border-bottom: 2px solid #00bfff;
+}
+
+/* Innovation Pack */
+.innovation-pack {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.grid {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.category {
+    background: #181a1e;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.category h3 {
+    margin-top: 10px;
+}
+
+.category button {
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+    background: #1d1f23;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Prompt Box */
+.prompt-box {
+    background: #1a1c20;
+    padding: 15px;
+    display: flex;
+    border-radius: 10px;
+}
+
+.prompt-box input {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    background: #121417;
+    color: white;
+    border-radius: 5px;
+}
+
+.prompt-box button {
+    background: #00bfff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}

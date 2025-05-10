@@ -1,0 +1,198 @@
+/* ---------- Base & Layout ---------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Centers the .login-container in the viewport */
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  /* Main container: half for form, half for image */
+  .login-container {
+    display: flex;
+    width: 1000px;
+    height: 560px;
+    background: #0e0e0e;
+    border-radius: 12px;
+    overflow: hidden; /* keeps corners rounded */
+  }
+  
+  /* ---------- LEFT: Form Panel ---------- */
+  .login-form-section {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #131619; /* or #1a1a1a, if you prefer slightly lighter/darker */
+    padding: 40px;
+  }
+  
+  /* Wraps your heading, paragraphs, form, etc. */
+  .login-form-content {
+    max-width: 350px;
+    width: 100%;
+  }
+  
+  /* Heading & subheading */
+  .login-form-content h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    font-weight: 700;
+  }
+  
+  .highlight {
+    color: #00bfff; /* accent color */
+  }
+  
+  .subtitle {
+    font-size: 0.9rem;
+    color: #aaa;
+    margin-bottom: 2rem;
+  }
+  
+  /* Actual form */
+  .login-form .form-group {
+    position: relative; /* so icons can float inside if needed */
+    margin-bottom: 1.5rem;
+  }
+  
+  .login-form .form-group label {
+    display: block;
+    margin-bottom: 0.3rem;
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: #ccc;
+  }
+  
+  .icon {
+    position: absolute;
+    width: 20px;
+    top: 38px;           /* adjust if needed */
+    left: 10px;          /* adjust if needed */
+    opacity: 0.8;
+  }
+  
+  .login-form .form-group input {
+    width: 100%;
+    border: none;
+    border-radius: 6px;
+    background: #1e1e1e;
+    color: #fff;
+    font-size: 1rem;
+    padding: 0.75rem 0.75rem 0.75rem 2.4rem; /* left padding for icon space */
+    outline: none;
+  }
+  
+  /* Remember me + Forgot PW row */
+  .extra-options {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    align-items: center;
+    margin-bottom: 1.5rem;
+  }
+  .extra-options a {
+    color: #00bfff;
+    text-decoration: none;
+  }
+  .extra-options a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Login button */
+  .login-btn {
+    width: 100%;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 6px;
+    background-color: #4d90fe;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.25s ease;
+  }
+  .login-btn:hover {
+    background-color: #3b78d1;
+  }
+  
+  /* Divider (or) */
+  .divider {
+    text-align: center;
+    margin: 1.5rem 0;
+    color: #555;
+    position: relative;
+    font-size: 0.9rem;
+  }
+  .divider::before,
+  .divider::after {
+    content: "";
+    display: block;
+    width: 45%;
+    height: 1px;
+    background: #444;
+    position: absolute;
+    top: 50%;
+  }
+  .divider::before {
+    left: 0;
+  }
+  .divider::after {
+    right: 0;
+  }
+  .divider span {
+    background: #131619;
+    padding: 0 10px;
+    position: relative;
+    z-index: 1;
+  }
+  
+  /* "Register as your company" link-button */
+  .register-company-btn {
+    display: block;
+    text-align: center;
+    width: 100%;
+    padding: 0.8rem;
+    background-color: #333;
+    color: #888;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    cursor: pointer; /* or not-allowed if you want it disabled */
+  }
+  .register-company-btn:hover {
+    background-color: #444;
+    color: #fff;
+  }
+  
+  /* Sign up link at bottom */
+  .signup-link {
+    text-align: center;
+    font-size: 0.85rem;
+  }
+  .signup-link a {
+    color: #00bfff;
+    text-decoration: none;
+  }
+  .signup-link a:hover {
+    text-decoration: underline;
+  }
+  
+  /* ---------- RIGHT: Background Image Panel ---------- */
+  .right-image-section {
+    flex: 1; 
+    background: url("Weblyon-Image.jpg") center center no-repeat;
+    background-size: cover;
+  }
+  
