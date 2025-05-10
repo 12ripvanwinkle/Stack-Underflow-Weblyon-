@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Jewerlystyle.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <title>Jewelry Website</title>
+</head>
+<body>
+
+    <!-- Header Code -->
+    <header id="header">
+        <!-- Top bar stuff -->
+        <div class="header-top-bar">
+            <span>Welcome to Jewelry Online Store</span>
+
+        </div>
+
+        <!-- navigation -->
+         <div class="navigation">
+            <a href="#" class="logo">
+                <img src="jewelry_images/logo.jpg" alt="Logo"/>
+            </a>
+            <input type="checkbox" class="menu-btn" id="menu-btn"/>
+            <label for="menu-btn" class="menu-icon">
+                <span class="nav-icon"></span>
+            </label>
+            <!-- Menu -->
+             <ul class="menu">
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="#">Category</a></li>
+                <li><a href="#">Products</a></li>
+                <li><a href="#">Reviews</a></li>
+             </ul>
+
+             <!-- right nav -->
+              <div class="right-nav">
+                    <a href="#" class="nav-search">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </a>
+                    <a href="#" class="nav-user">
+                        <i class="fa-regular fa-user"></i>
+                    </a>
+                    <a href="#" class="nav-cart">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <span>0</span>
+                    </a>
+              </div>
+         </div>
+    </header>
+    
+    <!-- main banner -->
+    <section id="main-banner">
+        <div class="main-banner-box">
+            <img src="jewelry_images/banner1.jpg" >
+
+            <div class="main-banner-text">
+                <h1>Family Jewelry Collection</h1>
+                <p>Designer Jewelry, Necklaces, Bracelets, Earings</p>
+                <a href="#">Shop Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- services info -->
+    <section class="what-we-provide">
+
+        <div class="w-info-box">
+
+            <div class="w-info-icon">
+                <i class="fa-solid fa-plane"></i>
+            </div>
+
+            <div class="w-info-text">
+                <strong>Free Shipping</strong>
+                <p>Lorem ipsum dolor sit.</p>
+            </div>
+
+        </div>
+
+        <div class="w-info-box">
+
+            <div class="w-info-icon">
+                <i class="fa-regular fa-comments"></i>
+            </div>
+
+            <div class="w-info-text">
+                <strong>Support 24/7</strong>
+                <p>Lorem ipsum dolor sit.</p>
+            </div>
+
+        </div>
+
+        <div class="w-info-box">
+
+            <div class="w-info-icon">
+                <i class="fa-regular fa-credit-card"></i>
+            </div>
+
+            <div class="w-info-text">
+                <strong>100% Payment Secure</strong>
+                <p>Lorem ipsum dolor sit.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- product section -->
+    <section class="product-grid-half">
+
+        <div class="product-grid-box product-grid-box2">
+            <img src="jewelry_images/box1.jpg" alt="">
+
+            <div class="product-grid-text">
+                <span>Beautiful</span>
+                <strong>Wedding Ring</strong>
+                <a href="#">Shop Now</a>
+            </div>
+        </div>
+
+        <div class="product-grid-box product-grid-box1">
+            <img src="jewelry_images/box2.jpg" alt="">
+
+            <div class="product-grid-text">
+                <span>Beautiful</span>
+                <strong>Wedding Ring</strong>
+                <a href="#">Shop Now</a>
+            </div>
+        </div>
+
+        <div class="product-grid-box product-grid-box3">
+            <img src="jewelry_images/box3.jpg" alt="">
+
+            <div class="product-grid-text">
+                <span>Beautiful</span>
+                <strong>Wedding Ring</strong>
+                <a href="#">Shop Now</a>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- new product -->
+    <section id="new_product">
+
+        <div class="new-product-heading">
+            <h2>Our Products</h2>
+            <p>Add our products to weekly lineup</p>
+        </div>
+
+        <div class="new-product-container">
+
+            <div class="swiper mySwiperNewProduct">
+                <div class="swiper-wrapper">
+                    <!-- Slide 1 -->
+                    <div class="swiper-slide">
+                        <div class="new-product-box">
+
+                            <a href="#" class="new-product-img">
+                                <img src="jewelry_images/ring1.jpg" alt=""/>
+                                <span>New</span>
+                                <button class="new-product-cart-btn"><i class="fa-solid fa-cart-shopping"></i>Add To Cart</button>
+                            </a>
+
+                            <div class="new-product-text">
+                                <a href="#" class="new-product-title">Ring For You</a>
+                                <span>$20.00</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 2 -->
+                    <div class="swiper-slide">
+                        <div class="new-product-box">
+
+                            <a href="#" class="new-product-img">
+                                <img src="jewelry_images/ring1.jpg" alt=""/>
+                                <span>New</span>
+                                <button class="new-product-cart-btn"><i class="fa-solid fa-cart-shopping"></i>Add To Cart</button>
+                            </a>
+
+                            <div class="new-product-text">
+                                <a href="#" class="new-product-title">Ring For You</a>
+                                <span>$20.00</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 3 -->
+                    <div class="swiper-slide">
+                        <div class="new-product-box">
+
+                            <a href="#" class="new-product-img">
+                                <img src="jewelry_images/ring1.jpg" alt=""/>
+                                <span>New</span>
+                                <button class="new-product-cart-btn"><i class="fa-solid fa-cart-shopping"></i>Add To Cart</button>
+                            </a>
+
+                            <div class="new-product-text">
+                                <a href="#" class="new-product-title">Ring For You</a>
+                                <span>$20.00</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 4 -->
+                    <div class="swiper-slide">
+                        <div class="new-product-box">
+
+                            <a href="#" class="new-product-img">
+                                <img src="jewelry_images/ring1.jpg" alt=""/>
+                                <span>New</span>
+                                <button class="new-product-cart-btn"><i class="fa-solid fa-cart-shopping"></i>Add To Cart</button>
+                            </a>
+
+                            <div class="new-product-text">
+                                <a href="#" class="new-product-title">Ring For You</a>
+                                <span>$20.00</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 5 -->
+                    <div class="swiper-slide">
+                        <div class="new-product-box">
+
+                            <a href="#" class="new-product-img">
+                                <img src="jewelry_images/ring1.jpg" alt=""/>
+                                <span>New</span>
+                                <button class="new-product-cart-btn"><i class="fa-solid fa-cart-shopping"></i>Add To Cart</button>
+                            </a>
+
+                            <div class="new-product-text">
+                                <a href="#" class="new-product-title">Ring For You</a>
+                                <span>$20.00</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 6 -->
+                    <div class="swiper-slide">
+                        <div class="new-product-box">
+
+                            <a href="#" class="new-product-img">
+                                <img src="jewelry_images/ring1.jpg" alt=""/>
+                                <span>New</span>
+                                <button class="new-product-cart-btn"><i class="fa-solid fa-cart-shopping"></i>Add To Cart</button>
+                            </a>
+
+                            <div class="new-product-text">
+                                <a href="#" class="new-product-title">Ring For You</a>
+                                <span>$20.00</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 7 -->
+                    <div class="swiper-slide">
+                        <div class="new-product-box">
+
+                            <a href="#" class="new-product-img">
+                                <img src="jewelry_images/ring1.jpg" alt=""/>
+                                <span>New</span>
+                                <button class="new-product-cart-btn"><i class="fa-solid fa-cart-shopping"></i>Add To Cart</button>
+                            </a>
+
+                            <div class="new-product-text">
+                                <a href="#" class="new-product-title">Ring For You</a>
+                                <span>$20.00</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+
+
+    </section>
+
+    <!-- category -->
+    <section id="category">
+
+        <div class="category-container">
+            <a href="#" class="category-box">
+                <img src="jewelry_images/ring1.jpg" alt="category"/>
+                <strong>Ring</strong>
+            </a>
+
+            <a href="#" class="category-box">
+                <img src="jewelry_images/ring1.jpg" alt="category"/>
+                <strong>Earrings</strong>
+            </a>
+
+            <a href="#" class="category-box">
+                <img src="jewelry_images/ring1.jpg" alt="category"/>
+                <strong>Necklaces</strong>
+            </a>
+
+            <a href="#" class="category-box">
+                <img src="jewelry_images/ring1.jpg" alt="category"/>
+                <strong>Bracelets</strong>
+            </a>
+        </div>
+
+
+    </section>
+
+    <!-- Feature Product -->
+    <section id="new_product">
+
+        <div class="new-product-heading">
+            <h2>Featured Products</h2>
+            <p>Add our featured products to weekly lineup</p>
+        </div>
+
+        <div class="feature-product-container">
+            <div class="new-product-box">
+
+                <a href="#" class="new-product-img">
+                    <img src="jewelry_images/ring1.jpg" alt=""/>
+                    <span>New</span>
+                    <button class="new-product-cart-btn"><i class="fa-solid fa-cart-shopping"></i>Add To Cart</button>
+                </a>
+
+                <div class="new-product-text">
+                    <a href="#" class="new-product-title">Ring For You</a>
+                    <span>$20.00</span>
+                </div>
+            </div>
+
+            <div class="new-product-box">
+
+                <a href="#" class="new-product-img">
+                    <img src="jewelry_images/ring1.jpg" alt=""/>
+                    <span>New</span>
+                    <button class="new-product-cart-btn"><i class="fa-solid fa-cart-shopping"></i>Add To Cart</button>
+                </a>
+
+                <div class="new-product-text">
+                    <a href="#" class="new-product-title">Ring For You</a>
+                    <span>$20.00</span>
+                </div>
+            </div>
+
+            <div class="new-product-box">
+
+                <a href="#" class="new-product-img">
+                    <img src="jewelry_images/ring1.jpg" alt=""/>
+                    <span>New</span>
+                    <button class="new-product-cart-btn"><i class="fa-solid fa-cart-shopping"></i>Add To Cart</button>
+                </a>
+
+                <div class="new-product-text">
+                    <a href="#" class="new-product-title">Ring For You</a>
+                    <span>$20.00</span>
+                </div>
+            </div>
+
+            <div class="new-product-box">
+
+                <a href="#" class="new-product-img">
+                    <img src="jewelry_images/ring1.jpg" alt=""/>
+                    <span>New</span>
+                    <button class="new-product-cart-btn"><i class="fa-solid fa-cart-shopping"></i>Add To Cart</button>
+                </a>
+
+                <div class="new-product-text">
+                    <a href="#" class="new-product-title">Ring For You</a>
+                    <span>$20.00</span>
+                </div>
+            </div>
+
+            <div class="new-product-box">
+
+                <a href="#" class="new-product-img">
+                    <img src="jewelry_images/ring1.jpg" alt=""/>
+                    <span>New</span>
+                    <button class="new-product-cart-btn"><i class="fa-solid fa-cart-shopping"></i>Add To Cart</button>
+                </a>
+
+                <div class="new-product-text">
+                    <a href="#" class="new-product-title">Ring For You</a>
+                    <span>$20.00</span>
+                </div>
+            </div>
+            
+        </div>
+
+    </section>
+
+    <!-- Testimonials section -->
+    <section id="clients">
+
+        <div class="client-heading">
+            <h3>Testimonials</h3>
+            <p>What They Say</p>
+        </div>
+
+        <div class="client-box-container">
+
+            <div class="swiper mySwiperTestimonials">
+                <div class="swiper-wrapper">
+
+                    <!-- Slide 1 -->
+                    <div class="swiper-slide">
+                            <div class="client-box">
+
+                            <div class="client-profile">
+                                <img src="review1.jpg" alt="">
+                                <div class="profile-text">
+                                    <strong>Adward James</strong>
+                                    <span>Client</span>
+                                </div>
+                            </div>
+                            <div class="rating">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                        </div>
+                    </div>
+
+                    <!-- Slide 2 -->
+                    <div class="swiper-slide">
+                            <div class="client-box">
+
+                            <div class="client-profile">
+                                <img src="review1.jpg" alt="">
+                                <div class="profile-text">
+                                    <strong>Adward James</strong>
+                                    <span>Client</span>
+                                </div>
+                            </div>
+                            <div class="rating">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                        </div>
+                    </div>
+
+                    <!-- Slide 3 -->
+                    <div class="swiper-slide">
+                            <div class="client-box">
+
+                            <div class="client-profile">
+                                <img src="review1.jpg" alt="">
+                                <div class="profile-text">
+                                    <strong>Adward James</strong>
+                                    <span>Client</span>
+                                </div>
+                            </div>
+                            <div class="rating">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+
+            </div>
+
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+
+            <div class="footer-company-box">
+                <a href="#" class="logo">
+                    <img src="jewelry_images/logo.jpg" alt="">
+                </a>
+
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+
+                <div class="footer-social">
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-link-box">
+                <strong>Main Links</strong>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Category</a></li>
+                    <li><a href="#">Product</a></li>
+                    <li><a href="#">Feature</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <span class="copyright">&#169; Copyright 2024</span>
+        </div>
+    </footer>
+
+
+
+    <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <!-- Initialize Swiper -->
+  <script>
+    var swiper = new Swiper(".mySwiperNewProduct", {
+      slidesPerView: 1,
+      spaceBetween: 10,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      breakpoints: {
+        640: {
+          slidesPerView: 2,
+          spaceBetween: 20,
+        },
+        740: {
+          slidesPerView: 3,
+          spaceBetween: 20,
+        },
+        1000: {
+          slidesPerView: 4,
+          spaceBetween: 20,
+        },
+        1224: {
+          slidesPerView: 5, /*product per slide*/
+          spaceBetween: 20, /*gape*/
+        },
+      },
+    });
+
+    /*Testimonials Swiper*/
+    var swiper = new Swiper(".mySwiperTestimonials", {
+        slidesPerView: 1,
+        spaceBetween: 10,
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+        breakpoints: {
+            640: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+            },
+            768: {
+            slidesPerView: 4,
+            spaceBetween: 40,
+            },
+            1024: {
+            slidesPerView: 3,
+            spaceBetween: 20,
+            },
+        },
+    });
+
+    /*Fix Header thing*/
+    window.addEventListener('scroll',function(){
+        var header = document.getElementById('header');
+        if(window.scrollY > 0){
+            header.classList.add('header-fix');
+        }else
+        {
+            header.classList.remove('header-fix');
+        }
+    })
+
+
+
+  </script>
+</body>
+</html>

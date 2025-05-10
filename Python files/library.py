@@ -108,7 +108,6 @@ def display_html_files(folder1, folder2):
     if not html_files:
         print("\nNo HTML files found.")
         return
-    
     choice = input("Which File Do you wish to edit (enter the file name): ").strip()
 
     if choice in html_files:

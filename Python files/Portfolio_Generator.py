@@ -2,7 +2,6 @@
 from langchain_ollama import OllamaLLM
 from langchain_core.prompts import ChatPromptTemplate
 import os
-import requests
 import shutil
 import webbrowser
 import re
