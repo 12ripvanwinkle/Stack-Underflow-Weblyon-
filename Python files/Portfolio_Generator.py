@@ -19,6 +19,12 @@ prompt = ChatPromptTemplate.from_template(template)
 # chains them together using langchain
 chain = prompt | model
 
+
+def load_template(file_path):
+    """Read the HTML template from a file with UTF-8 encoding."""
+    with open(file_path, 'r', encoding='utf-8') as file:
+        return file.read()
+
 def satisfaction(context, result):
     ans = input("are you satisfied with this response if yes enter 'yes' else 'no': ")
     if ans.lower() == "no":
@@ -94,11 +100,20 @@ def contact_info_getter():
     }
     return contact_info
 
-def load_template(file_path):
-    """Read the HTML template from a file with UTF-8 encoding."""
-    with open(file_path, 'r', encoding='utf-8') as file:
-        return file.read()
         
+def portfolio0_skill_getter():
+    skills = {}
+    print("Enter information for 3 services:\n")
+
+    for i in range(1, 4):
+        skill = input(f"Enter title for Skill {i}: ").strip()
+        description = input(f"Enter description for Skill {i}: ").strip()
+
+        skills[f"skill{i}"] = skill if skill.lower() != "no" else ""
+        skills[f"skill_text{i}"] = description if description.lower() != "no" else ""
+
+    return skills
+
 def portfolio_type():
     print("Enter the portfolio of your choosing by entering the corresponding number")
     # Make it proper names and not just 0,1,2
@@ -108,9 +123,11 @@ def portfolio_type():
             print("Portfolio 0")
             user_info = user_info_getter(0)
             contact_info = contact_info_getter()
+            skills_info = portfolio0_skill_getter()
 
-            # Update in place
-            user_info.update(contact_info)
+            # Merge dictionaries
+            info = {**user_info, **contact_info, **skills_info}
+            print(info)  # Debug print
             template = load_template("Portfolio_templates/portfolio_template_0.html")
 
             # Define the source and destination paths
@@ -123,7 +140,7 @@ def portfolio_type():
             source_path = r"C:\Users\nites\OneDrive\Desktop\Stack-Underflow-Weblyon-\Portfolio_templates\portfolio_template_script0.js"
             shutil.copy(source_path, destination_folder)
 
-            generator(user_info, template, False,0)
+            generator(info, template, False,0)
 
         case "1":
             print("Portfolio 1")
@@ -382,7 +399,7 @@ def generator(info, template, wtype, special):
             email=info.get("email", ""),
             address=info.get("address", ""),
             intro1 = info.get("intro1", ""),  # Default to empty string if 'intro1' doesn't exist
-            about_me_info = info.get("about_me_info", "")
+            about_me_info = info.get("about_me_info", ""),
         )
     elif not info.get("phone") and not info.get("email") and not info.get("address"):
         page = template.format(
@@ -397,14 +414,7 @@ def generator(info, template, wtype, special):
         )
     else:
         page = template.format(
-                name = info["name"],
-                occupation = info["occupation"],
-                address = info["address"],
-                intro1 = info["intro1"],
-                about_me_info = info["about_me_info"],
-                phone = info["phone"],
-                email = info["email"],
-                pfp = pfp_path
+                **info
             )
 
     # Save the generated HTML to a file with UTF-8 encoding
