@@ -27,6 +27,13 @@ def handle_conversation():
         print("Bot: ", result)
         context += f"\nUser: {user_input}\nAI: {result}"
 
+def generate_portfolio_reply(prompt):
+    return f"You said: {prompt}", [
+        "portfolio 0",
+        "portfolio 1",
+        "portfolio 2"
+    ]
 
+    return str(result), templates
 if __name__ == "__main__":
     handle_conversation()

@@ -29,9 +29,6 @@
             <label>Dashboard</label>
           </li>
         </ul>
-   <!--     <button id="addMemberBtn" class="sidebar-btn">
-          Add Member
-        </button>-->
       </div>
 
       <div class="sidebar-section">
@@ -55,18 +52,20 @@
         <button id="joinWorkspace">Join Workspace</button>
       </div>
 
-      <!-- Workspaces Canvas -->
+      <!-- Chat Canvas -->
       <section class="workspace-section">
         <h3>Weblyon Chat</h3>
-        <div class="workspace-list">
-          <!-- dynamically injected cards will go here -->
+        <div class="chat-container">
+          <!-- AI & user messages will be appended here -->
         </div>
       </section>
 
       <!-- Chat Input Bar -->
       <div class="chat-input-container">
+        <!-- hidden file picker -->
         <input type="file" id="fileInput" hidden />
-
+  
+        <!-- paperclip/upload button -->
         <button
           type="button"
           class="attach-btn"
@@ -75,12 +74,14 @@
           <img src="paperclip-icon.svg" alt="Attach" />
         </button>
 
+        <!-- TEXT INPUT with exactly this id -->
         <input
           type="text"
           id="chatInput"
           placeholder="Type a response…"
         />
 
+        <!-- SEND BUTTON with exactly this id -->
         <button type="button" class="send-btn" id="sendChat">
           <img src="paper-plane-icon.svg" alt="Send" />
         </button>

@@ -7,7 +7,8 @@ const createWindow = () => {
     height: 600,
   });
 
-  win.loadFile(path.join(__dirname, 'src', 'index.html')); // Load index.html
+  win.loadFile(path.join(__dirname, 'dashboard.html'));
+  
 };
 
 app.whenReady().then(() => {

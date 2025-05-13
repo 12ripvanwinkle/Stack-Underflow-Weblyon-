@@ -159,7 +159,7 @@ body {
   margin-bottom:16px;
 }
 
-/* Chat area */
+/* Chat area - get rid of this maybe*/
 .chat-input-container {
   display:flex;
   align-items:center;
@@ -168,6 +168,7 @@ body {
   border-radius:12px;
   gap:8px;
 }
+
 .attach-btn, .send-btn {
   width:40px;
   height:40px;
@@ -195,3 +196,51 @@ body {
   outline:none;
 }
 #chatInput::placeholder { color:#777; }
+
+/* —— Chat messages —— */
+.chat-container {
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  padding:16px;
+  overflow-y:auto;
+  background:#131619;
+  border-radius:12px;
+}
+
+.chat-message {
+  max-width:60%;
+  padding:12px 16px;
+  border-radius:16px;
+  word-wrap:break-word;
+}
+.chat-message.user {
+  background:#0b86e3;
+  color:#fff;
+  align-self:flex-end;
+}
+.chat-message.ai {
+  background:#1e1e1e;
+  color:#fff;
+  align-self:flex-start;
+}
+
+/* —— Template preview cards —— */
+.template-options {
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-top:8px;
+}
+.template-card {
+  width:120px;
+  height:80px;
+  background:#222;
+  border-radius:8px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:0.9rem;
+  color:#fff;
+}
