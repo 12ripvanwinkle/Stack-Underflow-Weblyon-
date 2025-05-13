@@ -6,11 +6,11 @@
     <link rel="stylesheet" href="portfolio_template_style2.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <script src="portfolio_template_script2.js"></script>
-    <title>{name} Portfolio Website</title>
+    <title><!-- editable: name -->{name} <!-- endeditable -->Portfolio Website</title>
 </head>
 <body>
     <header class="header">
-        <a href="#" class="logo">{name}</a>
+        <a href="#" class="logo"><!-- editable: name -->{name}<!-- endeditable --></a>
 
         <ul class="nav-links">
             <li>
@@ -38,13 +38,20 @@
     <!-- About section -->
     <section id="about" class="about">
         <div class="about-container">
+            <!-- editable: pfp -->
             <img src={pfp} alt="">
+            <!-- endeditable -->  
 
             <div class="info-box">
                 <div class="text">
                     <h3>Hi, I'm</h3>
+                    <!-- editable: name -->
                     <h1>{name}</h1>
+                    <!-- endeditable -->
+
+                    <!-- editable: occupation -->
                     <span>{occupation}</span>
+                    <!-- endeditable -->
                 </div>
 
                 <div class="btn-group">
@@ -71,34 +78,68 @@
 
                 <div class="grid-card">
                     <i class="fa-solid fa-code"></i>
+                    <!-- editable: service1 -->
                     <span>Frontend Developement</span>
+                    <!-- endeditable -->
+
+                    <!-- editable: year1 -->
                     <h3>5 years</h3>
+                    <!-- endeditable -->
+
+                    <!-- editable: description1 -->
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui ullam eum sed id.</p>
+                    <!-- endeditable -->
                 </div>
 
                 <div class="grid-card">
                     <i class="fa-solid fa-file-code"></i>
+                    <!-- editable: service2 -->
                     <span>Graphic Design</span>
+                    <!-- endeditable -->
+
+                    <!-- editable: year2 -->
                     <h3>5 years</h3>
+                    <!-- endeditable -->
+
+                    <!-- editable: description2 -->
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui ullam eum sed id.</p>
+                    <!-- endeditable -->
+
                 </div>
 
                 <div class="grid-card">
                     <i class="fa-solid fa-laptop"></i>
+                    <!-- editable: service3 -->
                     <span>System Design</span>
+                    <!-- endeditable -->
+
+                    <!-- editable: year3 -->
                     <h3>5 years</h3>
+                    <!-- endeditable -->
+
+                    <!-- editable: description3 -->
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui ullam eum sed id.</p>
+                    <!-- endeditable -->
+
                 </div>
 
                 <div class="grid-card">
                     <i class="fa-solid fa-list"></i>
+                    <!-- editable: service3 -->
                     <span>Content Management</span>
+                    <!-- endeditable -->
+
+                    <!-- editable: year3 -->
                     <h3>5 years</h3>
+                    <!-- endeditable -->
+
+                    <!-- editable: description3 -->
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui ullam eum sed id.</p>
+                    <!-- endeditable -->
+
                 </div>
             </div>
 
-            <img src={pfp} alt="">
         </div>
      </section>
 
@@ -107,8 +148,11 @@
         <h2>My Projects</h2>
         <div class="projects-grid">
             <div class="project-card">
+
                 <img src=holder alt="">
+
                 <h3>Project X</h3>
+
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui ullam eum sed id.</p>
                 <div class="btn-group">
                     <div class="btn">Live Demo</div>
@@ -118,7 +162,9 @@
 
             <div class="project-card">
                 <img src=holder alt="">
+
                 <h3>Project X</h3>
+
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui ullam eum sed id.</p>
                 <div class="btn-group">
                     <div class="btn">Live Demo</div>
@@ -128,7 +174,9 @@
 
             <div class="project-card">
                 <img src=holder alt="">
+
                 <h3>Project X</h3>
+
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui ullam eum sed id.</p>
                 <div class="btn-group">
                     <div class="btn">Live Demo</div>
@@ -171,7 +219,7 @@
                 <a href="#contact">Contact</a>
             </li>
         </ul>
-        <p class="copyright">© All Rights Reserved | Alexandra Smith</p>
+        <p class="copyright">© All Rights Reserved | {name}</p>
       </footer>
 </body>
 </html>

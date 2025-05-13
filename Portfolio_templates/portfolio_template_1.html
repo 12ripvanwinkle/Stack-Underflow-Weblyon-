@@ -13,7 +13,7 @@
 <body>
     <!-- Header section -->
     <header class="header">
-        <a href="#home" class="logo">{name}</a>
+        <a href="#home" class="logo"><!-- editable: name -->{name}<!-- endeditable --></a>
 
         <i class='bx bx-menu' id="menu-icon"></i>
 
@@ -29,13 +29,15 @@
     <!-- Home section -->
     <section class="home" id="home">
         <div class="home-img">
+            <!-- editable: pfp -->
             <img src={pfp} alt="">
+            <!-- endeditable -->
         </div>
 
         <div class="home-content">
-            <h1>It's <span>{name}</span></h1>
-            <h3 class="text-animation" id="home-contentHeader">I'm a <span id="occupation">{occupation}</span></h3>
-            <p>{intro1}</p>
+            <h1>It's <span><!-- editable: name -->{name}<!-- endeditable --></span></h1>
+            <h3 class="text-animation" id="home-contentHeader">I'm a <span id="occupation"><!-- editable: occupation -->{occupation}<!-- endeditable --></span></h3>
+            <p><!-- editable: intro1 -->{intro1}<!-- endeditable --></p>
 
             <div class="social-icons">
                 <a href="#"><i class='bx bxl-linkedin-square' ></i></a>
@@ -56,14 +58,16 @@
             <h3 class="text-animation"></h3>
     
             <p class="about-text">
-                {about_me_info}
+                <!-- editable: about_me_info -->{about_me_info}<!-- endeditable -->
             </p>
     
             <a href="#" class="btn">Read More</a>
         </div>
         
         <div class="about-img">
+            <!-- editable: pfp -->
             <img src={pfp} alt="About Me" id="img-for-about">
+            <!-- endeditable -->
         </div>
     </section>
     <!-- END -->
@@ -75,43 +79,43 @@
         <div class="services-container">
             <div class="service-box">
                 <div class="service-info">
-                    <h4>Graphic Design</h4>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In quam quo placeat consectetur alias aliquam labore perferendis! Quaerat cupiditate ad corporis distinctio laboriosam temporibus vel. Perspiciatis quam mollitia eaque dolorem.</p>
+                    <h4><!-- editable: skill1 -->Graphic Design<!-- endeditable --></h4>
+                    <p><!-- editable: skillDescript1 -->Lorem ipsum dolor sit amet consectetur adipisicing elit. In quam quo placeat consectetur alias aliquam labore perferendis! Quaerat cupiditate ad corporis distinctio laboriosam temporibus vel. Perspiciatis quam mollitia eaque dolorem.<!-- endeditable --></p>
                 </div>
             </div>
 
             <div class="service-box">
                 <div class="service-info">
-                    <h4>Frontend Development</h4>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In quam quo placeat consectetur alias aliquam labore perferendis! Quaerat cupiditate ad corporis distinctio laboriosam temporibus vel. Perspiciatis quam mollitia eaque dolorem.</p>
+                    <h4><!-- editable: skill2 -->Frontend Development<!-- endeditable --></h4>
+                    <p><!-- editable: skillDescript2 -->Lorem ipsum dolor sit amet consectetur adipisicing elit. In quam quo placeat consectetur alias aliquam labore perferendis! Quaerat cupiditate ad corporis distinctio laboriosam temporibus vel. Perspiciatis quam mollitia eaque dolorem.<!-- endeditable --></p>
                 </div>
             </div>
 
             <div class="service-box">
                 <div class="service-info">
-                    <h4>Backend Development</h4>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In quam quo placeat consectetur alias aliquam labore perferendis! Quaerat cupiditate ad corporis distinctio laboriosam temporibus vel. Perspiciatis quam mollitia eaque dolorem.</p>
+                    <h4><!-- editable: skill3 -->Backend Development<!-- endeditable --></h4>
+                    <p><!-- editable: skillDescript3 -->Lorem ipsum dolor sit amet consectetur adipisicing elit. In quam quo placeat consectetur alias aliquam labore perferendis! Quaerat cupiditate ad corporis distinctio laboriosam temporibus vel. Perspiciatis quam mollitia eaque dolorem.<!-- endeditable --></p>
                 </div>
             </div>
 
             <div class="service-box">
                 <div class="service-info">
-                    <h4>Mobile App Development</h4>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In quam quo placeat consectetur alias aliquam labore perferendis! Quaerat cupiditate ad corporis distinctio laboriosam temporibus vel. Perspiciatis quam mollitia eaque dolorem.</p>
+                    <h4><!-- editable: skill4 -->Mobile App Development<!-- endeditable --></h4>
+                    <p><!-- editable: skillDescript4 -->Lorem ipsum dolor sit amet consectetur adipisicing elit. In quam quo placeat consectetur alias aliquam labore perferendis! Quaerat cupiditate ad corporis distinctio laboriosam temporibus vel. Perspiciatis quam mollitia eaque dolorem.<!-- endeditable --></p>
                 </div>
             </div>
 
             <div class="service-box">
                 <div class="service-info">
-                    <h4>UI / UX Design</h4>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In quam quo placeat consectetur alias aliquam labore perferendis! Quaerat cupiditate ad corporis distinctio laboriosam temporibus vel. Perspiciatis quam mollitia eaque dolorem.</p>
+                    <h4><!-- editable: skill5 -->UI / UX Design<!-- endeditable --></h4>
+                    <p><!-- editable: skillDescript5 -->Lorem ipsum dolor sit amet consectetur adipisicing elit. In quam quo placeat consectetur alias aliquam labore perferendis! Quaerat cupiditate ad corporis distinctio laboriosam temporibus vel. Perspiciatis quam mollitia eaque dolorem.<!-- endeditable --></p>
                 </div>
             </div>
 
             <div class="service-box">
                 <div class="service-info">
-                    <h4>Content Management</h4>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In quam quo placeat consectetur alias aliquam labore perferendis! Quaerat cupiditate ad corporis distinctio laboriosam temporibus vel. Perspiciatis quam mollitia eaque dolorem.</p>
+                    <h4><!-- editable: skill6 -->Content Management<!-- endeditable --></h4>
+                    <p><!-- editable: skillDescript6 -->Lorem ipsum dolor sit amet consectetur adipisicing elit. In quam quo placeat consectetur alias aliquam labore perferendis! Quaerat cupiditate ad corporis distinctio laboriosam temporibus vel. Perspiciatis quam mollitia eaque dolorem.<!-- endeditable --></p>
                 </div>
             </div>
         </div>
@@ -155,12 +159,12 @@
             <li><a href="#">Privacy Policy</a></li>
         </ul>
         <p class="copyright">
-            {name}| All Rights Reserved
+            <!-- editable: name -->{name}<!-- endeditable -->| All Rights Reserved
         </p>
         <p id="ignore">
-            {address}
-            {phone}
-            {email}
+            <!-- editable: address -->{address}<!-- endeditable -->
+            <!-- editable: phone -->{phone}<!-- endeditable -->
+            <!-- editable: email -->{email}<!-- endeditable -->
         </p>
     </footer>
     <!-- END -->

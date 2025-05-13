@@ -357,7 +357,7 @@ def generator(info, template, business):
 
         # Copy product images and generate dynamic product boxes
         product_boxes = ""
-        for product, image in zip(products, images):
+        for i, (product, image) in enumerate(zip(products, images)):
             image_filename = os.path.basename(image)
             image_destination = os.path.join(destination_folder, image_filename)
             
@@ -365,18 +365,22 @@ def generator(info, template, business):
                 shutil.copy(image, image_destination)
             else:
                 print(f"Error: Image {image} not found. Using placeholder.")
-                image_filename = "default.jpg"  # Fallback to a default image
+                image_filename = "default.jpg"
 
             product_boxes += f'''
                 <div class="box">
+                    <!-- editable: product_img{i} -->
                     <img src="{image_filename}" alt="{product}">
-                    <h3>{product}</h3>
+                    <!-- endeditable -->
+                    <h3><!-- editable: product{i} -->{product}<!-- endeditable --></h3>
                     <div class="content">
-                        <span>$25</span>
+                        <span><!-- editable: product_price{i} -->$25<!-- endeditable --></span>
                         <a href="#">Add to cart</a>
                     </div>
                 </div>
             '''
+
+
 
         # Update the template with dynamic products
         

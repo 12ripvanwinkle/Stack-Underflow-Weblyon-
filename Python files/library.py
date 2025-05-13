@@ -14,15 +14,24 @@ def load_file(file_path):
 
 def extract_editable_sections(html_content):
     """Extracts all editable sections from the HTML and returns them as a dict."""
-    pattern = r"<!-- editable: (.*?) -->(.*?)<!-- endeditable -->"
+    pattern = r"<!-- editable: (.*?) -->\s*(.*?)\s*<!-- endeditable -->"
     matches = re.findall(pattern, html_content, re.DOTALL)
     return {key.strip(): value.strip() for key, value in matches}
 
+# def update_editable_section(html_content, section_name, new_value):
+#     """Replaces the content of the given editable section with new_value."""
+#     pattern = rf"(<!-- editable: {re.escape(section_name)} -->)(.*?)(<!-- endeditable -->)"
+#     replacement = rf"\1{new_value}\3"
+#     return re.sub(pattern, replacement, html_content, flags=re.DOTALL)
+
 def update_editable_section(html_content, section_name, new_value):
-    """Replaces the content of the given editable section with new_value."""
     pattern = rf"(<!-- editable: {re.escape(section_name)} -->)(.*?)(<!-- endeditable -->)"
-    replacement = rf"\1{new_value}\3"
-    return re.sub(pattern, replacement, html_content, flags=re.DOTALL)
+
+    def replacer(match):
+        return f"{match.group(1)}{new_value}{match.group(3)}"
+
+    return re.sub(pattern, replacer, html_content, flags=re.DOTALL)
+
 
 def edit_html_file(file_path):
     html = load_file(file_path)
@@ -71,7 +80,38 @@ def edit_html_file(file_path):
             # Update HTML to use relative path
             new_content = f'<img src="images/{file_name_only}" alt="Profile Picture">'
         else:
-            new_content = input(f"Enter new content for '{user_input}': ").strip()
+            # new_content = input(f"Enter new content for '{user_input}': ").strip()
+            current_content = sections[user_input]
+            if "<img" in current_content or current_content.strip().lower().endswith((".jpg", ".jpeg", ".png", ".gif", ".webp")):
+                new_image_path = input("Enter full path of the new image: ").strip().strip('"').strip("'")
+                new_image_path = new_image_path.replace("\\", "/")
+
+                if not os.path.exists(new_image_path):
+                    print(f"File not found: {new_image_path}")
+                    continue
+
+                # Copy image to HTML's directory
+                html_dir = os.path.dirname(file_path)
+                images_dir = os.path.join(html_dir, "images")
+                os.makedirs(images_dir, exist_ok=True)
+
+                file_name_only = os.path.basename(new_image_path)
+                destination = os.path.join(images_dir, file_name_only)
+                shutil.copy(new_image_path, destination)
+
+                # Reconstruct <img> tag with new src, keeping other attributes
+                match = re.search(r'<img\s+[^>]*>', current_content)
+
+                if match:
+                    original_tag = match.group(0)
+                    updated_tag = re.sub(r'src="[^"]*"', f'src="images/{file_name_only}"', original_tag)
+                    new_content = current_content.replace(original_tag, updated_tag)
+                else:
+                    # If original content is just a file path or doesn't contain <img>, wrap it
+                    new_content = f'<img src="images/{file_name_only}" alt=""/>'
+
+            else:
+                new_content = input(f"Enter new content for '{user_input}': ").strip()
 
         html = update_editable_section(html, user_input, new_content)
         print("✅ Section updated.\n")
