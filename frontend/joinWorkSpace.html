@@ -1,26 +1,43 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Hello Electron</title>
-  </head>
-  <body>
-    <h1>Join WorkSpace</h1>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>WebLyon – Join Workspace</title>
+  <link rel="stylesheet" href="joinWorkSpace-styles.css" />
+</head>
+<body>
+  <div class="join-container">
+    
+    <!-- LEFT PANEL -->
+    <div class="join-form-panel">
+      <h2>Join or Create a Business Workspace</h2>
+      <p class="subtitle">
+        Connect with others by joining an existing business workspace or create a new one to collaborate with your team.
+      </p>
 
-    <a href="index.html">Home</a>
+      <!-- Input Fields -->
+      <input type="text" id="WorkSpaceCode" placeholder="Your workspace code" />
 
-    <input type="text" id="WorkSpaceCode" placeholder="Enter WorkSpace Code" />
-    <button id="joinWorkSpace">joinWorkSpace</button>
+      <!-- Buttons -->
+      <button id="joinWorkSpace" class="primary-btn">Join Workspace</button>
 
+      <div class="divider"><span>or</span></div>
 
+      <a href="createWorkSpace.html">
+        <button id="createWorkSpace" class="secondary-btn">Create new Workspace</button>
+      </a>
 
+      <!-- Footer -->
+      <div class="footer">
+        <a href="index.html">Back to Home</a> • 
+        <a href="#" class="privacy-link">Privacy Policy</a>
+      </div>
+    </div>
 
+    <!-- RIGHT IMAGE PANEL -->
+    <div class="join-image-panel"></div>
+  </div>
 
-    <a href="createWorkSpace.html"><button id="Create WorkSpace">Create WorkSpace</button></a>
-
-
-    <script src="joinWorkSpace.js"></script>
-
-
-
-  </body>
+  <script src="joinWorkSpace.js"></script>
+</body>
 </html>
