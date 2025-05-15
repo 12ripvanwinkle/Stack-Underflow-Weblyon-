@@ -1,14 +1,17 @@
 <!DOCTYPE html>
-        <html lang="en">
-        <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <link rel="stylesheet" href="portfolio_template_style1_updated.css">
-            <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-            <title>Nitesh Leyow Personal Portfolio</title>
-        </head>
-        <body>
-        <!-- Header section -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="portfolio_template_style1_updated.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tektur:wght@400..900&display=swap" rel="stylesheet">
+    <title><!-- editable: name -->{name}<!-- endeditable --> Personal Portfolio</title>
+</head>
+<body>
+    <!-- Header section -->
     <header class="header">
         <a href="#home" class="logo"><!-- editable: name -->{name}<!-- endeditable --></a>
 
@@ -22,7 +25,8 @@
         </nav>
     </header>
     <!-- END -->
-<!-- Home section -->
+
+    <!-- Home section -->
     <section class="home" id="home">
         <div class="home-img">
             <!-- editable: pfp -->
@@ -46,7 +50,8 @@
         </div>
     </section>
     <!-- END -->
-<!-- About me section -->
+
+    <!-- About me section -->
     <section class="about" id="about">
         <div class="about-content">
             <h2 class="heading">About <span>Me</span></h2>
@@ -66,7 +71,8 @@
         </div>
     </section>
     <!-- END -->
-<!-- Services section -->
+
+    <!-- Services section -->
     <section class="services" id="services">
         <h2 class="heading">Services</h2>
 
@@ -115,7 +121,8 @@
         </div>
     </section>
     <!-- END -->
-<!-- Contact section -->
+
+    <!-- Contact section -->
     <section class="contact" id="contact">
         <h2 class="heading">Contact <span>Me</span></h2>
 
@@ -134,7 +141,8 @@
         </form>
     </section>
     <!-- END -->
-<!-- Footer section -->
+
+    <!-- Footer section -->
     <footer class="footer">
         <div class="social-icons">
             <a href="#"><i class='bx bxl-linkedin-square' ></i></a>
@@ -160,10 +168,8 @@
         </p>
     </footer>
     <!-- END -->
+    <script src="portfolio_template_script1.js"></script>
 
-        </body>
-        </html>
-        
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     const elements = document.querySelectorAll('.home-content h3, .home-content h1, .home-content p, .social-icons a, .btn, .about-content p, .services h2, .service-box, .service-info p, .contact');
@@ -172,11 +178,50 @@ document.addEventListener('DOMContentLoaded', function() {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
-                observer.unobserve(entry.target); // Stop observing once the element is visible
+                observer.unobserve(entry.target);
             }
         });
-    }, { threshold: 0.1 }); // Trigger when 10% of the element is in view
+    }, { threshold: 0.1 });
 
-    elements.forEach(element => observer.observe(element));
+    elements.forEach(el => observer.observe(el));
 });
 </script>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const elements = document.querySelectorAll('.home-content h3, .home-content h1, .home-content p, .social-icons a, .btn, .about-content p, .services h2, .service-box, .service-info p, .contact');
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+
+    elements.forEach(el => observer.observe(el));
+});
+</script>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const elements = document.querySelectorAll('.home-content h3, .home-content h1, .home-content p, .social-icons a, .btn, .about-content p, .services h2, .service-box, .service-info p, .contact');
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+
+    elements.forEach(el => observer.observe(el));
+});
+</script>
+
+</body>
+</html>

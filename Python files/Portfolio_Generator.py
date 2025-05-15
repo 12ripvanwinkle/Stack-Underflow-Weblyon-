@@ -20,11 +20,6 @@ prompt = ChatPromptTemplate.from_template(template)
 chain = prompt | model
 
 
-def load_template(file_path):
-    """Read the HTML template from a file with UTF-8 encoding."""
-    with open(file_path, 'r', encoding='utf-8') as file:
-        return file.read()
-
 def satisfaction(context, result):
     ans = input("are you satisfied with this response if yes enter 'yes' else 'no': ")
     if ans.lower() == "no":
@@ -145,6 +140,7 @@ def portfolio_type():
         case "1":
             print("Portfolio 1")
             user_info = user_info_getter(0)
+            print(user_info)  # Debug print
             template = load_template("Portfolio_templates/portfolio_template_1.html")
 
             # Define the source and destination paths
@@ -159,6 +155,7 @@ def portfolio_type():
         case "2":
             print("Portfolio 2")
             user_info = user_info_getter(1)
+            print(user_info)  # Debug print
             template = load_template("Portfolio_templates/portfolio_template_2.html")
 
             # Define the source and destination paths
@@ -436,6 +433,11 @@ def generator(info, template, wtype, special):
 
     # Open the HTML file in the default browser
     webbrowser.open(f"file://{os.path.abspath(file_path)}")
+
+def load_template(file_path):
+    """Read the HTML template from a file with UTF-8 encoding."""
+    with open(file_path, 'r', encoding='utf-8') as file:
+        return file.read()
 
 if __name__ == "__main__":
     # upload_project_file("C:\\Users\\nites\\OneDrive\\Desktop\\Stack-Underflow-Weblyon-\\User_Portfolio\\jsonTester.js", 1, "js")

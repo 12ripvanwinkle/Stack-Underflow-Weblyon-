@@ -300,8 +300,9 @@ def ecommerce_type():
 
             combined_data = {**info, **gym_info}
             
-            print("\nCombined Data:")
-            pprint.pprint(combined_data)
+            # print("\nCombined Data:")
+            # pprint.pprint(combined_data)
+            print(combined_data)
 
             source_path = r"C:\Users\nites\OneDrive\Desktop\Stack-Underflow-Weblyon-\Ecommerce_templates\Gymstyle.css"
             shutil.copy(source_path, destination_folder)
@@ -318,8 +319,9 @@ def ecommerce_type():
             jewelry_info = jewelry_info_getter()
 
             combined_data = {**info, **jewelry_info}
-            print("\nCombined Data:")
-            pprint.pprint(combined_data)
+            # print("\nCombined Data:")
+            # pprint.pprint(combined_data)
+            print(combined_data)
 
             source_path = r"C:\Users\nites\OneDrive\Desktop\Stack-Underflow-Weblyon-\Ecommerce_templates\Jewerlystyle.css"
             shutil.copy(source_path, destination_folder)
@@ -490,3 +492,22 @@ def flatten_dict(d, parent_key='', sep='.'):
 
 if __name__ == "__main__":
     ecommerce_type()
+
+    # cafe_dict = {'name': 'Galaxy', 'intro1': 'Cozy neighborhood spot serving artisanal coffee, fresh pastries, and warm hospitality since morning till evening.', 'about_me_info': '"Step into our cozy cafe and experience exceptional service, expertly crafted coffee drinks, and mouthwatering pastries. Our warm atmosphere and attentive staff make every visit feel like a treat. Come for the food, stay for the friendliness - your new favorite spot awaits!"', 'history': 'Something', 'pfp': 'C:\\Users\\nites\\OneDrive\\Desktop\\desktop stuff 2\\wallpaper\\jinx.jpg', 'reviews': ['Awesome', 'Awesome', 'Awesome'], 'contact': {'email': 'something', 'phone': '23456789', 'address': 'something'}, 'products': ['Hot Chocolate', 'French Vanilla', '33'], 'images': ['C:\\Users\\nites\\OneDrive\\Desktop\\desktop stuff 2\\wallpaper\\hotChocolate.jpg', 'C:\\Users\\nites\\OneDrive\\Desktop\\desktop stuff 2\\wallpaper\\french_vanilla.jpg', 'C:\\Users\\nites\\OneDrive\\Desktop\\desktop stuff 2\\wallpaper\\33.jpg'], 'home1': 'C:\\Users\\nites\\OneDrive\\Desktop\\desktop stuff 2\\wallpaper\\viktor.jpg'}
+    # cafe_template = load_template("Ecommerce_templates\Cafeindex.html")
+    # business = "Cafe"
+
+    # generator(cafe_dict, cafe_template, business)
+
+    # gym_dict = {'name': 'Basic', 'intro1': '"Empowering individuals to reach their fitness goals, one sweat-filled workout at a time."', 'about_me_info': '"Join our gym and experience unparalleled fitness results! Our expert trainers, state-of-the-art equipment, and supportive community propel you towards achieving your goals. Personalized attention, small class sizes, and flexible scheduling ensure a tailored fit for every lifestyle."', 'history': 'Something', 'pfp': 'C:\\Users\\nites\\OneDrive\\Desktop\\desktop stuff 2\\wallpaper\\americano.jpg', 'reviews': ['Awesome', 'Awesome', 'Awesome'], 'contact': {'email': 'Something', 'phone': 'Something', 'address': 'Something'}, 'service1': 'Basic', 'service_img1': 'C:\\Users\\nites\\OneDrive\\Desktop\\desktop stuff 2\\wallpaper\\james.jpg', 'service2': 'Basic', 'service_img2': 'C:\\Users\\nites\\OneDrive\\Desktop\\desktop stuff 2\\wallpaper\\james.jpg', 'service3': 'Basic', 'service_img3': 'C:\\Users\\nites\\OneDrive\\Desktop\\desktop stuff 2\\wallpaper\\james.jpg', 'service4': 'Basic', 'service_img4': 'C:\\Users\\nites\\OneDrive\\Desktop\\desktop stuff 2\\wallpaper\\james.jpg', 'service5': 'Basic', 'service_img5': 'C:\\Users\\nites\\OneDrive\\Desktop\\desktop stuff 2\\wallpaper\\james.jpg', 'service6': 'Basic', 'service_img6': 'C:\\Users\\nites\\OneDrive\\Desktop\\desktop stuff 2\\wallpaper\\james.jpg', 'about_us_img': 'C:\\Users\\nites\\OneDrive\\Desktop\\desktop stuff 2\\wallpaper\\d6c4bf6d57d9e20df7ee967c9754e5e2.jpg', 'plan1': 'Basic', 'price1': '50/month', 'plan2': 'Basicer', 'price2': '500/month', 'plan3': 'Basicest', 'price3': '5000/month', 'feature1': 'Basic', 'feature2': 'Basic', 'feature3': 'Basic', 'feature4': 'Basic', 'feature5': 'Basic', 'feature6': 'Basic', 'feature7': 'Basic', 'feature8': 'Basic', 'feature9': 'Basic'}
+    # gym_template = load_template("Ecommerce_templates\GymIndex.html")
+    # business = "Gym"
+
+    # generator(gym_dict, gym_template, business)
+
+    # jewelry_dict = {'name': 'Basic', 'intro1': 'Sparkling treasures await at our enchanting jewelry store, where elegance meets timeless style and beauty.', 'about_me_info': '"Step into a world of sparkling treasures at our jewelry store! With unparalleled customer service, expert appraisals, and an extensive collection of unique pieces, we\'ll help you find the perfect symbol of love, celebration, or self-expression. Come discover why we\'re the go-to destination for discerning jewelers."', 'history': 'Something', 'pfp': 'C:\\Users\\nites\\OneDrive\\Desktop\\desktop stuff 2\\wallpaper\\Korvo.jpg', 'reviews': ['Awesome', 'Awesome', 'Awesome'], 'contact': {'email': 'Something', 'phone': 'Something', 'address': 'Something'}, 'jewelry1': 'Rings', 'jewelry_img1': 'C:\\Users\\nites\\OneDrive\\Desktop\\desktop stuff 2\\wallpaper\\jinx.jpg', 'jewelry2': 'Bracelets', 'jewelry_img2': 'C:\\Users\\nites\\OneDrive\\Desktop\\desktop stuff 2\\wallpaper\\Emily.jpg', 'jewelry3': 'Necklaces', 'jewelry_img3': 'C:\\Users\\nites\\OneDrive\\Desktop\\desktop stuff 2\\wallpaper\\daud.jpg', 'jewelry4_text': 'Ring', 'jewelry_img4': 'C:\\Users\\nites\\OneDrive\\Desktop\\desktop stuff 2\\wallpaper\\33.jpg', 'price1': '$50', 'jewelry5_text': 'Ring', 'jewelry_img5': 'C:\\Users\\nites\\OneDrive\\Desktop\\desktop stuff 2\\wallpaper\\33.jpg', 'price2': '$50', 'jewelry6_text': 'Ring', 'jewelry_img6': 'C:\\Users\\nites\\OneDrive\\Desktop\\desktop stuff 2\\wallpaper\\33.jpg', 'price3': '$50', 'jewelry7_text': 'Ring', 'jewelry_img7': 'C:\\Users\\nites\\OneDrive\\Desktop\\desktop stuff 2\\wallpaper\\33.jpg', 'price4': '$50', 'jewelry8_text': 'Ring', 'jewelry_img8': 'C:\\Users\\nites\\OneDrive\\Desktop\\desktop stuff 2\\wallpaper\\33.jpg', 'price5': '$50', 'jewelry9_text': 'Ring', 'jewelry_img9': 'C:\\Users\\nites\\OneDrive\\Desktop\\desktop stuff 2\\wallpaper\\33.jpg', 'price6': '$50', 'jewelry10_text': 'Ring', 'jewelry_img10': 'C:\\Users\\nites\\OneDrive\\Desktop\\desktop stuff 2\\wallpaper\\33.jpg', 'price7': '$50', 'category_name1': 'Rings', 'category_img1': '33.jpg', 'category_name2': 'Bracelets', 'category_img2': 'daud.jpg', 'category_name3': 'Necklaces', 'category_img3': 'Emily.jpg', 'category_name4': 'Earrings', 'category_img4': 'jinx.jpg', 'feature_name1': 'Rings', 'feature_img1': 'james.jpg', 'feature_price1': '30', 'feature_name2': 'Rings', 'feature_img2': 'james.jpg', 'feature_price2': '30', 'feature_name3': 'Rings', 'feature_img3': 'james.jpg', 'feature_price3': '30', 'feature_name4': 'Rings', 'feature_img4': 'james.jpg', 'feature_price4': '30', 'feature_name5': 'Rings', 'feature_img5': 'james.jpg', 'feature_price5': '30'}
+    # jewelry_template = load_template("Ecommerce_templates\Jewerlyindex.html")
+    # business = "Jewelry"
+    
+    # generator(jewelry_dict, jewelry_template, business)
+
