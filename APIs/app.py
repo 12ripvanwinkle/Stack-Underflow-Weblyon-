@@ -1,4 +1,6 @@
 from flask import Flask, request, jsonify, send_from_directory
+from flask_cors import CORS
+from pgpt import generate_portfolio_reply
 from flask_mail import Mail, Message
 import mysql.connector
 import random
@@ -8,6 +10,7 @@ from werkzeug.utils import secure_filename
 import shutil
 
 app = Flask(__name__)
+CORS(app)  
 
 # Base directory for all projects
 BASE_STORAGE_DIR = 'projects'
@@ -603,6 +606,17 @@ def reset_password():
     conn.close()
 
     return jsonify({"message": "Password updated successfully"})
+
+@app.route('/chat', methods=['POST'])
+def chat():
+    payload = request.get_json() or {}
+    prompt  = payload.get('prompt', '')
+    # plug in your AI function here:
+    reply, templates = generate_portfolio_reply(prompt)
+    return jsonify({
+        'reply':      reply,
+        'templates':  [{'label': t} for t in templates]
+    })
 
 if __name__ == '__main__':
     app.run(debug=True)

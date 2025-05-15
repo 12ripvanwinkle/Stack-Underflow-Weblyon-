@@ -1,15 +1,52 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Hello Electron</title>
-  </head>
-  <body>
-    <h1>Create WorkSpace</h1>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>WebLyon – Create WorkSpace</title>
+  <link rel="stylesheet" href="createworkspace-styles.css" />
+</head>
+<body>
+  <div class="cw-container">
+    <div class="cw-card">
+      <header class="cw-header">
+        <h1>Create a Business Workspace</h1>
+        <a href="dashboard.html" class="home-btn">Go To existing Workspace Dashboard</a>
+      </header>
+      <main class="cw-main">
+        <h2>Create a new Business Workspace for your team</h2>
+        <p class="subtitle">
+          Fill in your details below to get started with a shared workspace.
+        </p>
 
-    <a href="index.html">Home</a>
+        <div class="field-row">
+          <input type="text" id="name" placeholder="Enter name" />
+        </div>
 
+        <div class="field-row">
+          <input type="password" id="password" placeholder="Password" />
+        </div>
+        <input class="full-input" type="text" id="workspaceName" placeholder="Business workspace name" />
+       
+            <div class="terms-row">
+  <input type="checkbox" id="terms" />
+  <label for="terms">
+    I agree with <a href="#">Terms and conditions</a>
+  </label>
+</div>
 
-    <script src="createWorkSpace.js"></script>
+        <button id="createWorkSpace" class="primary-btn">
+          Create New Workspace
+        </button>
+        <div class="footer">
+          <a href="#" class="privacy-link">Privacy Policy</a>
+        </div>
+      </main>
+    </div>
 
-  </body>
+    <!-- Right‐hand image panel -->
+    <div class="register-image"></div>
+  </div>
+
+  <script src="createWorkSpace.js"></script>
+</body>
 </html>

@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+/* ---------- Reset & Base ---------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #121212;
+  color: #fff;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ---------- Two‐Column Container ---------- */
+.cw-container {
+  display: flex;
+  width: 1000px;
+  height: 560px;
+  background: #131619;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+}
+
+/* ---------- Left Card ---------- */
+.cw-card {
+  flex: 1;
+  padding: 48px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---------- Header ---------- */
+.cw-header {
+  text-align: center;
+  margin-bottom: 16px; /* tighten header block */
+}
+.cw-header h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 8px;  /* less space below title */
+}
+.home-btn {
+  display: inline-block;
+  padding: 8px 16px;
+  background: #121212;
+  color: #fff;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+.home-btn:hover {
+  background: #3b78d1;
+}
+
+/* ---------- Main Form ---------- */
+.cw-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;            /* tighter overall gap */
+}
+.cw-main h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.cw-main .subtitle {
+  font-size: 0.9rem;
+  color: #aaa;
+  margin-bottom: 12px;
+}
+
+/* ---------- Inputs (always full width) ---------- */
+.field-row {
+  display: grid;
+  grid-template-columns: 1fr; 
+  gap: 12px;           /* match the cw-main gap */
+  margin-bottom: 0;    /* rely on cw-main’s gap */
+}
+
+.cw-main input {
+  width: 100%;
+  padding: 12px 14px;
+  background: #1e1e1e;
+  border: 1px solid #333;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 1rem;
+  outline: none;
+  margin: 0;           /* remove extra bottom margin */
+}
+.cw-main input::placeholder {
+  color: #777;
+}
+
+/* Full-width workspace name */
+.full-input {
+  width: 100%;
+}
+
+/* ---------- Terms Row (snug & left) ---------- */
+/* ensure the whole line never wraps, and the gap is tight */
+.terms-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;           /* space between box and text */
+  white-space: nowrap;/* keep it all on one line */
+  margin-bottom: 12px;/* adjust as needed */
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+/* color & hover for your link */
+.terms-row a {
+  color: #00bfff;
+  text-decoration: none;
+}
+.terms-row a:hover {
+  text-decoration: underline;
+}
+
+/* checkbox accent */
+.terms-row input[type="checkbox"] {
+  accent-color: #00bfff;
+}
+
+/* ---------- Create Button ---------- */
+.primary-btn {
+  width: 100%;
+  padding: 12px 0;
+  background: #fff;
+  color: #4d90fe;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-bottom: 12px; /* bring it up closer */
+}
+.primary-btn:hover {
+  background: #e6e6e6;
+}
+
+/* ---------- Footer ---------- */
+.footer {
+  text-align: center;
+  font-size: 0.8rem;
+  color: #888;
+}
+.footer .privacy-link {
+  color: #00bfff;
+  text-decoration: none;
+}
+.footer .privacy-link:hover {
+  text-decoration: underline;
+}
+
+/* ---------- Right Image Panel ---------- */
+.register-image {
+  flex: 0 0 440px;
+  background: url('Weblyon Image.jpg') center/cover no-repeat;
+  background-size: cover;
+}

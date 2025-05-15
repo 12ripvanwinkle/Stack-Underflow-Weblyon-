@@ -1,9 +1,14 @@
+import sys
+import os
+sys.path.append(os.path.abspath("../Python files"))  
 from flask import Flask, request, jsonify, send_from_directory
+from flask_cors import CORS
+from pgpt import generate_portfolio_reply
 from flask_mail import Mail, Message
+
 import mysql.connector
 import random
 import string
-import os
 from werkzeug.utils import secure_filename
 import shutil
 import jwt
@@ -11,11 +16,13 @@ import datetime
 import base64
 
 
+
 SECRET_KEY = "your-secret"
 
 
  
 app = Flask(__name__)
+CORS(app) 
 
 # Base directory for all projects
 BASE_STORAGE_DIR = 'stored_projects'
@@ -1253,11 +1260,27 @@ def get_company_users():
         if conn.is_connected():
             conn.close()
 
-    
+@app.route('/chat', methods=['POST'])
+def chat():
+    payload = request.get_json() or {}
+    prompt = payload.get('prompt', '')
+    print(f"\n🟡 Received prompt: {prompt}")
 
+    try:
+        reply, templates = generate_portfolio_reply(prompt)
+        print("🟢 AI reply:", reply)
+        print("🟢 Templates:", templates)
 
-
-
+        return jsonify({
+            'reply': reply or "⚠️ No reply generated.",
+            'templates': [{'label': t} for t in templates] if templates else []
+        })
+    except Exception as e:
+        print("🔴 Error in /chat:", e)
+        return jsonify({
+            'reply': '⚠️ Error processing your request.',
+            'templates': []
+        }), 500
 
 if __name__ == '__main__':
     app.run(debug=True)
