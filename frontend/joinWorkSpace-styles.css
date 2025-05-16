@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
-/* Reset & Base */
+/* ---------- Reset & Base ---------- */
 * {
   margin: 0;
   padding: 0;
@@ -16,133 +16,105 @@ body {
   align-items: center;
 }
 
-/* Container */
+/* ---------- Two-Column Container ---------- */
 .join-container {
   display: flex;
   width: 1000px;
-  height: 560px;
+  max-height: 100vh;
   background: #131619;
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 4px 12px rgba(0,0,0,0.6);
 }
 
-/* LEFT PANEL */
+/* ---------- Left Panel (“Card”) ---------- */
 .join-form-panel {
   flex: 1;
   padding: 48px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
 }
 
+/* ---------- Header ---------- */
 .join-form-panel h2 {
-  font-size: 1.8rem;
-  margin-bottom: 14px;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 16px;
 }
 .subtitle {
-  font-size: 0.95rem;
-  color: #ccc;
-  margin-bottom: 28px;
+  font-size: 0.9rem;
+  color: #aaa;
+  margin-bottom: 16px;
 }
 
-/* Input fields */
+/* ---------- Input Rows ---------- */
+.join-form-panel .field-row {
+  margin-bottom: 16px;
+}
 .join-form-panel input {
   width: 100%;
-  padding: 12px 14px;
-  margin-bottom: 16px;
+  padding: 14px 16px;
   background: #1e1e1e;
   border: 1px solid #333;
   border-radius: 8px;
   color: #fff;
   font-size: 1rem;
-  outline: none;
 }
 .join-form-panel input::placeholder {
   color: #777;
 }
 
-/* Primary button */
+/* ---------- Primary Button ---------- */
 .primary-btn {
   width: 100%;
-  padding: 10px 20px;
+  padding: 14px 0;
   background: #fff;
-  color: #121212;
+  color: #00bfff;
   border: none;
   border-radius: 8px;
+  font-size: 1rem;
   font-weight: 600;
-  font-size: 0.95rem;
   cursor: pointer;
-  margin-bottom: 20px;
+  transition: background 0.2s;
+  margin-top: 16px;
 }
 .primary-btn:hover {
   background: #e6e6e6;
 }
 
-/* Divider line */
-.divider {
-  text-align: center;
-  margin: 16px 0;
-  color: #666;
-  position: relative;
-}
-.divider::before,
-.divider::after {
-  content: "";
-  position: absolute;
-  height: 1px;
-  top: 50%;
-  width: 40%;
-  background: #444;
-}
-.divider::before {
-  left: 0;
-}
-.divider::after {
-  right: 0;
-}
-.divider span {
-  padding: 0 10px;
-  background: #131619;
-  position: relative;
-  z-index: 1;
+/* ---------- Response Message ---------- */
+#responseMessage {
+  color: #4ecb71;
+  margin-top: 12px;
+  font-size: 0.9rem;
 }
 
-/* Secondary button */
-.secondary-btn {
-  width: 100%;
-  padding: 12px 0;
-  background: #2c2c2c;
-  border: none;
-  border-radius: 8px;
-  color: #bbb;
-  font-weight: 600;
-  font-size: 1rem;
-  cursor: pointer;
-}
-.secondary-btn:hover {
-  background: #3a3a3a;
-  color: #fff;
-}
-
-/* Footer */
+/* ---------- Footer ---------- */
 .footer {
   margin-top: auto;
+  text-align: center;
   font-size: 0.8rem;
   color: #888;
-  margin-top: 30px;
 }
-.footer a {
+.footer .privacy-link {
   color: #00bfff;
   text-decoration: none;
-  margin: 0 6px;
 }
-.footer a:hover {
+.footer .privacy-link:hover {
   text-decoration: underline;
 }
 
-/* RIGHT PANEL */
+/* ---------- Right-Hand Image Panel ---------- */
 .join-image-panel {
   flex: 0 0 440px;
   background: url('Weblyon Image.jpg') center/cover no-repeat;
+  background-size: cover;
 }
+
+/* style the response message under the button */
+.response-message {
+  color: #4ecb71;
+  margin-top: 12px;
+  font-size: 0.9rem;
+}
+

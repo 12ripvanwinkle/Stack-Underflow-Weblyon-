@@ -1,43 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>WebLyon – Join Workspace</title>
-  <link rel="stylesheet" href="joinWorkSpace-styles.css" />
-</head>
-<body>
-  <div class="join-container">
-    
-    <!-- LEFT PANEL -->
-    <div class="join-form-panel">
-      <h2>Join or Create a Business Workspace</h2>
-      <p class="subtitle">
-        Connect with others by joining an existing business workspace or create a new one to collaborate with your team.
-      </p>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Join Workspace</title>
+    <link rel="stylesheet" href="joinWorkSpace-styles.css" />
+  </head>
+  <body>
+    <div class="join-container">
+      
+      <!-- LEFT CARD -->
+      <div class="join-form-panel">
+        <header class="cw-header">
+          <h1>Join Workspace</h1>
+          <a href="index.html" class="home-btn">Home</a>
+        </header>
 
-      <!-- Input Fields -->
-      <input type="text" id="WorkSpaceCode" placeholder="Your workspace code" />
+        <main class="cw-main">
+          <p class="subtitle">
+            Enter the code your team leader gave you to join an existing workspace.
+          </p>
 
-      <!-- Buttons -->
-      <button id="joinWorkSpace" class="primary-btn">Join Workspace</button>
+          <div class="field-row">
+            <input
+              type="text"
+              id="WorkSpaceCode"
+              placeholder="Enter Workspace Code"
+              required
+            />
+          </div>
 
-      <div class="divider"><span>or</span></div>
+          <button id="joinWorkSpace" class="primary-btn">
+            Join Workspace
+          </button>
 
-      <a href="createWorkSpace.html">
-        <button id="createWorkSpace" class="secondary-btn">Create new Workspace</button>
-      </a>
+          <p id="responseMessage" class="response-message"></p>
+        </main>
 
-      <!-- Footer -->
-      <div class="footer">
-        <a href="index.html">Back to Home</a> • 
-        <a href="#" class="privacy-link">Privacy Policy</a>
+        <footer class="footer">
+          <a href="#" class="privacy-link">Privacy Policy</a>
+        </footer>
       </div>
+
+      <!-- RIGHT IMAGE PANEL -->
+      <div class="join-image-panel"></div>
     </div>
 
-    <!-- RIGHT IMAGE PANEL -->
-    <div class="join-image-panel"></div>
-  </div>
-
-  <script src="joinWorkSpace.js"></script>
-</body>
+    <script src="joinWorkSpace.js"></script>
+  </body>
 </html>

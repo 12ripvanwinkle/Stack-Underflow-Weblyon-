@@ -1,92 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <title>WebLyon – Dashboard</title>
+  <title>Hello Electron</title>
   <link rel="stylesheet" href="dashboard-styles.css" />
 </head>
-<body>
-  <div class="dashboard-app">
+<body style="background-color: rgb(21, 35, 54); color: white;">
+  <h1>Dashboard</h1>
 
-    <!-- LEFT SIDEBAR -->
-    <aside class="dashboard-sidebar">
-      <div class="sidebar-header">
-        <h2 class="workspace-name">Stack UnderFlow</h2>
-        <div class="member-count" id="memberCount">
-          <span class="count-number">10 members</span>
-          <button id="memberDropdownBtn">▼</button>
-          <ul id="memberDropdown" class="dropdown hidden">
-            <li>View all members</li>
-          </ul>
-        </div>
-      </div>
+  <button id="Sign Out">Sign Out</button>
 
-      <div class="sidebar-section">
-        <h3>GENERAL</h3>
-        <ul class="nav-list">
-          <li>
-            <img src="home-icon.svg" alt="Home" class="icon-home" />
-            <label>Dashboard</label>
-          </li>
-        </ul>
-      </div>
+  <a href="createWorkSpace.html"><button id="Create Workspace">Create Workspace</button></a>
+  <a href="joinWorkSpace.html"><button id="Join Workspace">Join Workspace</button></a>
+  <button id="Share Workspace">Share Workspace</button>
 
-      <div class="sidebar-section">
-        <h3>PROJECTS</h3>
-        <ul id="projectList" class="nav-list">
-          <!-- dynamically injected projects -->
-        </ul>
-        <button id="addProjectBtn" class="sidebar-btn">
-          <img src="plus-icon.svg" alt="+" class="icon-plus" />
-          Add new Project
-        </button>
-      </div>
-    </aside>
+  <p id="shareResult"></p>
 
-    <!-- RIGHT PANEL -->
-    <main class="dashboard-main">
-      <!-- Top Action Bar -->
-      <div class="action-bar">
-        <button id="signOut">Sign Out</button>
-        <button id="createWorkspace">Create Workspace</button>
-        <button id="joinWorkspace">Join Workspace</button>
-      </div>
-
-      <!-- Chat Canvas -->
-      <section class="workspace-section">
-        <h3>Weblyon Chat</h3>
-        <div class="chat-container">
-          <!-- AI & user messages will be appended here -->
-        </div>
-      </section>
-
-      <!-- Chat Input Bar -->
-      <div class="chat-input-container">
-        <!-- hidden file picker -->
-        <input type="file" id="fileInput" hidden />
-  
-        <!-- paperclip/upload button -->
-        <button
-          type="button"
-          class="attach-btn"
-          onclick="document.getElementById('fileInput').click()"
-        >
-          <img src="paperclip-icon.svg" alt="Attach" />
-        </button>
-
-        <!-- TEXT INPUT with exactly this id -->
-        <input
-          type="text"
-          id="chatInput"
-          placeholder="Type a response…"
-        />
-
-        <!-- SEND BUTTON with exactly this id -->
-        <button type="button" class="send-btn" id="sendChat">
-          <img src="paper-plane-icon.svg" alt="Send" />
-        </button>
-      </div>
-    </main>
+  <div>
+    <h3>Work Spaces</h3>
   </div>
 
   <script src="dashboard.js"></script>

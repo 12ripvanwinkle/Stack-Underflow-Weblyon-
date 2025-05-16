@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Stack UnderFlow – Workspace</title>
+  <!-- your revised workspace CSS -->
+  <link rel="stylesheet" href="workSpace.css" />
+</head>
+<body>
+  <div id="containerWorkSpace">
+
+    <!-- SIDEBAR -->
+    <div id="sidebar">
+      <!-- Workspace header -->
+      <div id="companySection">
+        <div id="companyInfo">
+          <h2 id="workspaceName">Stack UnderFlow</h2>
+          <h4 id="numMembers">10 members</h4>
+        </div>
+        <div id="companyDropButton">▼</div>
+      </div>
+
+      <!-- GENERAL -->
+      <div id="generalSection">
+        <h3 class="dashboardHeader">GENERAL</h3>
+        <a href="workspace.html" class="generalLink">
+          <div class="generalItem">
+            <img src="home-icon.svg" id="homeIcon" alt="Dashboard" />
+            <h4 class="generalText">Dashboard</h4>
+          </div>
+        </a>
+      </div>
+
+      <!-- PROJECTS -->
+      <div id="projectsSection">
+        <h3 class="dashboardHeader">PROJECTS</h3>
+        <div id="projectList"><!-- JS injects <p>…</p> here --></div>
+        <button id="CreateProject" class="projectItem">
+          <img src="plus-icon.svg" alt="+" />
+          <p>Add new project     </p>
+        </button>
+        <button id="Share Workspace" class="sharebutton projectItem">
+          <img src="share-icon.svg" alt="Share" />
+          <p>Share WorkSpace</p>
+        </button>
+        <p id="shareResult"></p>
+      </div>
+
+      <!-- POPUP -->
+      <div id="popup" class="hidden">
+        <h3>Enter Project Name</h3>
+        <input id="projectNameInput" type="text" placeholder="Project name" />
+        <div style="text-align:right; margin-top:10px;">
+          <button id="cancelCreate">Cancel</button>
+          <button id="confirmCreate">Create</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- MAIN (chat) -->
+    <div id="projectSection">
+      <!-- Chats container -->
+      <div id="chats"></div>
+
+      <!-- Chat input -->
+      <div id="chatInput">
+        <button id="attachFile">
+          <img src="paperclip-icon.svg" alt="Attach" />
+        </button>
+        <input
+          type="text"
+          id="messageInput"
+          placeholder="Type a response..."
+        />
+        <button id="submitChat">
+          <img src="paper-plane-icon.svg" alt="Send" />
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="workSpace.js"></script>
+</body>
+</html>

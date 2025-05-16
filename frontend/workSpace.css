@@ -1,0 +1,320 @@
+/* —— Reset & Base —— */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html, body {
+  width: 100%;
+  height: 100%;
+  font-family: 'Poppins', sans-serif;
+  background: #121212;
+  color: #fff;
+  overflow: hidden;
+}
+
+/* —— Overall Layout —— */
+#containerWorkSpace {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  background-color: #141619;
+}
+
+/* —— Sidebar —— */
+#sidebar {
+  width: 22%;
+  background-color: #0D0F10;
+  border-radius: 15px;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Workspace header */
+#companySection {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  height: 100px;
+  border-bottom: 1px solid #2c2c2c;
+}
+#companyInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+#workspaceName {
+  color: #fff;
+  font-size: 20px;
+}
+#numMembers {
+  color: #79ACE1;
+  font-size: 17px;
+  font-weight: 300;
+}
+#companyDropButton {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+/* General & Projects sections */
+.dashboardHeader {
+  color: #686B6E;
+  font-size: 19px;
+  font-weight: 300;
+  padding: 15px 0 10px 26px;
+}
+#generalSection,
+#projectsSection {
+  padding-bottom: 20px;
+  border-bottom: 1px solid #2c2c2c;
+}
+.generalLink {
+  text-decoration: none;
+}
+.generalItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0 10px 26px;
+}
+.generalItem img {
+  width: 20px;
+  height: 20px;
+}
+.generalText {
+  color: #fff;
+  font-size: 17px;
+  font-weight: 300;
+}
+
+/* Project list */
+#projectList p {
+  margin: 0 12px 10px 26px;
+  padding: 10px 0;
+  color: #fff;
+  font-size: 19px;
+  font-weight: 300;
+  border-radius: 8px;
+  cursor: pointer;
+}
+#projectList p:hover {
+  background: rgba(215,237,237,0.16);
+}
+
+/* Add / Share buttons */
+#CreateProject,
+.sharebutton {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 12px 10px 26px;
+  padding: 10px;
+  color: #fff;
+  font-size: 19px;
+  font-weight: 300;
+  background: none;
+  border: 1px solid #79ACE1;
+  border-radius: 8px;
+  cursor: pointer;
+}
+#CreateProject img,
+.sharebutton img {
+  width: 18px;
+  height: 18px;
+}
+#shareResult {
+  margin: 0 12px 10px 26px;
+  color: #00bfff;
+  font-size: 17px;
+}
+
+/* —— Main area (projects & chat) —— */
+#projectSection {
+  width: 78%;
+  background-color: #141619;
+  border-radius: 15px;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Chats container */
+#chats {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+}
+
+/* —— Chat Input —— */
+#chatInput {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  width: calc(78% - 20px);
+  background-color: #0d0f10;
+  border-radius: 15px;
+  padding: 10px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+#messageInput {
+  flex: 1;
+  height: 40px;
+  padding: 0 12px;
+  background-color: #1e1e1e;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 1rem;
+}
+#messageInput::placeholder {
+  color: #777;
+}
+#attachFile,
+#submitChat {
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#attachFile img,
+#submitChat img {
+  width: 24px;
+  height: 24px;
+  opacity: 0.7;
+}
+#attachFile:hover img,
+#submitChat:hover img {
+  opacity: 1;
+}
+
+/* —— Iframes & Templates (if used) —— */
+iframe {
+  border-radius: 6px;
+  margin: 8px 0;
+}
+.templateContainer {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding: 10px 20px;
+}
+.templateContainer iframe {
+  flex: 0 0 auto;
+  width: 350px;
+  height: 320px;
+  border-radius: 15px;
+  border: none;
+}
+
+/* hide anything with class hidden */
+.hidden {
+  display: none !important;
+}
+
+/* Popup backdrop */
+#createPopup .popup-backdrop {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(0,0,0,0.6);
+  z-index: 1000;
+}
+
+/* Popup content box */
+#createPopup .popup-content {
+  position: fixed;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  background: #1e1e1e;
+  padding: 20px;
+  border-radius: 8px;
+  z-index: 1001;
+  width: 300px;
+}
+#createPopup .popup-content h3 {
+  margin-bottom: 12px;
+  color: #fff;
+}
+#createPopup .popup-content input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 16px;
+  border: 1px solid #333;
+  border-radius: 4px;
+  background: #131619;
+  color: #fff;
+}
+
+/* Popup buttons */
+#createPopup .popup-actions {
+  text-align: right;
+}
+#createPopup .popup-actions button {
+  margin-left: 8px;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+}
+#createPopup #cancelCreate {
+  background: #555;
+  color: #fff;
+}
+#createPopup #confirmCreate {
+  background: #4d90fe;
+  color: #fff;
+}
+
+/* Make “Add new project” and “Share Workspace” blue buttons */
+#CreateProject,
+.sharebutton {
+  background-color: #4d90fe;
+  color: #fff;
+  border: none;
+}
+
+#CreateProject:hover,
+.sharebutton:hover {
+  background-color: #3b78d1;
+}
+
+/* Ensure the icon inside keeps its spacing */
+#CreateProject img,
+.sharebutton img {
+  margin-right: 8px;
+  opacity: 1;
+}
+
+/* Make the “PROJECTS” header a bit smaller */
+#projectsSection .dashboardHeader {
+  font-size: 0.9rem;      /* was ~1rem+ */
+  margin-bottom: 8px;     /* tighten spacing */
+}
+
+/* Shrink both project‐buttons */
+#CreateProject,
+.sharebutton {
+  font-size: 0.85rem;     /* smaller text */
+  padding: 6px 14px;      /* less padding top/bottom & sides */
+}
+
+/* Smaller icon inside those buttons */
+#CreateProject img,
+.sharebutton img {
+  width: 14px;
+  height: 14px;
+  margin-right: 6px;
+}

@@ -8,7 +8,7 @@ window.addEventListener('DOMContentLoaded', () => {
   fs.readFile(filePath, 'utf8', async (err, data) => {
     if (err) {
       console.error('Error reading state.json:', err);
-      ipcRenderer.send('redirect', 'login.html');
+      ipcRenderer.send('redirect', { page: 'login.html' });
       return;
     }
 
@@ -18,7 +18,7 @@ window.addEventListener('DOMContentLoaded', () => {
       // Check if all needed fields are present
       if (!state.email || !state.password) {
         console.warn('Missing credentials in state.json');
-        ipcRenderer.send('redirect', 'login.html');
+        ipcRenderer.send('redirect', { page: 'login.html' });
         
         return;
       }
@@ -42,15 +42,15 @@ window.addEventListener('DOMContentLoaded', () => {
       if (response.ok) {
         console.log('Auto-login successful:', result);
         window.location.href = 'dashboard.html';
-        ipcRenderer.send('redirect', 'dashboard.html');
+        ipcRenderer.send('redirect', { page: 'dashboard.html'});
       } else {
         console.warn('Auto-login failed:', result.message || result);
-        ipcRenderer.send('redirect', 'login.html');
+        ipcRenderer.send('redirect', { page: 'login.html'});
       }
 
     } catch (parseErr) {
       console.error('Error parsing state.json:', parseErr);
-      ipcRenderer.send('redirect', 'login.html');
+      ipcRenderer.send('redirect', { page: 'login.html'});
     }
   });
 });

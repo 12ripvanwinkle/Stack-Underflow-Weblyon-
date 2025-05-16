@@ -63,7 +63,7 @@ document.getElementById('signup').addEventListener('click', async () => {
       });
 
       // Optional: redirect to login page
-      ipcRenderer.send('redirect', 'dashboard.html');
+      ipcRenderer.send('redirect', { page: 'dashboard.html' });
     } else {
       alert(result.message || 'Signup failed.');
     }
